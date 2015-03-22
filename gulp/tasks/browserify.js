@@ -46,9 +46,9 @@ function applyTransform(bundler) {
   bundler.transform(envify({
     NODE_ENV: opts.env
   }));
+  bundler.transform(babelify);
   bundler.transform(aliasify);
   bundler.transform(stringify);
-  bundler.transform(babelify);
   if (opts.production) {
     bundler.transform(stripify);
   }

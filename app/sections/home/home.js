@@ -7,15 +7,16 @@ var scrollUtil = require('brindille-scroll');
 
 var Home = factory.view({
   template: require('./home.html'),
-  model: {
-    name: 'John',
-    link: 'http://github.com'
-  },
+  model: {},
   compose: {
-    'component-test': require('components/component-test/componentTest')
+    'interactive-map': require('components/interactive-map/interactiveMap')
   },
   resolve: {}
 });
+
+Home.prototype.ready = function() {
+  console.log('Home is ready');
+};
 
 Home.prototype.transitionIn = function() {
   TweenMax.from(this.$el, 1, {

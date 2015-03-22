@@ -11,16 +11,18 @@
 @import "config/*";
 reset();
 
-html {
-  background: black;
-  color: white;
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
+html
+  @extend .full-size
+  background: black
+  color: white
+  overflow-x: hidden
+  overflow-y: scroll
 
-#view {
+body
+  @extend .full-size
 
-}
+#view
+  @extend .full-size
 
 /*======================================================================
     COMPONENTS
