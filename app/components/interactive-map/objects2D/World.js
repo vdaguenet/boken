@@ -1,8 +1,7 @@
 'use strict';
 
 import Island from './Island';
-
-var PIXI = require('pixi.js');
+import PIXI from 'pixi.js';
 
 export default class World {
 

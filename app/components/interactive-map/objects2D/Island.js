@@ -1,6 +1,6 @@
 'use strict';
 
-var PIXI = require('pixi.js');
+import PIXI from 'pixi.js';
 
 export default class Island extends PIXI.Sprite {
 

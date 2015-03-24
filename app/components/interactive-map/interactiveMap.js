@@ -1,31 +1,32 @@
 'use strict';
 
+import View from 'brindille-view';
 import World from './objects2D/World.js';
+import * as modulesApi from 'lib/services/module-api';
 
-var factory = require('lib/factory');
-var modulesApi = require('lib/services/module-api');
+export default class InteractiveMap extends View {
+  constructor() {
+    super({
+      template: require('./interactiveMap.html'),
+      resolve: {
+        modules: modulesApi.findAll()
+      },
+      model: {}
+    });
+  }
 
-var InteractiveMap = factory.view({
-  template: require('./interactiveMap.html'),
-  resolve: {
-    modules: modulesApi.findAll()
-  },
-  model: {}
-});
+  ready() {
+    this.world = new World(this.$el.clientWidth, this.$el.clientHeight);
+  }
 
-InteractiveMap.prototype.ready = function() {
-  this.world = new World(this.$el.clientWidth, this.$el.clientHeight);
-};
+  resolved() {
+    this.world.addIslands(this.resolvedData.modules);
+    this.world.appendTo(this.$el);
+    this.animate();
+  }
 
-InteractiveMap.prototype.resolved = function() {
-  this.world.addIslands(this.resolvedData.modules);
-  this.world.appendTo(this.$el);
-  console.log(this.world);
-  requestAnimationFrame( this.animate.bind(this) );
-};
-
-InteractiveMap.prototype.animate = function() {
-  this.world.render();
-};
-
-module.exports = InteractiveMap;
+  animate() {
+    requestAnimationFrame( this.animate.bind(this) );
+    this.world.render();
+  }
+}

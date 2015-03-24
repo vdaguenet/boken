@@ -1,12 +1,18 @@
 'use strict';
 
-var factory = require('lib/factory');
+import View from 'brindille-view';
 
-var Footer = factory.viewInstance({
-  template: require('./footer.html'),
-  model: {},
-  compose: {},
-  resolve: {}
-});
+import template from './footer.html';
 
-module.exports = Footer;
+class Footer extends View {
+  constructor() {
+    super({
+      template: template,
+      model: {},
+      compose: {},
+      resolve: {}
+    });
+  }
+}
+
+export default new Footer();

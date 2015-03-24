@@ -5,24 +5,20 @@ import preloader from 'brindille-preloader';
 import resizeUtil from 'brindille-resize';
 import scrollUtil from 'brindille-scroll';
 
-import InteractiveMap from 'components/interactive-map/interactiveMap';
+import template from './collective-exercice.html';
 
-import template from './home.html';
-
-export default class Home extends View {
+export default class CollectiveExercice extends View {
   constructor() {
     super({
       template: template,
       model: {},
-      compose: {
-        'interactive-map': InteractiveMap
-      },
+      compose: {},
       resolve: {}
     });
   }
 
   ready() {
-    console.log('Home is ready');
+    console.log('CollectiveExercice is ready');
   }
 
   transitionIn() {
