@@ -14,7 +14,7 @@ import Footer from 'layouts/footer/footer';
   Sections
  */
 import Home from 'sections/home/home';
-import CollectiveExercice from 'sections/collective-exercice/collective-exercice';
+import Exercice from 'sections/exercice/exercice';
 
 domready(() => {
   /*
@@ -36,9 +36,9 @@ domready(() => {
         description: 'Welcome to Brindille',
         transitionMode: router.TRANSITION_OUT_AND_AFTER_IN
       },
-      '/collective': {
-        section: CollectiveExercice,
-        title: 'Exercice collectif',
+      '/exercice/:id': {
+        section: Exercice,
+        title: 'Exercice',
         description: 'Welcome to Brindille',
         transitionMode: router.TRANSITION_OUT_AND_AFTER_IN
       }

@@ -5,9 +5,9 @@ import preloader from 'brindille-preloader';
 import resizeUtil from 'brindille-resize';
 import scrollUtil from 'brindille-scroll';
 
-import template from './collective-exercice.html';
+import template from './exercice.html';
 
-export default class CollectiveExercice extends View {
+export default class Exercice extends View {
   constructor() {
     super({
       template: template,
@@ -18,7 +18,7 @@ export default class CollectiveExercice extends View {
   }
 
   ready() {
-    console.log('CollectiveExercice is ready');
+    console.log('Exercice is ready');
   }
 
   transitionIn() {
