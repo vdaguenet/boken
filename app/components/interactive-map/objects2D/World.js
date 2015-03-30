@@ -21,19 +21,9 @@ export default class World {
     this.renderer.render(this.stage);
   }
 
-  addIsland(module){
-    var i = new Island(module.island.x, module.island.y, module.island.width, module.island.height, {
-      locked: module.locked,
-      image: module.island.image
-    });
-    this.islands.push(i);
-    this.stage.addChild(i);
-  }
-
-  addIslands(islands) {
-    for (var i = 0, l = islands.length; i < l; i++) {
-      this.addIsland(islands[i]);
-    }
+  addIsland(island){
+    this.islands.push(island);
+    this.stage.addChild(island);
   }
 
   appendTo($el) {
