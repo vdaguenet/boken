@@ -30,8 +30,8 @@ export default class InteractiveMap extends View {
   }
 
   resolved() {
-    var x = 0.5 * this.world.getWidth() - 0.46*this.resolvedData.islands['main'].width;
-    var y = 0;
+    var x = 0.5 * this.world.getWidth();
+    var y = 0.5 * this.world.getHeight();
     var i = new Island(x, y, this.world.getWidth(), this.world.getHeight(), {
       locked: false,
       image: this.resolvedData.islands['main'].src

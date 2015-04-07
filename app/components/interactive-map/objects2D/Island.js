@@ -18,10 +18,15 @@ export default class Island extends PIXI.Sprite {
     this.texture.once('update', e => {
       this._ratio = e.target.width / e.target.height;
       this.resize(width, height);
+      // Save attributes for animations
+      this._oldPosition = this.position.clone();
+      this._oldScale = this.scale.clone();
     });
+    this.anchor = new PIXI.Point(0.5, 0.5);
     this.interactive = true;
     (opt.locked === true) ? this.locked = opt.locked : this.locked = false;
     this._isOpen = false;
+
   }
 
   resize(width, height) {
@@ -30,36 +35,51 @@ export default class Island extends PIXI.Sprite {
   }
 
   click(e) {
-    this.toggleOpen();
+    this.toggleOpen(e.originalEvent.clientX, e.originalEvent.clientY);
   }
 
   tap(e) {
-    this.toggleOpen();
+    this.toggleOpen(e.originalEvent.changedTouches[0].clientX, e.originalEvent.changedTouches[0].clientY);
   }
 
-  toggleOpen() {
+  toggleOpen(x, y) {
     if (this.locked) return;
 
     if(this._isOpen) {
       this.close();
     } else {
-      this.open();
+      var target = {
+        x: this._oldPosition.x - x + this._oldPosition.x,
+        y: this._oldPosition.y - y + this._oldPosition.y,
+      };
+      this.open(target);
     }
   }
 
-  open() {
-    this._originalScale = this.scale.clone();
-    TweenMax.killTweensOf(this.scale);
-    TweenMax.to(this.scale, 0.6, {x: 1, y: 1, ease: Expo.easeOut});
+  open(target) {
+    if (this._tlClose) {
+      this._tlClose.kill();
+    }
+
     this._isOpen = true;
+
+    this._tlOpen = new TimelineMax();
+    this._tlOpen.fromTo(this, 0.9, {x: this._oldPosition.x, y: this._oldPosition.y}, {x: target.x, y: target.y, ease: Expo.easeOut}, 0);
+    this._tlOpen.fromTo(this.scale, 0.9, {x: this._oldScale.x, y: this._oldScale.y}, {x: 2, y: 2, ease: Expo.easeOut}, 0);
   }
 
   close() {
-    if(!this._originalScale) return;
+    if(!this._isOpen) return;
 
-    TweenMax.killTweensOf(this.scale);
-    TweenMax.to(this.scale, 0.3, {x: this._originalScale.x, y: this._originalScale.y, ease: Expo.easeOut});
+    if (this._tlOpen) {
+      this._tlOpen.kill();
+    }
+
     this._isOpen = false;
+
+    this._tlClose = new TimelineMax();
+    this._tlClose.to(this, 0.6, {x: this._oldPosition.x, y: this._oldPosition.y, ease: Expo.easeOut}, 0);
+    this._tlClose.to(this.scale, 0.6, {x: this._oldScale.x, y: this._oldScale.y, ease: Expo.easeOut}, 0);
   }
 
 }
