@@ -20,7 +20,7 @@ domready(() => {
   /*
     Layouts
    */
-  Footer.appendTo(document.querySelector('footer'));
+  // Footer.appendTo(document.querySelector('footer'));
 
   /*
     Routing

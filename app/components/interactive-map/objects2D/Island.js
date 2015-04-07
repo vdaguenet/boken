@@ -1,6 +1,7 @@
 'use strict';
 
 import PIXI from 'pixi.js';
+import clone from 'clone';
 
 export default class Island extends PIXI.Sprite {
 
@@ -14,20 +15,21 @@ export default class Island extends PIXI.Sprite {
 
     this.x = x;
     this.y = y;
-    this.width = width;
-    this.height = height;
+    this.texture.once('update', e => {
+      this._ratio = e.target.width / e.target.height;
+      this.resize(width, height);
+    });
     this.interactive = true;
     (opt.locked === true) ? this.locked = opt.locked : this.locked = false;
     this._isOpen = false;
   }
 
   resize(width, height) {
-    this.width = width;
+    this.width = this._ratio * height;
     this.height = height;
   }
 
   click(e) {
-    console.log('click');
     this.toggleOpen();
   }
 
@@ -46,14 +48,17 @@ export default class Island extends PIXI.Sprite {
   }
 
   open() {
+    this._originalScale = this.scale.clone();
     TweenMax.killTweensOf(this.scale);
     TweenMax.to(this.scale, 0.6, {x: 1, y: 1, ease: Expo.easeOut});
     this._isOpen = true;
   }
 
   close() {
+    if(!this._originalScale) return;
+
     TweenMax.killTweensOf(this.scale);
-    TweenMax.to(this.scale, 0.3, {x: 0.5, y: 0.5, ease: Expo.easeOut});
+    TweenMax.to(this.scale, 0.3, {x: this._originalScale.x, y: this._originalScale.y, ease: Expo.easeOut});
     this._isOpen = false;
   }
 

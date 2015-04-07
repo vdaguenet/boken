@@ -15,6 +15,7 @@ module.exports = {
 
   aliasify: {
     aliases: {
+      'data': './data/',
       'sections': './sections/',
       'layouts': './layouts/',
       'config': './config/',
