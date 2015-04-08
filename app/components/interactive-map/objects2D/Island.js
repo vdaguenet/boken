@@ -2,10 +2,13 @@
 
 import PIXI from 'pixi.js';
 import clone from 'clone';
+import Emitter from 'component-emitter';
 
 export default class Island extends PIXI.Sprite {
 
   constructor(x, y, width, height, opt = {}) {
+    Emitter(this);
+
     if (opt.image) {
       super(PIXI.Texture.fromImage(opt.image));
       this._imagePath = opt.image;
@@ -21,12 +24,13 @@ export default class Island extends PIXI.Sprite {
       // Save attributes for animations
       this._oldPosition = this.position.clone();
       this._oldScale = this.scale.clone();
+
+      this.emit('ready');
     });
     this.anchor = new PIXI.Point(0.5, 0.5);
     this.interactive = true;
     (opt.locked === true) ? this.locked = opt.locked : this.locked = false;
     this._isOpen = false;
-
   }
 
   resize(width, height) {

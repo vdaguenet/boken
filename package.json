@@ -61,6 +61,7 @@
     "brindille-scroll": "^0.1.2",
     "brindille-view": "^1.0.6",
     "clone": "^1.0.1",
+    "component-emitter": "^1.2.0",
     "domready": "^1.0.7",
     "extend": "^2.0.0",
     "gsap": "^1.16.0",
