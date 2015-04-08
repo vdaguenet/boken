@@ -35,12 +35,17 @@ export default class InteractiveMap extends View {
 
   destroying() {
     resizeUtil.removeAllListeners();
+    this.island.off();
   }
 
   resolved() {
+    for(var asset in this.resolvedData.mapAssets) {
+      PIXI.Texture.addTextureToCache(new PIXI.Texture(new PIXI.BaseTexture(this.resolvedData.mapAssets[asset])), asset);
+    }
+
     this.initIsland();
-    this.initExercices();
     this.initPleats();
+    this.initExercices();
     // Append world
     this.world.appendTo(this.$el);
     this.animate();
@@ -48,7 +53,7 @@ export default class InteractiveMap extends View {
 
   initPleats() {
     // Add pleats over the map
-    var pleats = new PIXI.Sprite(PIXI.Texture.fromImage(this.resolvedData.mapAssets['pleats'].src));
+    var pleats = new PIXI.Sprite(PIXI.utils.TextureCache['pleats']);
     pleats.width = this.world.getWidth();
     pleats.height = this.world.getHeight();
     pleats.anchor = new PIXI.Point(0.5, 0.5);
@@ -61,7 +66,7 @@ export default class InteractiveMap extends View {
     // Add main island
     this.island = new Island(0.5 * this.world.getWidth(), 0.5 * this.world.getHeight(), this.world.getWidth(), this.world.getHeight(), {
       locked: false,
-      image: this.resolvedData.mapAssets['main'].src
+      texture: PIXI.utils.TextureCache['main']
     });
     this.island.on('zoom', coord => {
       this.world.zoomIn(coord.x, coord.y);
@@ -79,7 +84,7 @@ export default class InteractiveMap extends View {
     exercicesContainer.setPosition(0, 0);
 
     for(var ex of this.resolvedData.exercices) {
-      exercicePoint = new ExercicePoint(ex.x * this.world.getWidth(), ex.y * this.world.getHeight(), this.resolvedData.mapAssets['point'].src, null);
+      exercicePoint = new ExercicePoint(ex.x * this.world.getWidth(), ex.y * this.world.getHeight(), PIXI.utils.TextureCache['point'], '/exercice/2');
       exercicesContainer.addExercice(exercicePoint);
     }
 

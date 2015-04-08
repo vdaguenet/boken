@@ -8,13 +8,7 @@ export default class Island extends PIXI.Sprite {
 
   constructor(x, y, width, height, opt = {}) {
     Emitter(this);
-
-    if (opt.image) {
-      super(PIXI.Texture.fromImage(opt.image));
-      this._imagePath = opt.image;
-    } else {
-      super();
-    }
+    super(opt.texture);
 
     this.x = x;
     this.y = y;

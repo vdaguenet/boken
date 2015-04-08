@@ -68,6 +68,7 @@
     "inherits": "^2.0.1",
     "pixi.js": "^3.0.0-rc4",
     "q": "^1.2.0",
+    "random-helper": "^1.0.3",
     "stylus-easing": "^1.0.0",
     "stylus-media-queries": "^1.0.0"
   },

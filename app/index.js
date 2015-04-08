@@ -34,7 +34,7 @@ domready(() => {
         section: Home,
         title: 'Brindille - Home',
         description: 'Welcome to Brindille',
-        transitionMode: router.TRANSITION_OUT_AND_AFTER_IN
+        transitionMode: router.TRANSITION_IN_ONLY
       },
       '/exercice/:id': {
         section: Exercice,

@@ -22,7 +22,6 @@ export default class Home extends View {
   }
 
   ready() {
-    console.log('Home is ready');
   }
 
   transitionIn() {
