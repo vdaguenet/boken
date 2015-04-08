@@ -3,30 +3,36 @@
 import Island from './Island';
 import PIXI from 'pixi.js';
 
-import points from 'data/points.json'
-
-export default class World {
+export default class World extends PIXI.Container {
 
   constructor(width, height) {
-    this.stage = new PIXI.Stage(0xFFFFFF);
+    super();
+
     this.renderer = PIXI.autoDetectRenderer(width, height, {
       transparent: true
     });
-    this.renderer.resize(width, height);
+    this.resize(width, height);
+    this._zoomed = false;
   }
 
   resize(width, height) {
-    for(var child of this.stage.children) {
-      if(child.resize && typeof child.resize === 'function') {
-        child.resize(this.renderer.width, this.renderer.height);
-      }
-    }
+    this.width = width;
+    this.height = height;
+
+    this.pivot = {
+      x: 0.5 * width,
+      y: 0.5 * height
+    };
+    this._oldPosition = {};
+    this._oldPosition.x = this.x = 0.5 * width;
+    this._oldPosition.y = this.y = 0.5 * height;
+    this._oldScale = this.scale.clone();
 
     this.renderer.resize(width, height);
   }
 
   render() {
-    this.renderer.render(this.stage);
+    this.renderer.render(this);
   }
 
   getWidth() {
@@ -37,11 +43,34 @@ export default class World {
     return this.renderer.height;
   }
 
-  addChild(child){
-    this.stage.addChild(child);
-  }
-
   appendTo($el) {
     $el.appendChild(this.renderer.view);
   }
+
+  zoomIn(x, y) {
+    if (this._tlZoomOut) {
+      this._tlZoomOut.kill();
+    }
+
+    this._zoomed = true;
+
+    this._tlZoomIn = new TimelineMax();
+    this._tlZoomIn.fromTo(this.pivot, 0.9, {x: this._oldPosition.x, y: this._oldPosition.y}, {x: x, y: y, ease: Expo.easeOut}, 0);
+    this._tlZoomIn.fromTo(this.scale, 0.9, {x: this._oldScale.x, y: this._oldScale.y}, {x: 2, y: 2, ease: Expo.easeOut}, 0);
+  }
+
+  zoomOut() {
+    if(!this._zoomed) return;
+
+    if (this._tlZoomIn) {
+      this._tlZoomIn.kill();
+    }
+
+    this._zoomed = false;
+
+    this._tlZoomOut = new TimelineMax();
+    this._tlZoomOut.to(this.pivot, 0.6, {x: this._oldPosition.x, y: this._oldPosition.y, ease: Expo.easeOut}, 0);
+    this._tlZoomOut.to(this.scale, 0.6, {x: this._oldScale.x, y: this._oldScale.y, ease: Expo.easeOut}, 0);
+  }
+
 }

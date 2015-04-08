@@ -18,12 +18,9 @@ export default class Island extends PIXI.Sprite {
 
     this.x = x;
     this.y = y;
-    this.texture.once('update', e => {
-      this._ratio = e.target.width / e.target.height;
+    this.texture.once('update', texture => {
+      this._ratio = texture.width / texture.height;
       this.resize(width, height);
-      // Save attributes for animations
-      this._oldPosition = this.position.clone();
-      this._oldScale = this.scale.clone();
 
       this.emit('ready');
     });
@@ -39,51 +36,23 @@ export default class Island extends PIXI.Sprite {
   }
 
   click(e) {
-    this.toggleOpen(e.originalEvent.clientX, e.originalEvent.clientY);
+    this.toggleOpen(e.data.originalEvent.clientX, e.data.originalEvent.clientY);
   }
 
   tap(e) {
-    this.toggleOpen(e.originalEvent.changedTouches[0].clientX, e.originalEvent.changedTouches[0].clientY);
+    this.toggleOpen(e.data.originalEvent.changedTouches[0].clientX, e.data.originalEvent.changedTouches[0].clientY);
   }
 
   toggleOpen(x, y) {
     if (this.locked) return;
 
     if(this._isOpen) {
-      this.close();
+      this.emit('unzoom');
+      this._isOpen = false;
     } else {
-      var target = {
-        x: this._oldPosition.x - x + this._oldPosition.x,
-        y: this._oldPosition.y - y + this._oldPosition.y,
-      };
-      this.open(target);
+      this.emit('zoom', {x: x, y: y});
+      this._isOpen = true;
     }
-  }
-
-  open(target) {
-    if (this._tlClose) {
-      this._tlClose.kill();
-    }
-
-    this._isOpen = true;
-
-    this._tlOpen = new TimelineMax();
-    this._tlOpen.fromTo(this, 0.9, {x: this._oldPosition.x, y: this._oldPosition.y}, {x: target.x, y: target.y, ease: Expo.easeOut}, 0);
-    this._tlOpen.fromTo(this.scale, 0.9, {x: this._oldScale.x, y: this._oldScale.y}, {x: 2, y: 2, ease: Expo.easeOut}, 0);
-  }
-
-  close() {
-    if(!this._isOpen) return;
-
-    if (this._tlOpen) {
-      this._tlOpen.kill();
-    }
-
-    this._isOpen = false;
-
-    this._tlClose = new TimelineMax();
-    this._tlClose.to(this, 0.6, {x: this._oldPosition.x, y: this._oldPosition.y, ease: Expo.easeOut}, 0);
-    this._tlClose.to(this.scale, 0.6, {x: this._oldScale.x, y: this._oldScale.y, ease: Expo.easeOut}, 0);
   }
 
 }

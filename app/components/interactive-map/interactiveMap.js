@@ -6,17 +6,23 @@ import resizeUtil from 'brindille-resize';
 import PIXI from 'pixi.js';
 import World from './objects2D/World.js';
 import Island from './objects2D/Island.js';
+import ExercicePoint from './objects2D/ExercicePoint.js';
+import ExercicesContainer from './objects2D/ExercicesContainer.js';
+// TODO: change the following by the data from DB
+import points from 'data/points.json'
 
 export default class InteractiveMap extends View {
   constructor() {
     super({
       template: require('./interactiveMap.html'),
       resolve: {
-        islands: preloader.load([
+        mapAssets: preloader.load([
           { id: 'background', src: '../assets/images/map/ocean.jpg' },
           { id: 'main', src: '../assets/images/map/island.png' },
-          { id: 'pleats', src: '../assets/images/map/lines.png' }
-        ]).getPromise()
+          { id: 'pleats', src: '../assets/images/map/lines.png' },
+          { id: 'point', src: '../assets/images/map/point.png' }
+        ]).getPromise(),
+        exercices: points
       },
       model: {}
     });
@@ -32,24 +38,52 @@ export default class InteractiveMap extends View {
   }
 
   resolved() {
-    var x = 0.5 * this.world.getWidth();
-    var y = 0.5 * this.world.getHeight();
-    var island = new Island(x, y, this.world.getWidth(), this.world.getHeight(), {
-      locked: false,
-      image: this.resolvedData.islands['main'].src
-    });
-    var pleats = new PIXI.Sprite(PIXI.Texture.fromImage(this.resolvedData.islands['pleats'].src));
-    island.once('ready', e => {
-      pleats.width = this.world.getWidth();
-      pleats.height = this.world.getHeight();
-      pleats.anchor = new PIXI.Point(0.5, 0.5);
-      pleats.scale.x = 1;
-      pleats.scale.y = 1.2;
-      island.addChild(pleats);
-    });
-    this.world.addChild(island);
+    this.initIsland();
+    this.initExercices();
+    this.initPleats();
+    // Append world
     this.world.appendTo(this.$el);
     this.animate();
+  }
+
+  initPleats() {
+    // Add pleats over the map
+    var pleats = new PIXI.Sprite(PIXI.Texture.fromImage(this.resolvedData.mapAssets['pleats'].src));
+    pleats.width = this.world.getWidth();
+    pleats.height = this.world.getHeight();
+    pleats.anchor = new PIXI.Point(0.5, 0.5);
+    pleats.x = 0.5 * this.world.getWidth();
+    pleats.y = 0.5 * this.world.getHeight();
+    this.world.addChild(pleats);
+  }
+
+  initIsland() {
+    // Add main island
+    this.island = new Island(0.5 * this.world.getWidth(), 0.5 * this.world.getHeight(), this.world.getWidth(), this.world.getHeight(), {
+      locked: false,
+      image: this.resolvedData.mapAssets['main'].src
+    });
+    this.island.on('zoom', coord => {
+      this.world.zoomIn(coord.x, coord.y);
+    });
+    this.island.on('unzoom', coord => {
+      this.world.zoomOut();
+    });
+
+    this.world.addChild(this.island);
+  }
+
+  initExercices() {
+    var exercicePoint;
+    var exercicesContainer = new ExercicesContainer(this.world.getWidth(), this.world.getHeight());
+    exercicesContainer.setPosition(0, 0);
+
+    for(var ex of this.resolvedData.exercices) {
+      exercicePoint = new ExercicePoint(ex.x * this.world.getWidth(), ex.y * this.world.getHeight(), this.resolvedData.mapAssets['point'].src, null);
+      exercicesContainer.addExercice(exercicePoint);
+    }
+
+    this.world.addChild(exercicesContainer);
   }
 
   resize() {
@@ -57,7 +91,7 @@ export default class InteractiveMap extends View {
   }
 
   animate() {
-    requestAnimationFrame( this.animate.bind(this) );
+    requestAnimationFrame(this.animate.bind(this));
     this.world.render();
   }
 }
