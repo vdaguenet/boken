@@ -27,8 +27,8 @@ export default class MainSection extends View {
     this.refs.map.on('exercice:open', data => {
       this.refs.exercice.open(data.id);
     });
-    this.refs.exercice.on('exercice:close', () => {
-      this.refs.map.closeExercice();
+    this.refs.exercice.on('exercice:success', () => {
+      this.refs.map.showNextExercice();
     });
   }
 

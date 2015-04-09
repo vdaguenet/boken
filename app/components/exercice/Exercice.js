@@ -41,9 +41,9 @@ export default class Exercice extends View {
   }
 
   close() {
-    this.emit('exercice:close');
     TweenMax.to(this.$el, 0.6, {alpha: 0, ease: Expo.easeOut, onComplete: () => {
       classes.remove(this.$el, 'active');
+      this.emit('exercice:success');
     }});
   }
 

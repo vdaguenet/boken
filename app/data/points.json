@@ -2,11 +2,13 @@
   {
     x: 0.45,
     y: 0.83,
-    id: 1
+    id: 1,
+    active: true
   },
   {
     x: 0.55,
     y: 0.80,
-    id: 2
+    id: 2,
+    active: false
   }
 ]

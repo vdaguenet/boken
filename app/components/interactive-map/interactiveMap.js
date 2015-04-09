@@ -86,7 +86,7 @@ export default class InteractiveMap extends View {
     this.exercicesContainer = new ExercicesContainer(this.world.getWidth(), this.world.getHeight());
     this.exercicesContainer.setPosition(0, 0);
     for(var ex of this.resolvedData.exercices) {
-      exercicePoint = new ExercicePoint(ex.x * this.world.getWidth(), ex.y * this.world.getHeight(), PIXI.utils.TextureCache['point'], ex.id);
+      exercicePoint = new ExercicePoint(ex.x * this.world.getWidth(), ex.y * this.world.getHeight(), PIXI.utils.TextureCache['point'], ex.id, ex.active);
       exercicePoint.on('exercice:open', data => {
         this.emit('exercice:open', {id: data.id});
       });
@@ -105,10 +105,20 @@ export default class InteractiveMap extends View {
     this.world.render();
   }
 
-  closeExercice() {
-    for(var ex of this.exercicesContainer.exercices) {
-      console.log(ex);
-      if(ex.isOpen) ex.close();
+  showNextExercice() {
+    var nextExercices = this.exercicesContainer.exercices.filter(ex => {
+      return !ex.active;
+    })
+    if(nextExercices[0]) {
+      // FOR TEST ONLY
+      var g = new PIXI.Graphics();
+      g.lineStyle(2, 0xf3eacc);
+      g.moveTo(this.exercicesContainer.exercices[0].x + 0.5 * this.exercicesContainer.exercices[0].width, this.exercicesContainer.exercices[0].y);
+      g.lineTo(nextExercices[0].x - 0.5 * nextExercices[0].width, nextExercices[0].y);
+      this.world.addChild(g);
+
+      nextExercices[0].show();
     }
   }
+
 }
