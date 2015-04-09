@@ -36,6 +36,9 @@ export default class InteractiveMap extends View {
   destroying() {
     resizeUtil.removeAllListeners();
     this.island.off();
+    for(var ex of this.exercicesContainer.exercices) {
+      ex.off();
+    }
   }
 
   resolved() {
@@ -71,7 +74,7 @@ export default class InteractiveMap extends View {
     this.island.on('zoom', coord => {
       this.world.zoomIn(coord.x, coord.y);
     });
-    this.island.on('unzoom', coord => {
+    this.island.on('unzoom', () => {
       this.world.zoomOut();
     });
 
@@ -80,14 +83,17 @@ export default class InteractiveMap extends View {
 
   initExercices() {
     var exercicePoint;
-    var exercicesContainer = new ExercicesContainer(this.world.getWidth(), this.world.getHeight());
-    exercicesContainer.setPosition(0, 0);
+    this.exercicesContainer = new ExercicesContainer(this.world.getWidth(), this.world.getHeight());
+    this.exercicesContainer.setPosition(0, 0);
     for(var ex of this.resolvedData.exercices) {
-      exercicePoint = new ExercicePoint(ex.x * this.world.getWidth(), ex.y * this.world.getHeight(), PIXI.utils.TextureCache['point'], '/exercice/2');
-      exercicesContainer.addExercice(exercicePoint);
+      exercicePoint = new ExercicePoint(ex.x * this.world.getWidth(), ex.y * this.world.getHeight(), PIXI.utils.TextureCache['point'], ex.id);
+      exercicePoint.on('exercice:open', data => {
+        this.emit('exercice:open', {id: data.id});
+      });
+      this.exercicesContainer.addExercice(exercicePoint);
     }
 
-    this.world.addChild(exercicesContainer);
+    this.world.addChild(this.exercicesContainer);
   }
 
   resize() {
@@ -97,5 +103,12 @@ export default class InteractiveMap extends View {
   animate() {
     requestAnimationFrame(this.animate.bind(this));
     this.world.render();
+  }
+
+  closeExercice() {
+    for(var ex of this.exercicesContainer.exercices) {
+      console.log(ex);
+      if(ex.isOpen) ex.close();
+    }
   }
 }

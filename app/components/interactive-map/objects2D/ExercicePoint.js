@@ -8,16 +8,18 @@ const randomUtil = new RandomHelper();
 
 export default class ExercicePoint extends PIXI.Sprite {
 
-  constructor(x, y, texture, url) {
+  constructor(x, y, texture, exerciceId) {
+    Emitter(this);
     super(texture);
 
     this.x = x;
     this.y = y;
-    this.url = url;
+    this.exerciceId = exerciceId;
     this.interactive = true;
     this.anchor = new PIXI.math.Point(0.5, 0.5);
     var s = randomUtil.randomFloat(0.25, 0.5, 2);
     this.scale = new PIXI.math.Point(s, s);
+    this.isOpen = false;
   }
 
   click(e) {
@@ -31,12 +33,16 @@ export default class ExercicePoint extends PIXI.Sprite {
   }
 
   open() {
-    if(!this.url) return;
+    if(!this.exerciceId) return;
 
-    TweenMax.to(this.scale, 0.6, {x: 100, y: 100, ease: Expo.easeOut,
-      onComplete: e => {
-      }
-    });
+    this.isOpen = true;
+    this.emit('exercice:open', {id: this.exerciceId});
+  }
+
+  close() {
+    if (!this.isOpen) return;
+
+    this.isOpen = false;
   }
 
 }
