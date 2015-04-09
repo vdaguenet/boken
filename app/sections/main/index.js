@@ -5,20 +5,23 @@ import preloader from 'brindille-preloader';
 import resizeUtil from 'brindille-resize';
 import scrollUtil from 'brindille-scroll';
 
-import template from './exercice.html';
+import InteractiveMap from 'components/interactive-map/interactiveMap';
 
-export default class Exercice extends View {
+import template from './main.html';
+
+export default class MainSection extends View {
   constructor() {
     super({
       template: template,
       model: {},
-      compose: {},
+      compose: {
+        'interactive-map': InteractiveMap
+      },
       resolve: {}
     });
   }
 
   ready() {
-    console.log('Exercice is ready');
   }
 
   transitionIn() {

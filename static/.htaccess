@@ -2,7 +2,7 @@ Options +FollowSymlinks
 RewriteEngine On
 RewriteBase /
 
-# Rewrite everything (except file or directory) to index.php
+# Rewrite everything (except file or directory) to index.html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)$ index.php [L]

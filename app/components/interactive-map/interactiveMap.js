@@ -56,7 +56,7 @@ export default class InteractiveMap extends View {
     var pleats = new PIXI.Sprite(PIXI.utils.TextureCache['pleats']);
     pleats.width = this.world.getWidth();
     pleats.height = this.world.getHeight();
-    pleats.anchor = new PIXI.Point(0.5, 0.5);
+    pleats.anchor = new PIXI.math.Point(0.5, 0.5);
     pleats.x = 0.5 * this.world.getWidth();
     pleats.y = 0.5 * this.world.getHeight();
     this.world.addChild(pleats);
@@ -82,7 +82,6 @@ export default class InteractiveMap extends View {
     var exercicePoint;
     var exercicesContainer = new ExercicesContainer(this.world.getWidth(), this.world.getHeight());
     exercicesContainer.setPosition(0, 0);
-
     for(var ex of this.resolvedData.exercices) {
       exercicePoint = new ExercicePoint(ex.x * this.world.getWidth(), ex.y * this.world.getHeight(), PIXI.utils.TextureCache['point'], '/exercice/2');
       exercicesContainer.addExercice(exercicePoint);

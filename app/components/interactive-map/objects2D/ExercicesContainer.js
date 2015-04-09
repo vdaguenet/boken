@@ -12,7 +12,7 @@ export default class ExercicesContainer extends PIXI.Container {
     this.height = height;
     this.x = 0;
     this.y = 0;
-    this.anchor = new PIXI.Point(0.5, 0.5);
+    this.anchor = new PIXI.math.Point(0.5, 0.5);
     this.exercices = [];
   }
 

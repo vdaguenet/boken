@@ -10,15 +10,12 @@ export default class Island extends PIXI.Sprite {
     Emitter(this);
     super(opt.texture);
 
+
     this.x = x;
     this.y = y;
-    this.texture.once('update', texture => {
-      this._ratio = texture.width / texture.height;
-      this.resize(width, height);
-
-      this.emit('ready');
-    });
-    this.anchor = new PIXI.Point(0.5, 0.5);
+    this._ratio = opt.texture.width / opt.texture.height;
+    this.resize(width, height);
+    this.anchor = new PIXI.math.Point(0.5, 0.5);
     this.interactive = true;
     (opt.locked === true) ? this.locked = opt.locked : this.locked = false;
     this._isOpen = false;
