@@ -7,12 +7,13 @@ import {verbose} from 'config';
 /*
   Layouts
  */
-import Footer from 'layouts/footer/footer';
+import Header from 'layouts/header/Header';
+import Sidebar from 'layouts/sidebar/Sidebar';
 
 /*
   Sections
  */
-import MainSection from 'sections/main';
+import MainSection from 'sections/main/MainSection.js';
 
 var app = new MainSection();
 
@@ -20,7 +21,8 @@ domready(() => {
   /*
     Layouts
    */
-  // Footer.appendTo(document.querySelector('footer'));
+  Header.appendTo(document.querySelector('header'));
+  Sidebar.appendTo(document.querySelector('.sidebar'));
 
   /*
     Sections

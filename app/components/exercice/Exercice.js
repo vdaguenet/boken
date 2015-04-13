@@ -6,10 +6,12 @@ import resizeUtil from 'brindille-resize';
 import defaults from 'defaults';
 import classes from 'dom-classes';
 
+import template from './exercice.html';
+
 export default class Exercice extends View {
   constructor(model) {
     super({
-      template: require('./exercice.html'),
+      template: template,
       resolve: {},
       model: defaults(model, {
         id: -1

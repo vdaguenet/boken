@@ -11,10 +11,12 @@ import ExercicesContainer from './objects2D/ExercicesContainer.js';
 // TODO: change the following by the data from DB
 import points from 'data/points.json'
 
+import template from './interactiveMap.html';
+
 export default class InteractiveMap extends View {
   constructor() {
     super({
-      template: require('./interactiveMap.html'),
+      template: template,
       resolve: {
         mapAssets: preloader.load([
           { id: 'background', src: '../assets/images/map/ocean.jpg' },
