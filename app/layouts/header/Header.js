@@ -16,15 +16,17 @@ class Header extends View {
   }
 
   ready() {
-    on(this.$el, 'click', this.toggleMenu.bind(this));
+    on(this.$el, 'click', this.openMenu.bind(this));
+    on(this.$el, 'tap', this.openMenu.bind(this));
   }
 
   destroying() {
-    off(this.$el, 'click', this.toggleMenu.bind(this));
+    off(this.$el, 'click', this.openMenu.bind(this));
+    off(this.$el, 'tap', this.openMenu.bind(this));
   }
 
-  toggleMenu() {
-    console.log('Toggle menu');
+  openMenu() {
+    this.emit('menu:open');
   }
 }
 

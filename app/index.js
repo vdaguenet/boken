@@ -28,4 +28,8 @@ domready(() => {
     Sections
    */
   app.appendTo(document.querySelector('#view'));
+
+  Header.on('menu:open', () => {
+    Sidebar.open();
+  });
 });
