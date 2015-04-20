@@ -8,8 +8,6 @@ import World from './objects2D/World.js';
 import Island from './objects2D/Island.js';
 import ExercicePoint from './objects2D/ExercicePoint.js';
 import ExercicesContainer from './objects2D/ExercicesContainer.js';
-// TODO: change the following by the data from DB
-import points from 'data/points.json'
 
 import template from './interactiveMap.html';
 
@@ -23,8 +21,7 @@ export default class InteractiveMap extends View {
           { id: 'main', src: '../assets/images/map/island.png' },
           { id: 'pleats', src: '../assets/images/map/lines.png' },
           { id: 'point', src: '../assets/images/map/point.png' }
-        ]).getPromise(),
-        exercices: points
+        ]).getPromise()
       },
       model: {}
     });
@@ -50,7 +47,7 @@ export default class InteractiveMap extends View {
 
     this.initIsland();
     this.initPleats();
-    this.initExercices();
+    // this.initExercices();
     // Append world
     this.world.appendTo(this.$el);
     this.animate();

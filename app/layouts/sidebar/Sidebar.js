@@ -27,12 +27,6 @@ class Sidebar extends View {
   }
 
   addEvents() {
-    on(this.refs.chest.$el, 'click', this.close.bind(this));
-    on(this.refs.chest.$el, 'tap', this.close.bind(this));
-    on(this.refs.passport.$el, 'click', this.close.bind(this));
-    on(this.refs.passport.$el, 'tap', this.close.bind(this));
-    on(this.refs.logbook.$el, 'click', this.close.bind(this));
-    on(this.refs.logbook.$el, 'tap', this.close.bind(this));
     on(this.refs.map.$el, 'click', this.close.bind(this));
     on(this.refs.map.$el, 'tap', this.close.bind(this));
   }
@@ -46,12 +40,6 @@ class Sidebar extends View {
   }
 
   destroying() {
-    off(this.refs.chest.$el, 'click', this.close.bind(this));
-    off(this.refs.chest.$el, 'tap', this.close.bind(this));
-    off(this.refs.passport.$el, 'click', this.close.bind(this));
-    off(this.refs.passport.$el, 'tap', this.close.bind(this));
-    off(this.refs.logbook.$el, 'click', this.close.bind(this));
-    off(this.refs.logbook.$el, 'tap', this.close.bind(this));
     off(this.refs.map.$el, 'click', this.close.bind(this));
     off(this.refs.map.$el, 'tap', this.close.bind(this));
   }
