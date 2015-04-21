@@ -1,14 +1,18 @@
 [
   {
-    name: 'Reward test',
-    icon: ''
+    name: 'Plume',
+    icon: '../assets/images/pictos/rewards/feather.png'
   },
   {
-    name: 'Reward test 2',
-    icon: ''
+    name: 'Pierre',
+    icon: '../assets/images/pictos/rewards/rock.png'
   },
   {
-    name: 'Reward test 3',
-    icon: ''
+    name: 'Oeufs',
+    icon: '../assets/images/pictos/rewards/eggs.png'
+  },
+  {
+    name: 'Allumettes',
+    icon: '../assets/images/pictos/rewards/matches.png'
   }
 ];

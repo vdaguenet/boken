@@ -4,7 +4,7 @@
     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur iste magni, nesciunt quae vitae harum doloremque! Molestiae iste nisi ipsum. Nostrum ipsa, numquam libero minima eveniet voluptate aut fugit.',
     iconPath: '',
     number: 1,
-    rewards: [0, 1, 2, 3],
+    rewards: [0, 2],
     subChapters: [
       {
         iconPath: '',

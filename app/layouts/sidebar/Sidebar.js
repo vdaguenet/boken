@@ -2,6 +2,7 @@
 
 import View from 'brindille-view';
 import {on, off} from 'dom-event';
+import nextTick from 'just-next-tick';
 
 /*
   services
@@ -30,7 +31,8 @@ class Sidebar extends View {
     super({
       template: template,
       model: {
-        chapter: {}
+        chapter: {},
+        user: {}
       },
       compose: {
         'menu-button': MenuButton,
@@ -54,12 +56,12 @@ class Sidebar extends View {
   }
 
   ready() {
-    setTimeout(() => {
+    nextTick(() => {
       this.refs.passportGrid.$el.style.display = 'none';
       this.refs.chestGrid.$el.style.display = 'none';
       this.refs.logbookPage.$el.style.display = 'none';
       this.$menu.style.height = this.$parentEl.offsetHeight + 'px';
-    }, 0);
+    });
   }
 
   resolved() {
@@ -76,6 +78,8 @@ class Sidebar extends View {
     };
 
     this.model.chapter = this._userChapters[this._userChapters.length - 1];
+    this.model.user = this.resolvedData.user;
+
     this.setPrevNextChapters();
   }
 
@@ -112,6 +116,8 @@ class Sidebar extends View {
     } else {
       this.refs.prevNextButton.refs.next.$el.style.display = 'none';
     }
+
+    this.refs.chestGrid.initGrid(this.resolvedData.rewards);
   }
 
   gotoPreviousChapter() {
