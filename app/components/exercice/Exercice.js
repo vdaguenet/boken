@@ -22,7 +22,7 @@ export default class Exercice extends View {
   ready() {
     this.$back = this.$el.querySelector('#back');
     this.$back.addEventListener('click', this.close.bind(this));
-    this.$back.addEventListener('tap', this.close.bind(this));
+    this.$back.addEventListener('touchend', this.close.bind(this));
   }
 
   destroying() {

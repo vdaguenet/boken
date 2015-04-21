@@ -21,6 +21,10 @@ export default class MainSection extends View {
       },
       resolve: {}
     });
+
+    if (!window.localStorage.getItem('user')) {
+      this.connectUser();
+    }
   }
 
   ready() {
@@ -34,5 +38,10 @@ export default class MainSection extends View {
 
   destroying() {
     this.refs.map.off();
+  }
+
+  connectUser() {
+    // TODO: create a login page, check if the user is in database and then store his login in localStorage
+    window.localStorage.setItem('user', 'test');
   }
 }

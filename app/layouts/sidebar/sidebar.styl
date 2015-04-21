@@ -8,13 +8,33 @@
   transform translateX(100%)
 
   .menu
-    min-width 145px
+    min-width menu-width
     width 14%
     background #ebe5d5
-    padding-top 10.7%
+    padding-top 25%
+    float left
 
   .menu-button:first-child .picto
     margin-top 0
 
   .menu-button:nth-child(1) .picto img
     width 45%
+
+  .part-right
+    float left
+    width 86%
+    max-width "calc(100% - %s)" % menu-width
+
+    .main-content
+      background red
+      width 100%
+      height 520px
+
+  .prev-next-button
+    .previous
+      position absolute
+      left 75px
+
+    .next
+      position absolute
+      right 75px

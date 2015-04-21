@@ -7,7 +7,3 @@ export var verbose = true;
   Can be your CDN URL or a folder
  */
 export var assetsRoot = 'assets/';
-/*
-  Where socket server is hosted
- */
-export var socketURL = 'http://localhost:5000';

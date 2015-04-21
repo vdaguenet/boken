@@ -1,0 +1,25 @@
+[
+  {
+    name: 'Toto Le Rigolo',
+    login: 'test',
+    avatarPath: '',
+    skills: {
+      conjugation: 0,
+      spelling: 0,
+      vocabulary: 0,
+      grammar: 0
+    },
+    rewards: [0, 1],
+    exercicesAchieved: [],
+    chaptersDiscovered: [
+      [0, 1, 2],
+      [0]
+    ],
+    logbookPages: [
+      {
+        pageId: 0,
+        answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta atque eum, ab consectetur ratione voluptatibus modi quisquam voluptates dolores optio nisi porro minima corporis ipsam ipsa, labore accusamus dignissimos id.'
+      }
+    ]
+  }
+];

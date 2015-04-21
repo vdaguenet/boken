@@ -1,7 +1,7 @@
 [
   {
     subject: 'Lorem ipsum dolor sit amet',
-    historyStep: 0,
+    chapter: 0,
     rewards: {
       conjugation: 0,
       spelling: 0,

@@ -1,8 +1,16 @@
 <div>
   <div class="menu">
-    <menu-button ref="passport" label="passeport" path="../assets/images/pictos/passport.png"></menu-button>
-    <menu-button ref="chest" label="inventaire" path="../assets/images/pictos/chest.png"></menu-button>
-    <menu-button ref="logbook" label="journal" path="../assets/images/pictos/logbook.png"></menu-button>
-    <menu-button ref="map" label="carte" path="../assets/images/pictos/map.png"></menu-button>
+    <menu-button ref="passportBtn" label="passeport" path="../assets/images/pictos/passport.png"></menu-button>
+    <menu-button ref="chestBtn" label="inventaire" path="../assets/images/pictos/chest.png"></menu-button>
+    <menu-button ref="logbookBtn" label="journal" path="../assets/images/pictos/logbook.png"></menu-button>
+  </div>
+  <div class="part-right">
+    <chapter-header bind-chapter="chapter"></chapter-header>
+    <div class="main-content">
+      <logbook-page ref="logbookPage"></logbook-page>
+      <chest-grid ref="chestGrid"></chest-grid>
+      <passport-grid ref="passportGrid"></passport-grid>
+    </div>
+    <prev-next-button ref="prevNextButton"></prev-next-button>
   </div>
 </div>
