@@ -9,11 +9,12 @@ export default class LogbookPage extends View {
     super({
       template: template,
       model: defaults(model, {
-        page: {}
+        page: {},
+        subchapter: {}
       }),
       compose: {},
       resolve: {}
-    })
+    });
   }
 
   ready() {

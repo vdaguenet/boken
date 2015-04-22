@@ -17,7 +17,8 @@
     ],
     logbookPages: [
       {
-        pageId: 0,
+        chapter: 0,
+        subChapter: 0,
         answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta atque eum, ab consectetur ratione voluptatibus modi quisquam voluptates dolores optio nisi porro minima corporis ipsam ipsa, labore accusamus dignissimos id.'
       }
     ]

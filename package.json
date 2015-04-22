@@ -55,6 +55,7 @@
     "watchify": "^2.4.0"
   },
   "dependencies": {
+    "babel": "^5.1.11",
     "brindille-preloader": "^1.0.1",
     "brindille-resize": "^0.1.2",
     "brindille-scroll": "^0.1.2",

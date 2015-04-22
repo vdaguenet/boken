@@ -7,7 +7,7 @@
   <div class="part-right">
     <chapter-header bind-chapter="chapter"></chapter-header>
     <div class="main-content">
-      <logbook-page ref="logbookPage"></logbook-page>
+      <logbook-page ref="logbookPage" bind-subchapter="subchapter" bind-page="page"></logbook-page>
       <chest-grid ref="chestGrid" bind-chapter="chapter" bind-user="user"></chest-grid>
       <passport-grid ref="passportGrid" bind-chapter="chapter" bind-userchapters="user.chaptersDiscovered"></passport-grid>
     </div>

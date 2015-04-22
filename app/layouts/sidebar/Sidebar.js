@@ -32,6 +32,7 @@ class Sidebar extends View {
       template: template,
       model: {
         chapter: {},
+        subchapter: {},
         user: {}
       },
       compose: {
@@ -81,6 +82,7 @@ class Sidebar extends View {
     this.model.user = this.resolvedData.user;
 
     this.setPrevNextChapters();
+    this.setLogbookPage();
   }
 
   addEvents() {
@@ -89,6 +91,12 @@ class Sidebar extends View {
     on(this.refs.logbookBtn.$el, 'touchend', this.onLogbookClick.bind(this));
     this.refs.prevNextButton.on('previous', this.gotoPreviousChapter.bind(this));
     this.refs.prevNextButton.on('next', this.gotoNextChapter.bind(this));
+  }
+
+  setLogbookPage() {
+    // FOR TEST ONLY
+    this.model.page = this.model.user.logbookPages[0];
+    this.model.subchapter = this.resolvedData.chapters[this.model.page.chapter].subChapters[this.model.page.subChapter];
   }
 
   setPrevNextChapters() {
@@ -124,11 +132,13 @@ class Sidebar extends View {
   gotoPreviousChapter() {
     this.model.chapter = this._prevChapter;
     this.setPrevNextChapters();
+    this.setLogbookPage();
   }
 
   gotoNextChapter() {
     this.model.chapter = this._nextChapter;
     this.setPrevNextChapters();
+    this.setLogbookPage();
   }
 
   open() {
