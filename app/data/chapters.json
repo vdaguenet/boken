@@ -7,8 +7,8 @@
     rewards: [0, 2],
     subChapters: [
       {
-        iconPath: '',
-        title: 'fjsdf sjfskd jfl'
+        iconPath: '../assets/images/pictos/passport/step-1.png',
+        title: 'Etape 1 1'
       }
     ]
   },
@@ -20,8 +20,20 @@
     rewards: [0, 1, 2, 3],
     subChapters: [
       {
-        iconPath: '',
-        title: 'fjsdf sjfskd jfl'
+        iconPath: '../assets/images/pictos/passport/step-1.png',
+        title: 'Etape 2 1'
+      },
+      {
+        iconPath: '../assets/images/pictos/passport/step-1.png',
+        title: 'Etape 2 2'
+      },
+      {
+        iconPath: '../assets/images/pictos/passport/step-1.png',
+        title: 'Etape 2 3'
+      },
+      {
+        iconPath: '../assets/images/pictos/passport/step-1.png',
+        title: 'Etape 2 4'
       }
     ]
   }

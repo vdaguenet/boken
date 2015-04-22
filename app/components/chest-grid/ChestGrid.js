@@ -30,7 +30,11 @@ export default class ChestGrid extends View {
     let row = 0;
     let reward;
 
-    this.model['row' + row] = [];
+    this.model.row0 = [];
+    this.model.row1 = [];
+    this.model.row2 = [];
+    this.model.row3 = [];
+
     for (let i = 0, l = this.model.chapter.rewards.length; i < l; i++) {
       reward = rewards[this.model.chapter.rewards[i]];
 
@@ -41,7 +45,6 @@ export default class ChestGrid extends View {
 
       if (i % 4 === 3) {
         row++;
-        this.model['row' + row] = [];
       }
     }
   }

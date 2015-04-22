@@ -118,6 +118,7 @@ class Sidebar extends View {
     }
 
     this.refs.chestGrid.initGrid(this.resolvedData.rewards);
+    this.refs.passportGrid.initGrid();
   }
 
   gotoPreviousChapter() {

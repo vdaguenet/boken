@@ -1,3 +1,23 @@
 <div class="passport-grid">
-  <h1>Grille du passeport</h1>
+  <div class="row">
+    <div class="passport-grid-item" rv-each-subchapter="row0">
+      <img rv-src="subchapter.iconPath" class="icon">
+      <img rv-show="subchapter.validated" src="../assets/images/pictos/passport/stamp.png" class="stamp">
+      <div class="label">{subchapter.title}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="passport-grid-item" rv-each-subchapter="row1">
+      <img rv-src="subchapter.iconPath" class="icon">
+      <img rv-show="subchapter.validated" src="../assets/images/pictos/passport/stamp.png" class="stamp">
+      <div class="label">{subchapter.title}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="passport-grid-item" rv-each-subchapter="row2">
+      <img rv-src="subchapter.iconPath" class="icon">
+      <img rv-show="subchapter.validated" src="../assets/images/pictos/passport/stamp.png" class="stamp">
+      <div class="label">{subchapter.title}</div>
+    </div>
+  </div>
 </div>
