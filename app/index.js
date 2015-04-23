@@ -1,6 +1,6 @@
 'use strict';
 
-import poly from 'babel/polyfill'
+import polyfill from 'babel/polyfill';
 
 import domready from 'domready';
 import gsap from 'gsap';

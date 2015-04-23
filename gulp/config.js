@@ -1,7 +1,7 @@
 'use strict';
 
 var join = require('path').join;
-var outputRoot = join(process.cwd(), 'static');
+var outputRoot = join(process.cwd(), 'www');
 var inputRoot = join(process.cwd(), 'app');
 
 module.exports = {
