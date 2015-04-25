@@ -1,0 +1,86 @@
+[
+  {
+    subject: 'Lorem ipsum dolor sit amet',
+    chapter: 0,
+    questions: [
+      {
+        instructions: 'RELIE CHAQUE VERBE CONJUGUÉ À SON INFINITIF',
+        type: 'link',
+        sentences: [
+          {
+            subject: 'J’ai cherché par terre',
+            answer: 'chercher'
+          },
+          {
+            subject: 'J’ai fouillé mes poches',
+            answer: 'fouiller'
+          },
+          {
+            subject: 'La boîte est tombée',
+            answer: 'être'
+          },
+          {
+            subject: 'Nous avons eu faim',
+            answer: 'avoir'
+          }
+        ]
+      },
+      {
+        instructions: 'RANGE LES VERBES SELON LEUR AUXILIAIRE',
+        type: 'sort',
+        sentences: [
+          {
+            subject: 'tomber',
+            answer: 'être'
+          },
+          {
+            subject: 'fouiller',
+            answer: 'avoir'
+          },
+          {
+            subject: 'allumer',
+            answer: 'avoir'
+          },
+          {
+            subject: 'chercher',
+            answer: 'avoir'
+          },
+          {
+            subject: 'frotter',
+            answer: 'être'
+          },
+          {
+            subject: 'être',
+            answer: 'avoir'
+          }
+        ]
+      },
+      {
+        instructions: 'CONJUGUE LES PHRASES AU PASSÉ COMPOSÉ',
+        type: 'complete',
+        sentences: [
+          {
+            subject: 'Nous [ANSWER] le foyer.',
+            answer: 'avons établi',
+            help: 'établir'
+          },
+          {
+            subject: 'Nous [ANSWER] le repas.',
+            answer: 'avons préparé',
+            help: 'préparer'
+          },
+          {
+            subject: 'Mon compagnon [ANSWER] de larges pierres plates au fond du couloir de gauche.',
+            answer: 'a disposé',
+            help: 'disposer'
+          },
+          {
+            subject: 'Il s\'est installé près du foyer et [ANSWER] les mains.',
+            answer: 's\'est réchauffé',
+            help: 'se réchauffer'
+          }
+        ]
+      }
+    ]
+  }
+];

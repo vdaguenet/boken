@@ -1,8 +1,27 @@
 <div class="exercice">
   <div class="background"></div>
   <div class="content">
-    <h1>Exercice</h1>
-    <div class="question"></div>
-    <a id="back">Retour à la carte</a>
+    <div class="inner-content">
+
+      <line-header ref="header" bind-title="headertitle"></line-header>
+
+      <div class="middle-part intro">
+        <img rv-src="exercice.chapter.iconPath">
+        <div class="intro-text">
+          {exercice.chapter.content}
+        </div>
+      </div>
+
+      <div class="middle-part question">
+        <question ref="question" bind-question="question"></question>
+      </div>
+
+      <div class="middle-part end">
+        The end
+      </div>
+
+      <border-button ref="btnNext" bind-label="btnlabel"></border-button>
+
+    </div>
   </div>
 </div>

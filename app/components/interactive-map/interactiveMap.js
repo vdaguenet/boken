@@ -4,6 +4,7 @@ import View from 'brindille-view';
 import preloader from 'brindille-preloader';
 import resizeUtil from 'brindille-resize';
 import PIXI from 'pixi.js';
+import raf from 'raf';
 import World from './objects2D/World.js';
 import Island from './objects2D/Island.js';
 import ExercicePoint from './objects2D/ExercicePoint.js';
@@ -50,7 +51,7 @@ export default class InteractiveMap extends View {
     // this.initExercices();
     // Append world
     this.world.appendTo(this.$el);
-    this.animate();
+    raf(this.animate.bind(this));
   }
 
   initPleats() {
@@ -100,7 +101,7 @@ export default class InteractiveMap extends View {
   }
 
   animate() {
-    requestAnimationFrame(this.animate.bind(this));
+    raf(this.animate.bind(this));
     this.world.render();
   }
 

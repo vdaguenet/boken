@@ -2,6 +2,7 @@
 
 import Island from './Island';
 import PIXI from 'pixi.js';
+import ThresholdAlphaFilter from '../filters/ThresholdAlphaFilter';
 
 export default class World extends PIXI.Container {
 
@@ -13,6 +14,8 @@ export default class World extends PIXI.Container {
     });
     this.resize(width, height);
     this._zoomed = false;
+
+    let thresholdAlphaFilter = new ThresholdAlphaFilter();
   }
 
   resize(width, height) {

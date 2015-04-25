@@ -1,11 +1,11 @@
 'use strict';
 
-import chapter from 'data/chapters.json';
+import chapters from 'data/chapters.json';
 
 export function findById(id) {
-  return chapter[id];
+  return chapters[id];
 };
 
 export function findAll () {
-  return chapter;
+  return chapters;
 }

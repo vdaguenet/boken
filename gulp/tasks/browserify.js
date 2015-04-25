@@ -10,6 +10,7 @@ var opts = require('../options');
 var cfg = require('../config');
 var aliasify = require('aliasify').configure(cfg.aliasify);
 var babelify = require('babelify');
+var glslify = require('glslify');
 var bundleLogger = require('../utils/time-logger')('bundle');
 var errorNotif = require('../utils/error-notification');
 
@@ -49,6 +50,7 @@ function applyTransform(bundler) {
   bundler.transform(babelify);
   bundler.transform(aliasify);
   bundler.transform(stringify);
+  bundler.transform(glslify);
   if (opts.production) {
     bundler.transform(stripify);
   }
