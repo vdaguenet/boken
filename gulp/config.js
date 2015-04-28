@@ -20,6 +20,7 @@ module.exports = {
       'layouts': './layouts/',
       'config': './config/',
       'services': './services/',
+      'utils': './utils/',
       'components': './components/'
     },
     configDir: inputRoot + '/',

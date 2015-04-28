@@ -75,6 +75,7 @@
     "q": "^1.2.0",
     "raf": "^2.0.4",
     "random-helper": "^1.0.3",
+    "shuffle-array": "^0.1.0",
     "stylus-easing": "^1.0.0",
     "stylus-media-queries": "^1.0.0"
   },
