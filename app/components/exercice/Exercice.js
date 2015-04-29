@@ -76,6 +76,7 @@ export default class Exercice extends View {
     }
 
     this._curQuestion++;
+    this.model.msg = '';
     this._verified = false;
 
     if (this.model.exercice.questions[this._curQuestion]) {

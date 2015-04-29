@@ -1,3 +1,25 @@
 <div class="sort-question">
-  Question sort
+  <div class="column left">
+    <h2>{columnLeftTitle}</h2>
+    <div class="container">
+      <div class="placeholder"></div>
+      <div class="placeholder"></div>
+      <div class="placeholder"></div>
+      <div class="placeholder"></div>
+    </div>
+  </div>
+
+  <div class="column right">
+    <h2>{columnRightTitle}</h2>
+    <div class="container">
+      <div class="placeholder"></div>
+      <div class="placeholder"></div>
+      <div class="placeholder"></div>
+      <div class="placeholder"></div>
+    </div>
+  </div>
+
+  <div class="proposals-container">
+    <div class="proposal" rv-each-proposal="proposals">{proposal}</div>
+  </div>
 </div>
