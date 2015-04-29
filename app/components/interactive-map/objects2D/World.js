@@ -1,8 +1,7 @@
 'use strict';
 
-import Island from './Island';
 import PIXI from 'pixi.js';
-import ThresholdAlphaFilter from '../filters/ThresholdAlphaFilter';
+import ThresholdAlphaFilter from '../filters/ThresholdAlphaFilter/ThresholdAlphaFilter';
 
 export default class World extends PIXI.Container {
 
@@ -15,7 +14,8 @@ export default class World extends PIXI.Container {
     this.resize(width, height);
     this._zoomed = false;
 
-    let thresholdAlphaFilter = new ThresholdAlphaFilter();
+    this.thresholdAlphaFilter = new ThresholdAlphaFilter();
+    this.filters = [this.thresholdAlphaFilter];
   }
 
   resize(width, height) {
@@ -50,6 +50,10 @@ export default class World extends PIXI.Container {
     $el.appendChild(this.renderer.view);
   }
 
+  transitionToExercice() {
+    this.thresholdAlphaFilter.play();
+  }
+
   zoomIn(x, y) {
     if (this._tlZoomOut) {
       this._tlZoomOut.kill();
@@ -63,7 +67,7 @@ export default class World extends PIXI.Container {
   }
 
   zoomOut() {
-    if(!this._zoomed) return;
+    if (!this._zoomed) return;
 
     if (this._tlZoomIn) {
       this._tlZoomIn.kill();

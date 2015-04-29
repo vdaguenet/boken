@@ -87,13 +87,16 @@ export default class InteractiveMap extends View {
     this.exercicesContainer.setPosition(0, 0);
     for(var ex of this.resolvedData.exercices) {
       exercicePoint = new ExercicePoint(ex.x * this.world.getWidth(), ex.y * this.world.getHeight(), PIXI.utils.TextureCache['point'], ex.id, ex.active);
-      exercicePoint.on('exercice:open', data => {
-        this.emit('exercice:open', {id: data.id});
-      });
+      exercicePoint.on('exercice:open', this.openExercice.bind(this));
       this.exercicesContainer.addExercice(exercicePoint);
     }
 
     this.world.addChild(this.exercicesContainer);
+  }
+
+  openExercice(e) {
+    this.emit('exercice:open', {id: e.id});
+    this.world.transitionToExercice();
   }
 
   resize() {
