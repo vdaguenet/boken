@@ -21,13 +21,13 @@ export default class SortQuestion extends View {
       compose: {}
     });
 
-    this.puplisAnswers = {};
+    this.pupilAnswers = {};
     this._placeholdersLeft = this.$el.querySelectorAll('.column.left .placeholder');
     this._placeholdersRight = this.$el.querySelectorAll('.column.right .placeholder');
   }
 
   getPupilAnswers() {
-    return this.puplisAnswers;
+    return this.pupilAnswers;
   }
 
   hide() {
@@ -90,7 +90,7 @@ export default class SortQuestion extends View {
             TweenMax.to(this.target, 0.4, {x: this.target._gsTransform.x - targetX + 0.5 * placeholder.getBoundingClientRect().width, y: this.target._gsTransform.y - targetY});
             classes.add(placeholder, 'filled');
 
-            self.puplisAnswers[this.target.innerText.toLowerCase()] = answer;
+            self.pupilAnswers[this.target.innerText.toLowerCase()] = answer;
 
             this.target.setAttribute('placeholder-id', count);
             break;

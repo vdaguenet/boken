@@ -11,10 +11,25 @@ export default class CompleteQuestion extends View {
       template: template,
       resolve: {},
       model: defaults(model, {
-        question: {}
+        question: {},
+        sentences: []
       }),
       compose: {}
     });
+
+    this.puplisAnswers = {};
+  }
+
+  getPupilAnswers() {
+    let count = 0;
+    for (let input of this.$el.querySelectorAll('input[type="text"]')) {
+      if (input.value !== '') {
+        this.puplisAnswers[this.model.question.sentences[count].subject] = input.value;
+      }
+      count++;
+    }
+
+    return this.puplisAnswers;
   }
 
   hide() {
@@ -23,5 +38,9 @@ export default class CompleteQuestion extends View {
 
   show() {
     this.$el.style.display = '';
+
+    for (let sentence of this.model.question.sentences) {
+      this.model.sentences.push(sentence.subject.replace('[ANSWER]', '<input type="text" placeholder="' + sentence.clue + '"/>'));
+    }
   }
 }

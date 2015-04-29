@@ -62,22 +62,22 @@
           {
             subject: 'Nous [ANSWER] le foyer.',
             answer: 'avons établi',
-            help: 'établir'
+            clue: 'établir'
           },
           {
             subject: 'Nous [ANSWER] le repas.',
             answer: 'avons préparé',
-            help: 'préparer'
+            clue: 'préparer'
           },
           {
             subject: 'Mon compagnon [ANSWER] de larges pierres plates au fond du couloir de gauche.',
             answer: 'a disposé',
-            help: 'disposer'
+            clue: 'disposer'
           },
           {
             subject: 'Il s\'est installé près du foyer et [ANSWER] les mains.',
             answer: 's\'est réchauffé',
-            help: 'se réchauffer'
+            clue: 'se réchauffer'
           }
         ]
       }

@@ -31,7 +31,7 @@ export default class LinkQuestion extends View {
     this._answerPoints = [];
 
     this._curSubject = '';
-    this.puplisAnswers = {};
+    this.pupilAnswers = {};
 
     this.lineFrom = undefined;
     this.lineTo = undefined;
@@ -59,7 +59,7 @@ export default class LinkQuestion extends View {
         this.graphics.on('touchmove', this.onTouchmove.bind(this));
         // TODO: save current sentence
         this._curSubject = this.model.subjects[i];
-        this.puplisAnswers[this._curSubject] = '';
+        this.pupilAnswers[this._curSubject] = '';
       }
       i++;
     }
@@ -80,7 +80,7 @@ export default class LinkQuestion extends View {
     let i = 0;
     for (let p of this._answerPoints) {
       if (isInCircle(e.data.global.x, e.data.global.y, p.x, p.y, this._pointRadius)) {
-        this.puplisAnswers[this._curSubject] = this.model.answers[i];
+        this.pupilAnswers[this._curSubject] = this.model.answers[i];
       }
       i++;
     }
@@ -93,7 +93,7 @@ export default class LinkQuestion extends View {
   ready() {}
 
   getPupilAnswers() {
-    return this.puplisAnswers;
+    return this.pupilAnswers;
   }
 
   animate() {
