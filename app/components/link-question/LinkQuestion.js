@@ -5,7 +5,7 @@ import defaults from 'defaults';
 import PIXI from 'pixi.js';
 import raf from 'raf';
 import shuffle from 'shuffle-array';
-import {isInCircle} from 'utils'
+import {isInCircle} from 'utils';
 
 import template from './link-question.html';
 
@@ -17,12 +17,12 @@ export default class LinkQuestion extends View {
       model: defaults(model, {
         question: {},
         subjects: [],
-        answers: []
+        answers: [],
       }),
       compose: {}
     });
 
-    this._firstColumnX = 220;
+    this._firstColumnX = 222;
     this._firstRowY = 40;
     this._rowSpacing = 75;
     this._pointRadius = 12;
@@ -30,13 +30,17 @@ export default class LinkQuestion extends View {
     this._sentencePoints = [];
     this._answerPoints = [];
 
+    this._curSubject = '';
+    this.puplisAnswers = {};
+
     this.lineFrom = undefined;
     this.lineTo = undefined;
 
     this.renderer = PIXI.autoDetectRenderer(800, 600, {
       transparent: true,
       view: this.$el.querySelector('#renderer'),
-      resolution: 1
+      resolution: 1,
+      antialias: true
     });
 
     this.stage = new PIXI.Container();
@@ -50,11 +54,12 @@ export default class LinkQuestion extends View {
 
   onTouchstart(e) {
     let i = 0;
-    for(let p of this._sentencePoints) {
+    for (let p of this._sentencePoints) {
       if (isInCircle(e.data.global.x, e.data.global.y, p.x, p.y, this._pointRadius)) {
         this.graphics.on('touchmove', this.onTouchmove.bind(this));
         // TODO: save current sentence
-        console.log('Sentence:', this.model.subjects[i]);
+        this._curSubject = this.model.subjects[i];
+        this.puplisAnswers[this._curSubject] = '';
       }
       i++;
     }
@@ -73,10 +78,9 @@ export default class LinkQuestion extends View {
 
   onTouchend(e) {
     let i = 0;
-    for(let p of this._answerPoints) {
+    for (let p of this._answerPoints) {
       if (isInCircle(e.data.global.x, e.data.global.y, p.x, p.y, this._pointRadius)) {
-        // TODO: stock answer with the current sentence
-        console.log('Answer:', this.model.answers[i]);
+        this.puplisAnswers[this._curSubject] = this.model.answers[i];
       }
       i++;
     }
@@ -87,6 +91,10 @@ export default class LinkQuestion extends View {
   }
 
   ready() {}
+
+  getPupilAnswers() {
+    return this.puplisAnswers;
+  }
 
   animate() {
     this.renderer.render(this.stage);
@@ -128,11 +136,14 @@ export default class LinkQuestion extends View {
 
   show() {
     this.$el.style.display = '';
+    let answersTmp = [];
     for (let a of this.model.question.sentences) {
       this.model.subjects.push(a.subject);
-      this.model.answers.push(a.answer);
+      answersTmp.push(a.answer);
     }
-    shuffle(this.model.answers);
+    shuffle(answersTmp);
+    this.model.answers = []; // to force rivets update the view
+    this.model.answers = answersTmp;
 
     this.renderer.resize(this.$el.offsetWidth, 320);
     this.draw();

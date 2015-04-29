@@ -19,6 +19,7 @@ export default class Exercice extends View {
       },
       model: defaults(model, {
         id: 0,
+        msg: '',
         exercice: {},
         question: {},
         headertitle: 'Exercice title',
@@ -31,6 +32,7 @@ export default class Exercice extends View {
       }
     });
     this._end = false;
+    this._verified = false;
     this._curQuestion = -1;
     this.refs.btnNext.on('tap', this.onNextTap.bind(this));
     this.$intro = this.$el.querySelector('.intro');
@@ -63,22 +65,38 @@ export default class Exercice extends View {
       return;
     }
 
+    if (!this._verified && this._curQuestion > -1) {
+       let res = this.refs.question.checkAnswers();
+      this._verified = true;
+
+      if (false === res.status) {
+        this.model.msg = res.message;
+        return;
+      }
+    }
+
     this._curQuestion++;
+    this._verified = false;
 
     if (this.model.exercice.questions[this._curQuestion]) {
+
       this.$intro.style.display = 'none';
       this.$questionContainer.style.display = '';
       this.model.question = this.model.exercice.questions[this._curQuestion];
       this.model.headertitle = this.model.exercice.questions[this._curQuestion].instructions;
       this.model.btnlabel = 'Valider';
       this.refs.question.update();
+
     } else {
+
       this.$questionContainer.style.display = 'none';
       this.$end.style.display = '';
       this.model.question = {};
+      this._curQuestion = -1;
       this.model.headertitle = 'Bravo !';
       this.model.btnlabel = 'Retour à la carte';
       this._end = true;
+
     }
 
     this.refs.header.resize();

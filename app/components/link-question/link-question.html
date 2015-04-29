@@ -1,3 +1,9 @@
 <div class="link-question">
+  <ul class="subjects">
+    <li rv-each-subject="subjects">{subject}</li>
+  </ul>
   <canvas id="renderer"></canvas>
+  <ul class="answers">
+    <li rv-each-answer="answers">{answer}</li>
+  </ul>
 </div>
