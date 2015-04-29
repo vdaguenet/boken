@@ -1,6 +1,25 @@
-font-face('FontName', '../assets/fonts/FontName/fontname');
+font-face('Aleo Light', '../assets/fonts/aleo/light/aleo-light');
+font-face('Aleo', '../assets/fonts/aleo/regular/aleo-regular');
+font-face('AvenirNext Medium', '../assets/fonts/avenir next/medium/AvenirNext-Medium');
+font-face('AvenirNext Italic', '../assets/fonts/avenir next/italic/AvenirNext-Italic');
+font-face('AvenirNext DemiBold', '../assets/fonts/avenir next/demibold/AvenirNext-DemiBold');
 
-.font-name {
-  font-family: 'FontName';
-  @extend .smooth-font;
-}
+.font-default
+  font-family: 'AvenirNext Medium'
+  @extend .smooth-font
+
+.font-default-italic
+  font-family: 'AvenirNext Italic'
+  @extend .smooth-font
+
+.font-default-bold
+  font-family: 'AvenirNext DemiBold'
+  @extend .smooth-font
+
+.font-serif
+  font-family: 'Aleo'
+  @extend .smooth-font
+
+.font-serif-light
+  font-family: 'Aleo Light'
+  @extend .smooth-font
