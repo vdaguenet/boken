@@ -43,14 +43,14 @@ export default class Question extends View {
       countPupilAnswers++;
     }
 
-    if (countPupilAnswers !== this.model.question.sentences.length) {
-      status = false;
-      msg = `Attention ! Tu n'as pas répondu à toutes les questions.`;
-    }
-
     if (nbMistakes > 0) {
       status = false;
       msg = `Il y a ${nbMistakes} fautes. Essayes de les corriger`;
+    }
+
+    if (countPupilAnswers !== this.model.question.sentences.length) {
+      status = false;
+      msg = `Attention ! Tu n'as pas répondu à toutes les questions.`;
     }
 
     return {

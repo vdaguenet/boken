@@ -21,8 +21,13 @@ export default class SortQuestion extends View {
       compose: {}
     });
 
+    this.puplisAnswers = {};
     this._placeholdersLeft = this.$el.querySelectorAll('.column.left .placeholder');
     this._placeholdersRight = this.$el.querySelectorAll('.column.right .placeholder');
+  }
+
+  getPupilAnswers() {
+    return this.puplisAnswers;
   }
 
   hide() {
@@ -67,11 +72,14 @@ export default class SortQuestion extends View {
         let $bbox = this.target.getBoundingClientRect();
         let placeholders;
         let count = 0;
+        let answer = '';
 
         if (($bbox.left + 0.5 * $bbox.width) > 0.5 * resize.width) {
           placeholders = self._placeholdersRight;
+          answer = self.model.columnRightTitle;
         } else {
           placeholders = self._placeholdersLeft;
+          answer = self.model.columnLeftTitle;
         }
 
         for (let placeholder of placeholders) {
@@ -81,6 +89,9 @@ export default class SortQuestion extends View {
 
             TweenMax.to(this.target, 0.4, {x: this.target._gsTransform.x - targetX + 0.5 * placeholder.getBoundingClientRect().width, y: this.target._gsTransform.y - targetY});
             classes.add(placeholder, 'filled');
+
+            self.puplisAnswers[this.target.innerText.toLowerCase()] = answer;
+
             this.target.setAttribute('placeholder-id', count);
             break;
           }
