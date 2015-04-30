@@ -28,6 +28,7 @@ export default class ChestGrid extends View {
 
   initGrid(rewards) {
     let row = 0;
+    let i = 0;
     let reward;
 
     this.model.row0 = [];
@@ -35,16 +36,20 @@ export default class ChestGrid extends View {
     this.model.row2 = [];
     this.model.row3 = [];
 
-    for (let i = 0, l = this.model.chapter.rewards.length; i < l; i++) {
-      reward = rewards[this.model.chapter.rewards[i]];
+    for (let subChapter of this.model.chapter.subChapters) {
+      for (let rewardId of subChapter.rewards) {
+        reward = rewards[rewardId];
 
-      if (!reward) continue;
+        if (!reward) continue;
 
-      reward.active = (this.model.user.rewards.indexOf(this.model.chapter.rewards[i]) !== -1);
-      this.model['row' + row].push(reward);
+        reward.active = (this.model.user.rewards.indexOf(rewardId) !== -1);
+        this.model['row' + row].push(reward);
 
-      if (i % 4 === 3) {
-        row++;
+        if (i % 4 === 3) {
+          row++;
+        }
+
+        i++;
       }
     }
   }

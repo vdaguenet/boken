@@ -9,7 +9,7 @@
       vocabulary: 0,
       grammar: 0
     },
-    rewards: [0, 3],
+    rewards: [3],
     exercicesAchieved: [],
     chaptersDiscovered: [
       [],

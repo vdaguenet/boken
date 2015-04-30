@@ -2,8 +2,7 @@
 
 import View from 'brindille-view';
 import preloader from 'brindille-preloader';
-import resizeUtil from 'brindille-resize';
-import scrollUtil from 'brindille-scroll';
+import * as PupilApi from 'services/pupil-api';
 
 import InteractiveMap from 'components/interactive-map/InteractiveMap';
 import Exercice from 'components/exercice/Exercice';
@@ -14,7 +13,9 @@ export default class MainSection extends View {
   constructor() {
     super({
       template: template,
-      model: {},
+      model: {
+        user: {}
+      },
       compose: {
         'interactive-map': InteractiveMap,
         'exercice': Exercice
@@ -25,6 +26,7 @@ export default class MainSection extends View {
     if (!window.localStorage.getItem('user')) {
       this.connectUser();
     }
+    this.model.user = PupilApi.findByLogin(window.localStorage.getItem('user'));
   }
 
   ready() {

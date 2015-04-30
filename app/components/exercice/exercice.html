@@ -4,6 +4,7 @@
     <div class="inner-content">
 
       <line-header ref="header" bind-title="headertitle"></line-header>
+      <help-button></help-button>
 
       <div class="middle-part intro">
         <img rv-src="exercice.chapter.iconPath">
@@ -18,7 +19,10 @@
       </div>
 
       <div class="middle-part end">
-        The end
+        <p class="subtitle">{endsentence}</p>
+        <img rv-src="reward.icon">
+        <p class="reward-intro">Tu as trouvé un nouvel objet :</p>
+        <p class="reward-name">{reward.name}</p>
       </div>
 
       <border-button ref="btnNext" bind-label="btnlabel"></border-button>

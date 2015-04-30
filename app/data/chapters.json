@@ -4,11 +4,12 @@
     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur iste magni, nesciunt quae vitae harum doloremque! Molestiae iste nisi ipsum. Nostrum ipsa, numquam libero minima eveniet voluptate aut fugit.',
     iconPath: '',
     number: 1,
-    rewards: [0, 2],
     subChapters: [
       {
+        rewards: [0, 2],
         iconPath: '../assets/images/pictos/passport/step-1.png',
-        title: 'Etape 1 1'
+        title: 'Etape 1 1',
+        endSentence: 'lorem ipsum 1'
       }
     ]
   },
@@ -17,23 +18,30 @@
     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur iste magni, nesciunt quae vitae harum doloremque! Molestiae iste nisi ipsum. Nostrum ipsa, numquam libero minima eveniet voluptate aut fugit.',
     iconPath: '',
     number: 2,
-    rewards: [0, 1, 2, 3],
     subChapters: [
       {
+        rewards: [0, 1, 2, 3],
         iconPath: '../assets/images/pictos/passport/step-1.png',
-        title: 'Etape 2 1'
+        title: 'Etape 2 1',
+        endSentence: 'Tu as réussi à faire du feu !'
       },
       {
+        rewards: [0, 1, 2, 3],
         iconPath: '../assets/images/pictos/passport/step-1.png',
-        title: 'Etape 2 2'
+        title: 'Etape 2 2',
+        endSentence: 'lorem ipsum'
       },
       {
+        rewards: [0, 1, 2, 3],
         iconPath: '../assets/images/pictos/passport/step-1.png',
-        title: 'Etape 2 3'
+        title: 'Etape 2 3',
+        endSentence: 'lorem ipsum'
       },
       {
+        rewards: [0, 1, 2, 3],
         iconPath: '../assets/images/pictos/passport/step-1.png',
-        title: 'Etape 2 4'
+        title: 'Etape 2 4',
+        endSentence: 'lorem ipsum'
       }
     ]
   }

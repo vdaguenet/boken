@@ -2,6 +2,7 @@
   {
     subject: 'Lorem ipsum dolor sit amet',
     chapter: 0,
+    step: 0,
     questions: [
       {
         instructions: 'RELIE CHAQUE VERBE CONJUGUÉ À SON INFINITIF',
