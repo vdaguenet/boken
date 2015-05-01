@@ -52,7 +52,6 @@ class Sidebar extends View {
     this._currentTab = this.refs.passportGrid;
     this._prevChapter = {};
     this._nextChapter = {};
-    this.$menu = this.$el.querySelector('.menu');
     this.addEvents();
   }
 
@@ -61,7 +60,6 @@ class Sidebar extends View {
       this.refs.passportGrid.$el.style.display = 'none';
       this.refs.chestGrid.$el.style.display = 'none';
       this.refs.logbookPage.$el.style.display = 'none';
-      this.$menu.style.height = this.$parentEl.offsetHeight + 'px';
     });
   }
 
@@ -71,12 +69,12 @@ class Sidebar extends View {
 
     for (var i = 0, l = this.resolvedData.user.rewards.length; i < l; i++) {
       this._userRewards.push(this.resolvedData.rewards[this.resolvedData.user.rewards[i]]);
-    };
+    }
     for (var i = 0, l = this.resolvedData.user.chaptersDiscovered.length; i < l; i++) {
       if (this.resolvedData.chapters[i]) {
         this._userChapters.push(this.resolvedData.chapters[i]);
       }
-    };
+    }
 
     this.model.chapter = this._userChapters[this._userChapters.length - 1];
     this.model.user = this.resolvedData.user;
@@ -103,7 +101,7 @@ class Sidebar extends View {
     let currentChapterIndex = 0;
 
     for (let i = 0, l = this._userChapters.length; i < l; i++) {
-      if(this._userChapters[i].number === this.model.chapter.number) {
+      if (this._userChapters[i].number === this.model.chapter.number) {
         currentChapterIndex = i;
         break;
       }
