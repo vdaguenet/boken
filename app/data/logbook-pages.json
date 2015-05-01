@@ -1,11 +1,14 @@
 [
   {
-    subject: 'Lorem ipsum dolor sit amet',
-    historyStep: 0,
-    question: [
+    subject: 'Rédige ton récit au passé composé',
+    chapter: 0,
+    step: 0,
+    intro: 'Les aventuriers sont arrivés sur l’île. Ils ont recherché du bois pour faire du feu. Qu’aurais-tu fait en premier ?',
+    questions: [
       'bla bla blajf fjdfjs fjdskfjsdlkfjdfjsdf lj ?',
       'fbn,dsf bfd fsfhdfs fhskf ?',
       'jfdkslfjds fjdsf iffdfksdm ifea^z s  l ?',
+      'validation'
     ]
   }
 ];

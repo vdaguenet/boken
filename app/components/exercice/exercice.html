@@ -1,8 +1,7 @@
 <div class="exercice">
   <div class="background"></div>
   <div class="content">
-    <div class="inner-content">
-
+    <div class="inner-content exercice-container">
       <line-header ref="header" bind-title="headertitle"></line-header>
       <help-button></help-button>
 
@@ -26,7 +25,29 @@
       </div>
 
       <border-button ref="btnNext" bind-label="btnlabel"></border-button>
-
     </div>
+
+    <div class="inner-content logbook-container">
+      <line-header ref="header" bind-title="headertitle"></line-header>
+      <p class="subject" rv-html="subject"></p>
+
+      <div class="middle-part intro">
+        <img rv-src="exercice.chapter.iconPath">
+        <div class="intro-text" rv-html="exercice.intro"></div>
+      </div>
+
+      <div class="middle-part question">
+        <p class="instruction">{question}</p>
+        <textarea id="logbookanswer" cols="75" rows="8"></textarea>
+      </div>
+
+      <div class="middle-part end">
+        <p class="subtitle">Tu as rajouté une page à ton journal de bord !</p>
+        <img src="../assets/images/logbook.png">
+      </div>
+
+      <border-button ref="btnNext" bind-label="btnlabel"></border-button>
+    </div>
+
   </div>
 </div>

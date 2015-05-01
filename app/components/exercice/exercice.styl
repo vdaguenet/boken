@@ -4,13 +4,13 @@
   // display none
   // opacity 0
 
+  &.active
+    display block
+
   .help-button
     position absolute
     top 16px
     right 35px
-
-  &.active
-    display block
 
   .background
     @extend .full-size-absolute
@@ -69,3 +69,36 @@
       text-transform uppercase
       font-size 28px
       line-height 1.5
+
+  .logbook-container
+    .subject
+      @extend .font-default-italic
+      position absolute
+      top 80px
+      left 50%
+      width 77%
+      transform translateX(-50%)
+
+    .intro-text
+      width 50%
+      margin 0 auto
+
+    .middle-part
+      padding-top 35px
+
+    .question
+      .instruction
+        margin-top 50px
+        font-size 20px
+
+      textarea
+        margin-top 10px
+        resize none
+        @extend .font-default
+        border 2px solid #d2cdbf
+        background-color #f7f5ed
+        color #a2916d
+        font-size inherit
+
+        &:focus
+          outline none
