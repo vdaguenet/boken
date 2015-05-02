@@ -2,6 +2,7 @@
 
 import View from 'brindille-view';
 import defaults from 'defaults';
+import classes from 'dom-classes';
 import HelpButton from 'components/help-button/HelpButton';
 import LineHeader from 'components/line-header/LineHeader';
 import BorderButton from 'components/border-button/BorderButton';
@@ -38,12 +39,14 @@ export default class Exercice extends View {
       }
     });
     this.refs.btnNext.on('tap', this.onNextTap.bind(this));
+    this.refs.btnPrev.on('tap', this.onPrevTap.bind(this));
     this.$exerciceContainer = this.$el.querySelector('.exercice-container');
     this.$logbookContainer = this.$el.querySelector('.logbook-container');
     this.reset();
   }
 
   destroying() {
+    this.refs.btnPrev.off('tap', this.onPrevTap.bind(this));
     this.refs.btnNext.off('tap', this.onNextTap.bind(this));
   }
 
@@ -100,6 +103,8 @@ export default class Exercice extends View {
     this._logbookAnswers = [];
     this.resolvedData.exercice = ExerciceApi.findById(this.model.exerciceid);
     this.resolvedData.logbook = LogbookApi.findById(this.model.logbookid);
+    this.refs.btnPrev.$el.style.display = 'none';
+    classes.add(this.refs.btnPrev.$el, 'left');
     if (this.$logbookAnswer) {
       this.$logbookAnswer.value = '';
       this.$logbookAnswer.removeAttribute('readonly');
@@ -146,9 +151,11 @@ export default class Exercice extends View {
       this.$questionContainer.style.display = '';
 
       if (this._isExercice) {
-        this.showNextExerciceQuestion();
+        this.showExerciceQuestion();
       } else {
-        this.showNextLogbookQuestion();
+        classes.add(this.refs.btnNext.$el, 'right');
+        this.refs.btnPrev.$el.style.display = '';
+        this.showLogbookQuestion();
       }
 
       this.refs.question.update();
@@ -161,16 +168,39 @@ export default class Exercice extends View {
     this.refs.header.resize();
   }
 
-  showNextExerciceQuestion() {
+  onPrevTap() {
+    if (this._isExercice) return;
+
+    this._curQuestion--;
+
+    if (this.model.exercice.questions[this._curQuestion]) {
+      this.showLogbookQuestion();
+    } else {
+      this.$intro.style.display = '';
+      this.$questionContainer.style.display = 'none';
+      classes.remove(this.refs.btnNext.$el, 'right');
+      this.refs.btnPrev.$el.style.display = 'none';
+      this.model.subject = '';
+    }
+  }
+
+  showExerciceQuestion() {
     this.model.question = this.model.exercice.questions[this._curQuestion];
     this.model.headertitle = this.model.exercice.questions[this._curQuestion].instructions;
     this.model.btnlabel = 'Valider';
   }
 
-  showNextLogbookQuestion() {
+  showLogbookQuestion() {
     this.model.headertitle = this.resolvedData.logbook.subject;
     this.model.subject = this.resolvedData.logbook.intro;
+
+    if (this._logbookAnswers[this._curQuestion]) {
+      this.$logbookAnswer.value = this._logbookAnswers[this._curQuestion];
+    }
+
     if (this.resolvedData.logbook.questions[this._curQuestion] === 'validation') {
+      classes.remove(this.refs.btnNext.$el, 'right');
+      this.refs.btnPrev.$el.style.display = 'none';
       this.$logbookAnswer.setAttribute('readonly', '');
       this.$logbookAnswer.value = this._logbookAnswers.join('\n');
       this.model.question = '';
