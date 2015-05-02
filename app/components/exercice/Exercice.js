@@ -10,6 +10,7 @@ import Question from 'components/question/Question';
 import * as ExerciceApi from 'services/exercice-api';
 import * as LogbookApi from 'services/logbook-api';
 import * as RewardApi from 'services/reward-api';
+import * as PupilApi from 'services/pupil-api';
 
 import template from './exercice.html';
 
@@ -205,6 +206,11 @@ export default class Exercice extends View {
       this.$logbookAnswer.value = this._logbookAnswers.join('\n');
       this.model.question = '';
       this.model.btnlabel = 'Valider';
+      PupilApi.saveLogbookPage(this.model.user, {
+        chapter: this.model.exercice.chapter.number - 1,
+        subChapter: this._curStep,
+        answer: this.$logbookAnswer.value
+      });
     } else {
       this.model.question = this.resolvedData.logbook.questions[this._curQuestion];
       this.model.btnlabel = 'Continuer';

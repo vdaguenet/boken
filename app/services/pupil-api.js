@@ -8,3 +8,6 @@ export function findByLogin(login) {
   }
 }
 
+export function saveLogbookPage (pupil, page) {
+  pupil.logbookPages.push(page);
+}
