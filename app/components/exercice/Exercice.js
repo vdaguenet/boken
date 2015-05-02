@@ -40,6 +40,7 @@ export default class Exercice extends View {
       }
     });
     this.refs.btnNext.on('tap', this.onNextTap.bind(this));
+    this.refs.btnNextLogbook.on('tap', this.onNextTap.bind(this));
     this.refs.btnPrev.on('tap', this.onPrevTap.bind(this));
     this.$exerciceContainer = this.$el.querySelector('.exercice-container');
     this.$logbookContainer = this.$el.querySelector('.logbook-container');
@@ -49,6 +50,7 @@ export default class Exercice extends View {
   destroying() {
     this.refs.btnPrev.off('tap', this.onPrevTap.bind(this));
     this.refs.btnNext.off('tap', this.onNextTap.bind(this));
+    this.refs.btnNextLogbook.off('tap', this.onNextTap.bind(this));
   }
 
   resolved() {
@@ -136,16 +138,15 @@ export default class Exercice extends View {
         this.model.msg = res.message;
         return;
       }
-    } else {
-      if (this.$logbookAnswer.value !== '') {
-        this._logbookAnswers.push(this.$logbookAnswer.value);
-        this.$logbookAnswer.value = '';
-      }
+    } else if (!this._isExercice && this.$logbookAnswer.value !== '') {
+      this._logbookAnswers.push(this.$logbookAnswer.value);
+      this.$logbookAnswer.value = '';
     }
 
     this._curQuestion++;
     this.model.msg = '';
     this._verified = false;
+
 
     if (this.model.exercice.questions[this._curQuestion]) {
       this.$intro.style.display = 'none';
@@ -154,7 +155,7 @@ export default class Exercice extends View {
       if (this._isExercice) {
         this.showExerciceQuestion();
       } else {
-        classes.add(this.refs.btnNext.$el, 'right');
+        classes.add(this.refs.btnNextLogbook.$el, 'right');
         this.refs.btnPrev.$el.style.display = '';
         this.showLogbookQuestion();
       }
@@ -167,6 +168,7 @@ export default class Exercice extends View {
     }
 
     this.refs.header.resize();
+    this.refs.headerLogbook.resize();
   }
 
   onPrevTap() {
@@ -179,7 +181,7 @@ export default class Exercice extends View {
     } else {
       this.$intro.style.display = '';
       this.$questionContainer.style.display = 'none';
-      classes.remove(this.refs.btnNext.$el, 'right');
+      classes.remove(this.refs.btnNextLogbook.$el, 'right');
       this.refs.btnPrev.$el.style.display = 'none';
       this.model.subject = '';
     }
@@ -200,7 +202,7 @@ export default class Exercice extends View {
     }
 
     if (this.resolvedData.logbook.questions[this._curQuestion] === 'validation') {
-      classes.remove(this.refs.btnNext.$el, 'right');
+      classes.remove(this.refs.btnNextLogbook.$el, 'right');
       this.refs.btnPrev.$el.style.display = 'none';
       this.$logbookAnswer.setAttribute('readonly', '');
       this.$logbookAnswer.value = this._logbookAnswers.join('\n');
@@ -224,6 +226,7 @@ export default class Exercice extends View {
     this.model.btnlabel = 'Retour à la carte';
     if (this._isExercice) {
       this.getReward();
+      PupilApi.saveExercice(this.model.user, this.model.exerciceid);
       this.$el.querySelector('.exercice-container .line-header span').style.fontSize = '50px';
     } else {
       this.model.subject = '';
@@ -239,7 +242,7 @@ export default class Exercice extends View {
       return;
     }
 
+    PupilApi.saveReward(this.model.user, this.model.exercice.chapter.subChapters[this._curStep].rewards[randomRewardId]);
     this.model.reward = RewardApi.findById(this.model.exercice.chapter.subChapters[this._curStep].rewards[randomRewardId]);
   }
-
 }
