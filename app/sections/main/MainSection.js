@@ -29,16 +29,15 @@ export default class MainSection extends View {
       this.connectUser();
     }
     this.model.user = PupilApi.findByLogin(window.localStorage.getItem('user'));
-  }
-
-  ready() {
     this.refs.map.on('exercice:open', data => {
-      this.model.exerciceid = data.id;
+      this.model.exerciceid = data.exerciceId;
+      this.model.logbookid = data.logbookId;
       this.refs.exercice.open();
     });
-    this.refs.exercice.on('exercice:success', () => {
+    this.refs.exercice.on('close', () => {
       this.refs.map.showNextExercice();
     });
+
   }
 
   destroying() {

@@ -7,7 +7,8 @@ import raf from 'raf';
 import World from './objects2D/World.js';
 import Island from './objects2D/Island.js';
 import ExercicePoint from './objects2D/ExercicePoint.js';
-import ExercicesContainer from './objects2D/ExercicesContainer.js';
+import Way from './objects2D/Way.js';
+import * as ExerciceApi from 'services/exercice-api';
 
 import template from './interactiveMap.html';
 
@@ -25,7 +26,7 @@ export default class InteractiveMap extends View {
     resizeUtil.addListener(this.resize.bind(this));
     this.initIsland();
     this.initPleats();
-    // this.initExercices();
+    this.initExercices();
     // Append world
     this.world.appendTo(this.$el);
     raf(this.animate.bind(this));
@@ -34,9 +35,6 @@ export default class InteractiveMap extends View {
   destroying() {
     resizeUtil.removeAllListeners();
     this.island.off();
-    for(var ex of this.exercicesContainer.exercices) {
-      ex.off();
-    }
   }
 
   resolved() {}
@@ -58,31 +56,29 @@ export default class InteractiveMap extends View {
       locked: false,
       texture: PIXI.Texture.fromImage('../assets/images/map/island.png')
     });
-    this.island.on('zoom', coord => {
-      this.world.zoomIn(coord.x, coord.y);
-    });
-    this.island.on('unzoom', () => {
-      this.world.zoomOut();
-    });
 
     this.world.addChild(this.island);
   }
 
   initExercices() {
-    var exercicePoint;
-    this.exercicesContainer = new ExercicesContainer(this.world.getWidth(), this.world.getHeight());
-    this.exercicesContainer.setPosition(0, 0);
-    for(var ex of this.resolvedData.exercices) {
-      exercicePoint = new ExercicePoint(ex.x * this.world.getWidth(), ex.y * this.world.getHeight(), PIXI.Texture.fromImage('../assets/images/map/point.png'), ex.id, ex.active);
-      exercicePoint.on('exercice:open', this.openExercice.bind(this));
-      this.exercicesContainer.addExercice(exercicePoint);
+    let exercicePoint;
+    this.way = new Way();
+
+    for (let point of ExerciceApi.getPoints()) {
+      exercicePoint = new ExercicePoint(point.x, point.y, point.exerciceId, point.logbookPageId, point.active);
+      exercicePoint.on('open', this.openExercice.bind(this));
+      this.way.addPoint(exercicePoint);
     }
 
-    this.world.addChild(this.exercicesContainer);
+    this.world.addChild(this.way);
+    this.way.show();
   }
 
   openExercice(e) {
-    this.emit('exercice:open', {id: e.id});
+    this.emit('exercice:open', {
+      exerciceId: e.exerciceId,
+      logbookId: e.logbookId
+    });
     this.world.transitionToExercice();
   }
 
@@ -96,19 +92,7 @@ export default class InteractiveMap extends View {
   }
 
   showNextExercice() {
-    var nextExercices = this.exercicesContainer.exercices.filter(ex => {
-      return !ex.active;
-    })
-    if(nextExercices[0]) {
-      // FOR TEST ONLY
-      var g = new PIXI.Graphics();
-      g.lineStyle(2, 0xf3eacc);
-      g.moveTo(this.exercicesContainer.exercices[0].x + 0.5 * this.exercicesContainer.exercices[0].width, this.exercicesContainer.exercices[0].y);
-      g.lineTo(nextExercices[0].x - 0.5 * nextExercices[0].width, nextExercices[0].y);
-      this.world.addChild(g);
-
-      nextExercices[0].show();
-    }
+    this.world.reverseTransitionToExercice();
   }
 
 }

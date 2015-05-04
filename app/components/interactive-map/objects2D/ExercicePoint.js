@@ -8,21 +8,18 @@ const randomUtil = new RandomHelper();
 
 export default class ExercicePoint extends PIXI.Sprite {
 
-  constructor(x, y, texture, exerciceId, active) {
+  constructor(x, y, exerciceId, logbookId, active) {
     Emitter(this);
-    super(texture);
+    super(PIXI.Texture.fromImage('../assets/images/map/point.png'));
 
     this.x = x;
     this.y = y;
     this.exerciceId = exerciceId;
+    this.logbookId = logbookId;
     this.active = active;
     this.interactive = true;
     this.anchor = new PIXI.math.Point(0.5, 0.5);
-    var s = randomUtil.randomFloat(0.25, 0.5, 2);
-    this.scale = new PIXI.math.Point(s, s);
     this.isOpen = false;
-
-    if(!this.active) this.hide();
   }
 
   click(e) {
@@ -44,9 +41,10 @@ export default class ExercicePoint extends PIXI.Sprite {
   }
 
   open() {
-    if(!this.exerciceId) return;
-
     this.isOpen = true;
-    this.emit('exercice:open', {id: this.exerciceId});
+    this.emit('open', {
+      exerciceId: this.exerciceId,
+      logbookId: this.logbookId
+    });
   }
 }

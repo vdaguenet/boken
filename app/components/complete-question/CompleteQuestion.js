@@ -32,6 +32,11 @@ export default class CompleteQuestion extends View {
     return this.puplisAnswers;
   }
 
+  reset() {
+    this.puplisAnswers = {};
+    this.model.sentences = [];
+  }
+
   hide() {
     this.$el.style.display = 'none';
   }

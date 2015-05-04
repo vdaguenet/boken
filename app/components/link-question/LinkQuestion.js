@@ -17,7 +17,7 @@ export default class LinkQuestion extends View {
       model: defaults(model, {
         question: {},
         subjects: [],
-        answers: [],
+        answers: []
       }),
       compose: {}
     });
@@ -52,12 +52,29 @@ export default class LinkQuestion extends View {
     this.graphics.on('touchendoutside', this.onTouchend.bind(this));
   }
 
+  reset() {
+    this.model.question = {};
+    this.model.subjects = [];
+    this.model.answers = [];
+    this._sentencePoints = [];
+    this._answerPoints = [];
+
+    this._curSubject = '';
+    this.pupilAnswers = {};
+
+    this.stage.removeChildren();
+
+    this.graphics.clear();
+    this.graphics.on('touchstart', this.onTouchstart.bind(this));
+    this.graphics.on('touchend', this.onTouchend.bind(this));
+    this.graphics.on('touchendoutside', this.onTouchend.bind(this));
+  }
+
   onTouchstart(e) {
     let i = 0;
     for (let p of this._sentencePoints) {
       if (isInCircle(e.data.global.x, e.data.global.y, p.x, p.y, this._pointRadius)) {
         this.graphics.on('touchmove', this.onTouchmove.bind(this));
-        // TODO: save current sentence
         this._curSubject = this.model.subjects[i];
         this.pupilAnswers[this._curSubject] = '';
       }

@@ -26,6 +26,19 @@ export default class SortQuestion extends View {
     this._placeholdersRight = this.$el.querySelectorAll('.column.right .placeholder');
   }
 
+  reset() {
+    this.pupilAnswers = {};
+    this.model.proposals = [];
+
+    for (let pl of this._placeholdersLeft) {
+      classes.remove(pl, 'filled');
+    }
+
+    for (let pr of this._placeholdersRight) {
+      classes.remove(pr, 'filled');
+    }
+  }
+
   getPupilAnswers() {
     return this.pupilAnswers;
   }

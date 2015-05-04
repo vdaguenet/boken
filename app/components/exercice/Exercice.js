@@ -53,7 +53,7 @@ export default class Exercice extends View {
     this.refs.btnNextLogbook.off('tap', this.onNextTap.bind(this));
   }
 
-  resolved() {
+  onReset() {
     if (this.resolvedData.exercice) {
       this._isExercice = true;
       this.toggleExerciceContainer();
@@ -62,6 +62,7 @@ export default class Exercice extends View {
       this.model.endsentence = this.model.exercice.chapter.subChapters[this._curStep].endSentence;
       this.model.headertitle = this.resolvedData.exercice.chapter.title;
       this.model.btnlabel = 'Commencer le récit';
+      this.refs.header.resize();
     } else {
       this._isExercice = false;
       this.toggleExerciceContainer();
@@ -70,6 +71,7 @@ export default class Exercice extends View {
       this._curStep = this.resolvedData.logbook.step;
       this.model.headertitle = this.resolvedData.logbook.chapter.title;
       this.model.btnlabel = 'Écrire mon récit';
+      this.refs.headerLogbook.resize();
     }
   }
 
@@ -87,6 +89,7 @@ export default class Exercice extends View {
     }
 
     this.$intro = this.$el.querySelector(typeClass + ' .intro');
+    this.$intro.style.display = '';
     this.$end = this.$el.querySelector(typeClass + ' .end');
     this.$end.style.display = 'none';
     this.$questionContainer = this.$el.querySelector(typeClass + ' .question');
@@ -94,35 +97,44 @@ export default class Exercice extends View {
   }
 
   reset() {
+    this.refs.question.reset();
+
     this.model.msg = '';
     this.model.headertitle = 'Exercice title';
     this.model.btnlabel = 'Commencer le récit';
     this.model.endsentence = 'Phrase de fin';
     this.model.subject = '';
+
     this._isExercice = true;
     this._end = false;
     this._verified = false;
     this._curQuestion = -1;
     this._logbookAnswers = [];
+
     this.resolvedData.exercice = ExerciceApi.findById(this.model.exerciceid);
     this.resolvedData.logbook = LogbookApi.findById(this.model.logbookid);
+
     this.refs.btnPrev.$el.style.display = 'none';
     classes.add(this.refs.btnPrev.$el, 'left');
+
     if (this.$logbookAnswer) {
       this.$logbookAnswer.value = '';
       this.$logbookAnswer.removeAttribute('readonly');
     }
-    this.resolved();
+
+    this.$el.querySelector('.exercice-container .line-header span').style.fontSize = '';
+    this.$el.querySelector('.logbook-container .line-header span').style.fontSize = '';
+
+    this.onReset();
   }
 
   open() {
-    console.log('OPEN EXERCICE');
     this.reset();
     classes.add(this.$el, 'active');
   }
 
   close() {
-    console.log('CLOSE EXERCICE');
+    this.emit('close');
     classes.remove(this.$el, 'active');
   }
 
@@ -187,6 +199,9 @@ export default class Exercice extends View {
       this.refs.btnPrev.$el.style.display = 'none';
       this.model.subject = '';
     }
+
+    this.refs.header.resize();
+    this.refs.headerLogbook.resize();
   }
 
   showExerciceQuestion() {

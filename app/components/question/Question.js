@@ -59,6 +59,12 @@ export default class Question extends View {
     };
   }
 
+  reset() {
+    this.refs.linkQuestion.reset();
+    this.refs.sortQuestion.reset();
+    this.refs.completeQuestion.reset();
+  }
+
   update() {
     switch (this.model.question.type) {
       case 'link':

@@ -16,6 +16,10 @@ export default class World extends PIXI.Container {
 
     this.thresholdAlphaFilter = new ThresholdAlphaFilter();
     this.filters = [this.thresholdAlphaFilter];
+
+    // setTimeout(() => {
+    //   this.transitionToExercice();
+    // }, 2000);
   }
 
   resize(width, height) {
@@ -54,7 +58,11 @@ export default class World extends PIXI.Container {
     this.thresholdAlphaFilter.play();
   }
 
-  zoomIn(x, y) {
+  reverseTransitionToExercice() {
+    this.thresholdAlphaFilter.reverse();
+  }
+
+  /*zoomIn(x, y) {
     if (this._tlZoomOut) {
       this._tlZoomOut.kill();
     }
@@ -78,6 +86,6 @@ export default class World extends PIXI.Container {
     this._tlZoomOut = new TimelineMax();
     this._tlZoomOut.to(this.pivot, 0.6, {x: this._oldPosition.x, y: this._oldPosition.y, ease: Expo.easeOut}, 0);
     this._tlZoomOut.to(this.scale, 0.6, {x: this._oldScale.x, y: this._oldScale.y, ease: Expo.easeOut}, 0);
-  }
+  }*/
 
 }

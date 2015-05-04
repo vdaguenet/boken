@@ -1,8 +1,16 @@
 [
   {
-    x: 0,
-    y: 0,
+    x: 500,
+    y: 620,
+    exerciceId: 0,
+    logbookPageId: -1,
+    active: true
+  },
+  {
+    x: 600,
+    y: 620,
     exerciceId: -1,
-    logbookPageId: -1
+    logbookPageId: 0,
+    active: true
   }
 ];

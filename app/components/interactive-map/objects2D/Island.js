@@ -28,24 +28,4 @@ export default class Island extends PIXI.Sprite {
     this.height = height;
   }
 
-  click(e) {
-    this.toggleOpen(e.data.originalEvent.clientX, e.data.originalEvent.clientY);
-  }
-
-  tap(e) {
-    this.toggleOpen(e.data.originalEvent.changedTouches[0].clientX, e.data.originalEvent.changedTouches[0].clientY);
-  }
-
-  toggleOpen(x, y) {
-    if (this.locked) return;
-
-    if (this._isOpen) {
-      this.emit('unzoom');
-      this._isOpen = false;
-    } else {
-      this.emit('zoom', {x: x, y: y});
-      this._isOpen = true;
-    }
-  }
-
 }

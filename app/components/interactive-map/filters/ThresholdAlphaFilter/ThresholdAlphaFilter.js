@@ -10,7 +10,7 @@ const fragmentShader = glslify('./threshold.frag');
 
 export default class ThresholdAlphaFilter extends PIXI.AbstractFilter {
   constructor() {
-    let mask = PIXI.Texture.fromImage('../assets/images/map/transition7.jpg');
+    let mask = PIXI.Texture.fromImage('../assets/images/transition/test25.jpg');
     this.destTexture = PIXI.Texture.fromImage('../assets/images/map/bg-exercice.jpg');
 
     super(null, fragmentShader, {
@@ -21,7 +21,11 @@ export default class ThresholdAlphaFilter extends PIXI.AbstractFilter {
   }
 
   play() {
-    TweenMax.to(this.uniforms.uThreshold, 1.0, {value: 0});
+    TweenMax.to(this.uniforms.uThreshold, 1.5, {value: 0, ease: Linear.easeNone});
+  }
+
+  reverse() {
+    TweenMax.to(this.uniforms.uThreshold, 1.5, {value: 3.0, ease: Linear.easeNone});
   }
 
   setDestinationImage(path) {
