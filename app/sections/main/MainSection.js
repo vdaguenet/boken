@@ -1,11 +1,11 @@
 'use strict';
 
 import View from 'brindille-view';
-import preloader from 'brindille-preloader';
 import * as PupilApi from 'services/pupil-api';
 
 import InteractiveMap from 'components/interactive-map/InteractiveMap';
 import Exercice from 'components/exercice/Exercice';
+import PointsIndicator from 'components/points-indicator/PointsIndicator';
 
 import template from './main.html';
 
@@ -20,7 +20,8 @@ export default class MainSection extends View {
       },
       compose: {
         'interactive-map': InteractiveMap,
-        'exercice': Exercice
+        'exercice': Exercice,
+        'points-indicator': PointsIndicator
       },
       resolve: {}
     });
@@ -29,18 +30,27 @@ export default class MainSection extends View {
       this.connectUser();
     }
     this.model.user = PupilApi.findByLogin(window.localStorage.getItem('user'));
-    this.refs.map.on('exercice:open', data => {
-      this.model.exerciceid = data.exerciceId;
-      this.model.logbookid = data.logbookId;
-      this.refs.exercice.open();
+    this.refs.map.on('exercice:open', this.openExercice.bind(this));
+    this.refs.exercice.on('close', this.closeExercice.bind(this));
+    this.refs.exercice.on('indicator:update', (id) => {
+      this.refs.indicator.update(id);
     });
-    this.refs.exercice.on('close', () => {
-      this.refs.map.showNextExercice();
-    });
+  }
 
+  closeExercice() {
+    this.refs.indicator.hide();
+    this.refs.map.showNextExercice();
+  }
+
+  openExercice(data) {
+    this.refs.indicator.show();
+    this.model.exerciceid = data.exerciceId;
+    this.model.logbookid = data.logbookId;
+    this.refs.exercice.open();
   }
 
   destroying() {
+    this.refs.exercice.off();
     this.refs.map.off();
   }
 

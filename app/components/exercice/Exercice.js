@@ -98,6 +98,7 @@ export default class Exercice extends View {
 
   reset() {
     this.refs.question.reset();
+    this.emit('indicator:update', 0);
 
     this.model.msg = '';
     this.model.headertitle = 'Exercice title';
@@ -181,6 +182,7 @@ export default class Exercice extends View {
       this.displayEndScreen();
     }
 
+    this.emit('indicator:update', this._curQuestion + 1);
     this.refs.header.resize();
     this.refs.headerLogbook.resize();
   }
