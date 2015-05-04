@@ -1,7 +1,6 @@
 'use strict';
 
 import View from 'brindille-view';
-import preloader from 'brindille-preloader';
 import resizeUtil from 'brindille-resize';
 import PIXI from 'pixi.js';
 import raf from 'raf';
@@ -16,21 +15,20 @@ export default class InteractiveMap extends View {
   constructor() {
     super({
       template: template,
-      resolve: {
-        mapAssets: preloader.load([
-          { id: 'background', src: '../assets/images/map/ocean.jpg' },
-          { id: 'main', src: '../assets/images/map/island.png' },
-          { id: 'pleats', src: '../assets/images/map/lines.png' },
-          { id: 'point', src: '../assets/images/map/point.png' }
-        ]).getPromise()
-      },
+      resolve: {},
       model: {}
     });
   }
 
   ready() {
-    this.world = new World(this.$el.clientWidth, this.$el.clientHeight);
+    this.world = new World(resizeUtil.width, resizeUtil.height);
     resizeUtil.addListener(this.resize.bind(this));
+    this.initIsland();
+    this.initPleats();
+    // this.initExercices();
+    // Append world
+    this.world.appendTo(this.$el);
+    raf(this.animate.bind(this));
   }
 
   destroying() {
@@ -41,22 +39,11 @@ export default class InteractiveMap extends View {
     }
   }
 
-  resolved() {
-    for(var asset in this.resolvedData.mapAssets) {
-      PIXI.Texture.addTextureToCache(new PIXI.Texture(new PIXI.BaseTexture(this.resolvedData.mapAssets[asset])), asset);
-    }
-
-    this.initIsland();
-    this.initPleats();
-    // this.initExercices();
-    // Append world
-    this.world.appendTo(this.$el);
-    raf(this.animate.bind(this));
-  }
+  resolved() {}
 
   initPleats() {
     // Add pleats over the map
-    var pleats = new PIXI.Sprite(PIXI.utils.TextureCache['pleats']);
+    var pleats = new PIXI.Sprite(PIXI.Texture.fromImage('../assets/images/map/lines.png'));
     pleats.width = this.world.getWidth();
     pleats.height = this.world.getHeight();
     pleats.anchor = new PIXI.math.Point(0.5, 0.5);
@@ -69,7 +56,7 @@ export default class InteractiveMap extends View {
     // Add main island
     this.island = new Island(0.5 * this.world.getWidth(), 0.5 * this.world.getHeight(), this.world.getWidth(), this.world.getHeight(), {
       locked: false,
-      texture: PIXI.utils.TextureCache['main']
+      texture: PIXI.Texture.fromImage('../assets/images/map/island.png')
     });
     this.island.on('zoom', coord => {
       this.world.zoomIn(coord.x, coord.y);
@@ -86,7 +73,7 @@ export default class InteractiveMap extends View {
     this.exercicesContainer = new ExercicesContainer(this.world.getWidth(), this.world.getHeight());
     this.exercicesContainer.setPosition(0, 0);
     for(var ex of this.resolvedData.exercices) {
-      exercicePoint = new ExercicePoint(ex.x * this.world.getWidth(), ex.y * this.world.getHeight(), PIXI.utils.TextureCache['point'], ex.id, ex.active);
+      exercicePoint = new ExercicePoint(ex.x * this.world.getWidth(), ex.y * this.world.getHeight(), PIXI.Texture.fromImage('../assets/images/map/point.png'), ex.id, ex.active);
       exercicePoint.on('exercice:open', this.openExercice.bind(this));
       this.exercicesContainer.addExercice(exercicePoint);
     }
@@ -100,7 +87,7 @@ export default class InteractiveMap extends View {
   }
 
   resize() {
-    this.world.resize(this.$el.clientWidth, this.$el.clientHeight);
+    this.world.resize(resizeUtil.width, resizeUtil.height);
   }
 
   animate() {

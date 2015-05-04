@@ -115,13 +115,15 @@ export default class Exercice extends View {
     this.resolved();
   }
 
-  open(id) {
+  open() {
     console.log('OPEN EXERCICE');
     this.reset();
+    classes.add(this.$el, 'active');
   }
 
   close() {
     console.log('CLOSE EXERCICE');
+    classes.remove(this.$el, 'active');
   }
 
   onNextTap() {

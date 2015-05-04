@@ -14,7 +14,9 @@ export default class MainSection extends View {
     super({
       template: template,
       model: {
-        user: {}
+        user: {},
+        exerciceid: -1,
+        logbookid: -1
       },
       compose: {
         'interactive-map': InteractiveMap,
@@ -31,7 +33,8 @@ export default class MainSection extends View {
 
   ready() {
     this.refs.map.on('exercice:open', data => {
-      this.refs.exercice.open(data.id);
+      this.model.exerciceid = data.id;
+      this.refs.exercice.open();
     });
     this.refs.exercice.on('exercice:success', () => {
       this.refs.map.showNextExercice();

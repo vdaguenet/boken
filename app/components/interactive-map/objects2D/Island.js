@@ -10,11 +10,13 @@ export default class Island extends PIXI.Sprite {
     Emitter(this);
     super(opt.texture);
 
+    opt.texture.once('update', () => {
+      this._ratio = opt.texture.width / opt.texture.height;
+      this.resize(width, height);
+    });
 
     this.x = x;
     this.y = y;
-    this._ratio = opt.texture.width / opt.texture.height;
-    this.resize(width, height);
     this.anchor = new PIXI.math.Point(0.5, 0.5);
     this.interactive = true;
     (opt.locked === true) ? this.locked = opt.locked : this.locked = false;
@@ -37,7 +39,7 @@ export default class Island extends PIXI.Sprite {
   toggleOpen(x, y) {
     if (this.locked) return;
 
-    if(this._isOpen) {
+    if (this._isOpen) {
       this.emit('unzoom');
       this._isOpen = false;
     } else {
