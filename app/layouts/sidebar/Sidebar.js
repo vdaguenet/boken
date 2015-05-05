@@ -3,6 +3,7 @@
 import View from 'brindille-view';
 import {on, off} from 'dom-event';
 import nextTick from 'just-next-tick';
+import classes from 'dom-classes';
 
 /*
   services
@@ -50,6 +51,7 @@ class Sidebar extends View {
       }
     });
     this._currentTab = this.refs.passportGrid;
+    classes.add(this.refs.passportBtn.$el, 'selected');
     this._prevChapter = {};
     this._nextChapter = {};
     this.addEvents();
@@ -150,18 +152,24 @@ class Sidebar extends View {
   }
 
   onPassportClick() {
+    classes.remove(this.$el.querySelector('.menu-button.selected'), 'selected');
+    classes.add(this.refs.passportBtn.$el, 'selected');
     this._currentTab.transitionOut();
     this._currentTab = this.refs.passportGrid;
     this._currentTab.transitionIn();
   }
 
   onChestClick() {
+    classes.remove(this.$el.querySelector('.menu-button.selected'), 'selected');
+    classes.add(this.refs.chestBtn.$el, 'selected');
     this._currentTab.transitionOut();
     this._currentTab = this.refs.chestGrid;
     this._currentTab.transitionIn();
   }
 
   onLogbookClick() {
+    classes.remove(this.$el.querySelector('.menu-button.selected'), 'selected');
+    classes.add(this.refs.logbookBtn.$el, 'selected');
     this._currentTab.transitionOut();
     this._currentTab = this.refs.logbookPage;
     this._currentTab.transitionIn();

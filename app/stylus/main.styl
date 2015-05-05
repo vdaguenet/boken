@@ -1,31 +1,30 @@
 /*======================================================================
     MIXINS & EXTENDS
 ======================================================================*/
-@import "../../node_modules/stylus-media-queries/index.styl";
-@import "../../node_modules/stylus-easing/index.styl";
-@import "utils/*";
+@import "../../node_modules/stylus-media-queries/index.styl"
+@import "../../node_modules/stylus-easing/index.styl"
+@import "utils/*"
 
 /*======================================================================
     BASE
 ======================================================================*/
-@import "config/*";
-reset();
+@import "config/*"
+reset()
 
 *
-  -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+  -webkit-tap-highlight-color rgba(0,0,0,0) /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 
 html
   @extend .full-size
-  background: black
-  color: white
-  overflow-x: hidden
-  overflow-y: scroll
+  background black
+  color white
+  overflow hidden
 
 body
   @extend .full-size
-  -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-  -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-  -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+  -webkit-touch-callout none                /* prevent callout to copy image, etc when tap to hold */
+  -webkit-text-size-adjust none             /* prevent webkit from resizing text to fit */
+  -webkit-user-select none                  /* prevent copy paste, to allow, change 'none' to 'text' */
 
 #view
   @extend .full-size
@@ -33,6 +32,6 @@ body
 /*======================================================================
     COMPONENTS
 ======================================================================*/
-@import "../components/*";
-@import "../layouts/*";
-@import "../sections/*";
+@import "../components/*"
+@import "../layouts/*"
+@import "../sections/*"
