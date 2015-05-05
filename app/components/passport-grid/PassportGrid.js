@@ -12,8 +12,7 @@ export default class ChestGrid extends View {
         chapter: {},
         userchapters: {},
         row0: [],
-        row1: [],
-        row2: []
+        row1: []
       }),
       compose: {},
       resolve: {}
@@ -34,7 +33,6 @@ export default class ChestGrid extends View {
 
     this.model.row0 = [];
     this.model.row1 = [];
-    this.model.row2 = [];
 
     for (let i = 0, l = this.model.chapter.subChapters.length; i < l; i++) {
       subChapter = this.model.chapter.subChapters[i];
@@ -45,7 +43,7 @@ export default class ChestGrid extends View {
 
       this.model['row' + row].push(subChapter);
 
-      if (i % 3 === 2) {
+      if (i % 2 === 1) {
         row++;
       }
     }

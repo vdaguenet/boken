@@ -34,7 +34,8 @@ class Sidebar extends View {
       model: {
         chapter: {},
         subchapter: {},
-        user: {}
+        user: {},
+        page: {}
       },
       compose: {
         'menu-button': MenuButton,
@@ -54,6 +55,8 @@ class Sidebar extends View {
     classes.add(this.refs.passportBtn.$el, 'selected');
     this._prevChapter = {};
     this._nextChapter = {};
+    this._logbookPages = [];
+    this._curStep = 0;
     this.addEvents();
   }
 
@@ -94,8 +97,11 @@ class Sidebar extends View {
   }
 
   setLogbookPage() {
-    // FOR TEST ONLY
-    this.model.page = this.model.user.logbookPages[0];
+    this._logbookPages = PupilApi.findLogbookPagesByChapter(this.model.user, this.model.chapter.number - 1);
+    this._curStep = this._logbookPages.length - 1;
+    this.refs.logbookPage.model.current = this._curStep + 1;
+    this.refs.logbookPage.model.maxpages = this._logbookPages.length;
+    this.model.page = this._logbookPages[this._curStep];
     this.model.subchapter = this.resolvedData.chapters[this.model.page.chapter].subChapters[this.model.page.subChapter];
   }
 
@@ -144,11 +150,13 @@ class Sidebar extends View {
   open() {
     TweenMax.to(this.$parentEl, 0.6, {xPercent: -100});
     this._currentTab.transitionIn();
+    this.emit('open');
   }
 
   close() {
     this._currentTab.transitionOut();
     TweenMax.to(this.$parentEl, 0.6, {xPercent: 0});
+    this.emit('close');
   }
 
   onPassportClick() {

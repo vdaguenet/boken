@@ -19,6 +19,13 @@
       {
         chapter: 0,
         subChapter: 0,
+        intro: 'BOLO BOLO #vero',
+        answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta atque eum, ab consectetur ratione voluptatibus modi quisquam voluptates dolores optio nisi porro minima corporis ipsam ipsa, labore accusamus dignissimos id.'
+      },
+      {
+        chapter: 1,
+        subChapter: 0,
+        intro: 'Les aventuriers sont arrivés sur l’île. Ils ont recherché du bois pour faire du feu. Qu’aurais-tu fait en premier ?',
         answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta atque eum, ab consectetur ratione voluptatibus modi quisquam voluptates dolores optio nisi porro minima corporis ipsam ipsa, labore accusamus dignissimos id.'
       }
     ]

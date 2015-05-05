@@ -4,6 +4,7 @@ import View from 'brindille-view';
 import resizeUtil from 'brindille-resize';
 import PIXI from 'pixi.js';
 import raf from 'raf';
+import classes from 'dom-classes';
 import World from './objects2D/World.js';
 import Island from './objects2D/Island.js';
 import ExercicePoint from './objects2D/ExercicePoint.js';
@@ -19,6 +20,8 @@ export default class InteractiveMap extends View {
       resolve: {},
       model: {}
     });
+
+    this.$overlay = this.$el.querySelector('.overlay');
   }
 
   ready() {
@@ -37,7 +40,13 @@ export default class InteractiveMap extends View {
     this.island.off();
   }
 
-  resolved() {}
+  applyGreyFilter() {
+    classes.add(this.$overlay, 'active');
+  }
+
+  removeGreyFilter() {
+    classes.remove(this.$overlay, 'active');
+  }
 
   initPleats() {
     // Add pleats over the map

@@ -230,6 +230,7 @@ export default class Exercice extends View {
       PupilApi.saveLogbookPage(this.model.user, {
         chapter: this.model.exercice.chapter.number - 1,
         subChapter: this._curStep,
+        itro: this.resolvedData.logbook.intro,
         answer: this.$logbookAnswer.value
       });
     } else {

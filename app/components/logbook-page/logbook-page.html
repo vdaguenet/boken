@@ -1,7 +1,11 @@
 <div class="logbook-page">
-  <img rv-src="subchapter.iconPath">
-  <h1>{subchapter.title}</h1>
+  <img rv-src="subchapter.stampPath">
+  <div class="title">
+    <h1>{subchapter.title}</h1>
+    <p>{page.intro}</p>
+  </div>
   <div class="content">
     {page.answer}
   </div>
+  <page-numbers bind-current="current" bind-max="maxpages"></page-numbers>
 </div>

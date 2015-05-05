@@ -1,11 +1,9 @@
 'use strict';
 
 import polyfill from 'babel/polyfill';
-
 import domready from 'domready';
 import gsap from 'gsap';
 import Draggable from 'gsap/src/uncompressed/utils/Draggable';
-import {verbose} from 'config';
 
 /*
   Layouts
@@ -34,5 +32,13 @@ domready(() => {
 
   Header.on('menu:open', () => {
     Sidebar.open();
+  });
+
+  Sidebar.on('open', () => {
+    app.greyifyMap();
+  });
+
+  Sidebar.on('close', () => {
+    app.removeOverlay();
   });
 });

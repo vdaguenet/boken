@@ -3,7 +3,7 @@
 import View from 'brindille-view';
 import * as PupilApi from 'services/pupil-api';
 
-import InteractiveMap from 'components/interactive-map/InteractiveMap';
+import InteractiveMap from 'components/interactive-map/interactiveMap';
 import Exercice from 'components/exercice/Exercice';
 import PointsIndicator from 'components/points-indicator/PointsIndicator';
 
@@ -35,6 +35,14 @@ export default class MainSection extends View {
     this.refs.exercice.on('indicator:update', (id) => {
       this.refs.indicator.update(id);
     });
+  }
+
+  greyifyMap() {
+    this.refs.map.applyGreyFilter();
+  }
+
+  removeOverlay() {
+    this.refs.map.removeGreyFilter();
   }
 
   closeExercice() {

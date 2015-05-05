@@ -2,6 +2,7 @@
 
 import defaults from 'defaults';
 import View from 'brindille-view';
+import PageNumbers from 'components/page-numbers/PageNumbers';
 import template from './logbook-page.html';
 
 export default class LogbookPage extends View {
@@ -10,9 +11,13 @@ export default class LogbookPage extends View {
       template: template,
       model: defaults(model, {
         page: {},
-        subchapter: {}
+        subchapter: {},
+        current: 0,
+        maxpages: 0
       }),
-      compose: {},
+      compose: {
+        'page-numbers': PageNumbers
+      },
       resolve: {}
     });
   }

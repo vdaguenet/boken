@@ -16,10 +16,6 @@ export default class World extends PIXI.Container {
 
     this.thresholdAlphaFilter = new ThresholdAlphaFilter();
     this.filters = [this.thresholdAlphaFilter];
-
-    // setTimeout(() => {
-    //   this.transitionToExercice();
-    // }, 2000);
   }
 
   resize(width, height) {

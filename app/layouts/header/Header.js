@@ -16,12 +16,10 @@ class Header extends View {
   }
 
   ready() {
-    on(this.$el, 'click', this.openMenu.bind(this));
     on(this.$el, 'touchend', this.openMenu.bind(this));
   }
 
   destroying() {
-    off(this.$el, 'click', this.openMenu.bind(this));
     off(this.$el, 'touchend', this.openMenu.bind(this));
   }
 

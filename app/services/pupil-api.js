@@ -8,6 +8,10 @@ export function findByLogin(login) {
   }
 }
 
+export function findLogbookPagesByChapter(pupil, chapterId) {
+  return pupil.logbookPages.filter(item => item.chapter === chapterId);
+}
+
 export function saveLogbookPage (pupil, page) {
   pupil.logbookPages.push(page);
 }

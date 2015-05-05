@@ -8,6 +8,7 @@
       {
         rewards: [0, 2],
         iconPath: '../assets/images/pictos/passport/step-1.png',
+        stampPath: '../assets/images/pictos/passport/stamp.png',
         title: 'Etape 1 1',
         endSentence: 'lorem ipsum 1'
       }
@@ -22,24 +23,28 @@
       {
         rewards: [0, 1, 2, 3],
         iconPath: '../assets/images/pictos/passport/step-1.png',
+        stampPath: '../assets/images/pictos/passport/stamp.png',
         title: 'Etape 2 1',
         endSentence: 'Tu as réussi à faire du feu !'
       },
       {
         rewards: [0, 1, 2, 3],
         iconPath: '../assets/images/pictos/passport/step-1.png',
+        stampPath: '../assets/images/pictos/passport/stamp.png',
         title: 'Etape 2 2',
         endSentence: 'lorem ipsum'
       },
       {
         rewards: [0, 1, 2, 3],
         iconPath: '../assets/images/pictos/passport/step-1.png',
+        stampPath: '../assets/images/pictos/passport/stamp.png',
         title: 'Etape 2 3',
         endSentence: 'lorem ipsum'
       },
       {
         rewards: [0, 1, 2, 3],
         iconPath: '../assets/images/pictos/passport/step-1.png',
+        stampPath: '../assets/images/pictos/passport/stamp.png',
         title: 'Etape 2 4',
         endSentence: 'lorem ipsum'
       }

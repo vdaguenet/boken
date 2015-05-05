@@ -1,12 +1,18 @@
 .passport-grid
   display table
   border-collapse separate
-  -webkit-border-horizontal-spacing 30px
+  -webkit-border-horizontal-spacing 60px
   -webkit-border-vertical-spacing 15px
   margin 0 auto
   text-align center
 
+  .row
+    position relative
+    top 20px
+    left -30px
+
 .passport-grid-item
+  @extend .font-serif
   width 88px
   height 88px
   border-radius 4px
@@ -16,13 +22,14 @@
 
   .icon
     margin 0 auto
-    width 100px
+    width 155px
     opacity 0.5
 
   .stamp
     position absolute
     top -8px
     left -8px
+    width 112%
 
   .label
     color brown
