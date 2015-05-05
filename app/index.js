@@ -18,6 +18,15 @@ import MainSection from 'sections/main/MainSection.js';
 
 var app = new MainSection();
 
+app.on('sidebar:close', () => {
+  Sidebar.close();
+});
+
+Header.on('menu:open', () => {
+  Sidebar.open();
+  app.greyifyMap();
+});
+
 domready(() => {
   /*
     Layouts
@@ -29,16 +38,4 @@ domready(() => {
     Sections
    */
   app.appendTo(document.querySelector('#view'));
-
-  Header.on('menu:open', () => {
-    Sidebar.open();
-  });
-
-  Sidebar.on('open', () => {
-    app.greyifyMap();
-  });
-
-  Sidebar.on('close', () => {
-    app.removeOverlay();
-  });
 });

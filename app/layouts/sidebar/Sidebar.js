@@ -156,7 +156,6 @@ class Sidebar extends View {
   close() {
     this._currentTab.transitionOut();
     TweenMax.to(this.$parentEl, 0.6, {xPercent: 0});
-    this.emit('close');
   }
 
   onPassportClick() {
