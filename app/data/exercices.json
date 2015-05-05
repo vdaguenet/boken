@@ -1,84 +1,473 @@
 [
   {
-    subject: 'Lorem ipsum dolor sit amet',
-    chapter: 0,
-    step: 0,
+    subject: 'Conjugaison : les trois groupes de verbes',
+    chapter: 1,
+    step: 3,
     questions: [
       {
-        instructions: 'RELIE CHAQUE VERBE CONJUGUÉ À SON INFINITIF',
-        type: 'link',
-        sentences: [
-          {
-            subject: 'J’ai cherché par terre',
-            answer: 'chercher'
-          },
-          {
-            subject: 'J’ai fouillé mes poches',
-            answer: 'fouiller'
-          },
-          {
-            subject: 'La boîte est tombée',
-            answer: 'être'
-          },
-          {
-            subject: 'Nous avons eu faim',
-            answer: 'avoir'
-          }
-        ]
-      },
-      {
-        instructions: 'RANGE LES VERBES SELON LEUR AUXILIAIRE',
-        type: 'sort',
-        sentences: [
-          {
-            subject: 'tomber',
-            answer: 'être'
-          },
-          {
-            subject: 'fouiller',
-            answer: 'avoir'
-          },
-          {
-            subject: 'allumer',
-            answer: 'avoir'
-          },
-          {
-            subject: 'chercher',
-            answer: 'avoir'
-          },
-          {
-            subject: 'frotter',
-            answer: 'être'
-          },
-          {
-            subject: 'être',
-            answer: 'avoir'
-          }
-        ]
-      },
-      {
-        instructions: 'CONJUGUE LES PHRASES AU PASSÉ COMPOSÉ',
+        instructions: 'Indique le groupe auquel appartiennent les verbes.',
         type: 'complete',
         sentences: [
           {
-            subject: 'Nous [ANSWER] le foyer.',
-            answer: 'avons établi',
-            clue: 'établir'
+            subject: 'Arrivé à la forêt, Pencroff <b>cassa</b> au premier arbre deux solides branches qu’il transforma en gourdins. [ANSWER]',
+            answer: '1',
+            clue: '1, 2, ou 3'
           },
           {
-            subject: 'Nous [ANSWER] le repas.',
-            answer: 'avons préparé',
-            clue: 'préparer'
+            subject: 'Puis, les deux chasseurs <b>s’avancèrent</b> dans les hautes herbes, en suivant la berge. [ANSWER]',
+            answer: '1',
+            clue: '1, 2, ou 3'
           },
           {
-            subject: 'Mon compagnon [ANSWER] de larges pierres plates au fond du couloir de gauche.',
-            answer: 'a disposé',
-            clue: 'disposer'
+            subject: 'À partir du coude qui reportait son cours dans le sud-ouest, la rivière se <b>rétrécissait</b> peu à peu. [ANSWER]',
+            answer: '2',
+            clue: '1, 2, ou 3'
           },
           {
-            subject: 'Il s\'est installé près du foyer et [ANSWER] les mains.',
-            answer: 's\'est réchauffé',
-            clue: 'se réchauffer'
+            subject: 'Mais la berge n’<b>était</b> pas sans présenter quelques obstacles, ici des arbres dont les branches flexibles se courbaient jusqu’au niveau du courant, là des lianes ou des épines qu’il fallait briser à coups de bâton. [ANSWER]',
+            answer: '3',
+            clue: '1, 2, ou 3'
+          },
+          {
+            subject: 'Souvent, Harbert se <b>glissait</b> entre les souches brisées avec la prestesse d’un jeune chat, et il disparaissait dans le taillis. [ANSWER]',
+            answer: '1',
+            clue: '1, 2, ou 3'
+          }
+        ]
+      },
+      {
+        instructions: 'Relie les verbes conjugués à leur infinitif',
+        type: 'link',
+        sentences: [
+          {
+            subject: 'Deux solides branches qu’il <b>transforma</b> en gourdins',
+            answer: 'transformer'
+          },
+          {
+            subject: 'Harbert <b>usa</b> la pointe sur une roche.',
+            answer: 'user'
+          },
+          {
+            subject: 'Ses rives <b>formaient</b> un lit très encaissé recouvert par le double arceau des arbres.',
+            answer: 'former'
+          },
+          {
+            subject: 'Des épines qu’il <b>fallait</b> briser à coups de bâton.',
+            answer: 'falloir'
+          },
+          {
+            subject: 'Il <b>disparaissait</b> dans le taillis.',
+            answer: 'disparaître'
+          }
+        ]
+      },
+      {
+        instructions: 'Classe dans la bonne colonne les verbes selon leur groupe',
+        type: 'sort',
+        sentences: [
+          {
+            subject: 'transformer',
+            answer: '1er groupe'
+          },
+          {
+            subject: 'avancer',
+            answer: '1er groupe'
+          },
+          {
+            subject: 'casser',
+            answer: '1er groupe'
+          },
+          {
+            subject: 'rétrécir',
+            answer: '2ème groupe'
+          },
+          {
+            subject: 'être',
+            answer: '3ème groupe'
+          },
+          {
+            subject: 'falloir',
+            answer: '3ème groupe'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    subject: 'Orthographe : a et à',
+    chapter: 1,
+    step: 3,
+    questions: [
+      {
+        instructions: 'Complète par a ou à',
+        type: 'complete',
+        sentences: [
+          {
+            subject: 'Jusqu’alors, la chasse n’[ANSWER] pas été fructueuse.',
+            answer: 'a',
+            clue: 'a ou à'
+          },
+          {
+            subject: 'Entre autres volatiles, Harbert signala un oiseau [ANSWER] bec aigu et allongé.',
+            answer: 'à',
+            clue: 'a ou à'
+          },
+          {
+            subject: '« Ce doit être un « jacamar », dit Harbert, en essayant d’approcher l’animal [ANSWER] bonne portée.',
+            answer: 'à',
+            clue: 'a ou à'
+          },
+          {
+            subject: 'En ce moment, une pierre, adroitement et vigoureusement lancée par le jeune garçon, vint frapper le volatile [ANSWER] la naissance de l’aile.',
+            answer: 'à',
+            clue: 'a ou à'
+          },
+          {
+            subject: '« Maladroit que je suis ! s’écria Harbert. Le coup est bien porté, mais il [ANSWER] manqué l’oiseau.',
+            answer: 'a',
+            clue: 'a ou à'
+          }
+        ]
+      },
+      {
+        instructions: 'Remplace a ou à par avait ou avec (+)',
+        type: 'complete',
+        sentences: [
+          {
+            subject: 'Jusqu’alors, la chasse n’[ANSWER] pas été fructueuse.',
+            answer: 'avait',
+            clue: 'a'
+          },
+          {
+            subject: 'Entre autres volatiles, Harbert signala un oiseau [ANSWER] bec aigu et allongé.',
+            answer: 'avec un',
+            clue: 'à'
+          },
+          {
+            subject: 'Mais le coup ne fut pas suffisant, car le jacamar s’enfuit [ANSWER] vitesse et disparut en un instant.',
+            answer: 'à toute',
+            clue: 'avec'
+          },
+          {
+            subject: '« Maladroit que je suis ! s’écria Harbert. Le coup est bien porté, mais il [ANSWER] manqué l’oiseau.',
+            answer: 'avait',
+            clue: 'a'
+          }
+        ]
+      },
+      {
+        instructions: 'Associe le mot en gras à sa classe grammaticale',
+        type: 'link',
+        sentences: [
+          {
+            subject: 'La chasse n’<b>a</b> pas été fructueuse.',
+            answer: 'verbe'
+          },
+          {
+            subject: 'Harbert signala un oiseau <b>à</b> bec aigu et allongé',
+            answer: 'préposition'
+          },
+          {
+            subject: '« Ce doit être un « jacamar », dit Harbert, en essayant d’approcher l’animal <b>à</b> bonne portée.',
+            answer: 'préposition'
+          },
+          {
+            subject: 'Le jacamar s’enfuit <b>à</b> toute vitesse.',
+            answer: 'préposition'
+          },
+          {
+            subject: 'Il a manqué l’oiseau.',
+            answer: 'verbe'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    subject: 'Grammaire : l’accord sujet-verbe',
+    chapter: 1,
+    step: 3,
+    questions: [
+      {
+        instructions: 'Conjugue les verbes au présent',
+        type: 'complete',
+        sentences: [
+          {
+            subject: 'Vers trois heures après midi, il [ANSWER] de nouvelles bandes d’oiseaux à travers certains arbres.',
+            answer: 'entrevoit',
+            clue: 'entrevoir'
+          },
+          {
+            subject: 'Ils [ANSWER] les baies aromatiques.',
+            answer: 'becquettent',
+            clue: 'becquetter'
+          },
+          {
+            subject: 'Soudain, un véritable appel de trompette [ANSWER] dans la forêt.',
+            answer: 'résonne',
+            clue: 'résonner'
+          },
+          {
+            subject: 'Ces étranges et sonores fanfares sont produites par ces gallinacés que l’on [ANSWER] «tétras»',
+            answer: 'nomme',
+            clue: 'nommer'
+          },
+          {
+            subject: '« Mais ils ne se [ANSWER] point approcher.',
+            answer: 'laissent',
+            clue: 'laisser'
+          }
+        ]
+      },
+      {
+        instructions: 'Remplace par le sujets qui convient',
+        type: 'complete',
+        sentences: [
+          {
+            subject: '[ANSWER] entrevoit de nouvelles bandes d’oiseaux.',
+            answer: 'il',
+            clue: 'il / ils'
+          },
+          {
+            subject: '[ANSWER] becquetaient les baies aromatiques.',
+            answer: 'ils',
+            clue: 'il / ils'
+          },
+          {
+            subject: '[ANSWER] reconnait les mâles aux deux ailerons pointus.',
+            answer: 'il',
+            clue: 'il / ils'
+          },
+          {
+            subject: '[ANSWER] juge indispensable de s’emparer de l’un de ces gallinacés.',
+            answer: 'il',
+            clue: 'il / ils'
+          },
+          {
+            subject: 'Mais [ANSWER] ne se laissent point approcher',
+            answer: 'ils',
+            clue: 'il / ils'
+          }
+        ]
+      },
+      {
+        instructions: 'Conjugue les verbes au présent',
+        type: 'complete',
+        sentences: [
+          {
+            subject: 'Ils [ANSWER] de nouvelles bandes d’oiseaux à travers certains arbres.',
+            answer: 'entrevoient',
+            clue: 'entrevoir'
+          },
+          {
+            subject: 'Il [ANSWER] les baies aromatiques.',
+            answer: 'becquette',
+            clue: 'becquetter'
+          },
+          {
+            subject: 'Soudain, elles [ANSWER] dans la forêt.',
+            answer: 'résonnent',
+            clue: 'résonner'
+          },
+          {
+            subject: 'Ils se [ANSWER] «tétras»',
+            answer: 'nomment',
+            clue: 'nommer'
+          },
+          {
+            subject: '« Mais il ne se [ANSWER] point approcher.',
+            answer: 'laisse',
+            clue: 'laisser'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    subject: 'Orthographe : son et sont',
+    chapter: 1,
+    step: 3,
+    questions: [
+      {
+        instructions: 'Complète par son ou sont',
+        type: 'complete',
+        sentences: [
+          {
+            subject: 'Leurs tentatives [ANSWER] infructueuses. Le marin dit alors au jeune garçon :',
+            answer: 'sont',
+            clue: 'son / sont'
+          },
+          {
+            subject: '« Décidément, puisqu’on ne peut les tuer au vol, il faut essayer de les prendre à la ligne.<br>– Comme une carpe  ?»  s’écria Harbert, très surpris de [ANSWER] initiative.',
+            answer: 'son',
+            clue: 'son / sont'
+          },
+          {
+            subject: 'Il imagina de tendre de véritables lignes à hameçon et il mît [ANSWER] plan à exécution.',
+            answer: 'son',
+            clue: 'son / sont'
+          },
+          {
+            subject: 'Les lignes [ANSWER] faites de minces lianes, rattachées l’une à l’autre et longues de quinze à vingt pieds.',
+            answer: 'sont',
+            clue: 'son / sont'
+          },
+          {
+            subject: 'De grosses épines très fortes, à pointes recourbées, que fournit un buisson d’acacias nains, [ANSWER] liées aux extrémités des lianes en guise d’hameçon.',
+            answer: 'sont',
+            clue: 'son / sont'
+          }
+        ]
+      },
+      {
+        instructions: 'Remplace par ce/cette ou seront',
+        type: 'complete',
+        sentences: [
+          {
+            subject: 'Leurs tentatives [ANSWER] infructueuses. Le marin dit alors au jeune garçon :',
+            answer: 'seront',
+            clue: 'ce / cette / seront'
+          },
+          {
+            subject: '« Décidément, puisqu’on ne peut les tuer au vol, il faut essayer de les prendre à la ligne.<br>– Comme une carpe  ?»  s’écria Harbert, très surpris de [ANSWER] initiative.',
+            answer: 'cette',
+            clue: 'ce / cette / seront'
+          },
+          {
+            subject: 'Il imagina de tendre de véritables lignes à hameçon et il mît [ANSWER] plan à exécution.',
+            answer: 'ce',
+            clue: 'ce / cette / seront'
+          },
+          {
+            subject: 'Les lignes [ANSWER] faites de minces lianes, rattachées l’une à l’autre et longues de quinze à vingt pieds.',
+            answer: 'seront',
+            clue: 'ce / cette / seront'
+          },
+          {
+            subject: 'De grosses épines très fortes, à pointes recourbées, que fournit un buisson d’acacias nains, [ANSWER] liées aux extrémités des lianes en guise d’hameçon.',
+            answer: 'seront',
+            clue: 'ce / cette / seront'
+          }
+        ]
+      },
+      {
+        instructions: 'Relie à la classe grammaticale correspondante',
+        type: 'link',
+        sentences: [
+          {
+            subject: 'Elles sont infructueuses',
+            answer: 'verbe'
+          },
+          {
+            subject: 'son initiative',
+            answer: 'déterminant possessif'
+          },
+          {
+            subject: 'Il mît son plan à exécution',
+            answer: 'déterminant possessif'
+          },
+          {
+            subject: 'Les lignes sont faites de minces lianes',
+            answer: 'verbe'
+          },
+          {
+            subject: 'Elles sont liées aux extrémités des lianes',
+            answer: 'verbe'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    subject: 'Conjugaison : le présent',
+    chapter: 1,
+    step: 3,
+    questions: [
+      {
+        instructions: 'Conjugues verbes au présent',
+        type: 'complete',
+        sentences: [
+          {
+            subject: 'Quant à l’appât, de gros vers rouges qui [ANSWER] sur le sol en tinrent lieu',
+            answer: 'rampent',
+            clue: 'ramper'
+          },
+          {
+            subject: 'Pencroff [ANSWER] le bout de ses lignes armées d’hameçons près des nids de tétras.',
+            answer: 'place',
+            clue: 'placer'
+          },
+          {
+            subject: 'Une grande demi-heure s’écoule, mais, ainsi que l’a prévu le marin, plusieurs couples de tétras [ANSWER] à leurs nids.',
+            answer: 'reviennent',
+            clue: 'revenir'
+          },
+          {
+            subject: 'Les lignes [ANSWER] faites de minces lianes, rattachées l’une à l’autre et longues de quinze à vingt pieds.',
+            answer: 'sont',
+            clue: 'son / sont'
+          },
+          {
+            subject: 'Ils [ANSWER], becquetant le sol, et ne pressentant en aucune façon la présence des chasseurs. Pencroff donne de petites secousses qui agitent les appâts.',
+            answer: 'sautillent',
+            clue: 'sautiller'
+          },
+          {
+            subject: 'Trois tétras [ANSWER] à la fois l’appât et l’hameçon. Soudain, d’un coup sec, Pencroff « ferre » son engin, et des battements d’aile lui indiquent que les oiseaux sont pris.',
+            answer: 'avalent',
+            clue: 'avaler'
+          }
+        ]
+      },
+      {
+        instructions: 'Relie les sujets à leur verbe',
+        type: 'link',
+        sentences: [
+          {
+            subject: 'De gros vers rouges',
+            answer: 'rampent sur le sol.'
+          },
+          {
+            subject: 'il',
+            answer: 'place ses lignes armées d’hameçons'
+          },
+          {
+            subject: 'Les tetras',
+            answer: 'sautillent et becquettent le sol'
+          },
+          {
+            subject: 'Les deux chasseurs',
+            answer: 'éprouvent une émotion'
+          },
+          {
+            subject: 'Pencroff',
+            answer: 's’écrit :« Hurrah ! »'
+          }
+        ]
+      },
+      {
+        instructions: 'Classe les verbes selon leur sujet',
+        type: 'sort',
+        sentences: [
+          {
+            subject: 'rampent',
+            answer: 'ils'
+          },
+          {
+            subject: 'place',
+            answer: 'il'
+          },
+          {
+            subject: 'sautillent',
+            answer: 'ils'
+          },
+          {
+            subject: 'éprouvent',
+            answer: 'ils'
+          },
+          {
+            subject: 's’écrit',
+            answer: 'il'
           }
         ]
       }

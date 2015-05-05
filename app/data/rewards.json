@@ -1,18 +1,70 @@
 [
   {
-    name: 'Plume',
-    icon: '../assets/images/pictos/rewards/feather.png'
+    name: 'Image test',
+    icon: '../assets/images/pictos/rewards/placeholder.png'
   },
   {
-    name: 'Pierre',
+    name: 'Lithodomes',
+    icon: '../assets/images/pictos/rewards/lithodomes.png'
+  },
+  {
+    name: 'Coquillage',
+    icon: '../assets/images/pictos/rewards/shellfish.png'
+  },
+  {
+    name: 'Granit',
     icon: '../assets/images/pictos/rewards/rock.png'
   },
   {
-    name: 'Oeufs',
+    name: 'Œufs de pigeon de roche',
     icon: '../assets/images/pictos/rewards/eggs.png'
+  },
+  {
+    name: 'Lianes sèches',
+    icon: '../assets/images/pictos/rewards/creeper.png'
+  },
+  {
+    name: 'Rondin de bois',
+    icon: '../assets/images/pictos/rewards/stumps.png'
+  },
+  {
+    name: 'Branche de conifère',
+    icon: '../assets/images/pictos/rewards/pine.png'
+  },
+  {
+    name: 'Bois à brûler',
+    icon: '../assets/images/pictos/rewards/branch.png'
+  },
+  {
+    name: 'Galets',
+    icon: '../assets/images/pictos/rewards/pebble.png'
   },
   {
     name: 'Allumettes',
     icon: '../assets/images/pictos/rewards/matches.png'
+  },
+  {
+    name: 'Mousse sèche',
+    icon: '../assets/images/pictos/rewards/moss.png'
+  },
+  {
+    name: 'Branche épineuse',
+    icon: '../assets/images/pictos/rewards/bramble.png'
+  },
+  {
+    name: 'Plume jacamar',
+    icon: '../assets/images/pictos/rewards/feather.png'
+  },
+  {
+    name: 'Baies aromatiques',
+    icon: '../assets/images/pictos/rewards/berry.png'
+  },
+  {
+    name: 'Épine recourbée',
+    icon: '../assets/images/pictos/rewards/thorn.png'
+  },
+  {
+    name: 'Ver rouge',
+    icon: '../assets/images/pictos/rewards/redworm.png'
   }
 ];

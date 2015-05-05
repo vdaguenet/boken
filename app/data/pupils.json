@@ -9,11 +9,11 @@
       vocabulary: 0,
       grammar: 0
     },
-    rewards: [3],
+    rewards: [0, 1],
     exercicesAchieved: [],
     chaptersDiscovered: [
       [],
-      [1, 0, 3]
+      []
     ],
     logbookPages: [
       {

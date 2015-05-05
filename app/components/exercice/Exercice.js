@@ -45,6 +45,7 @@ export default class Exercice extends View {
     this.$exerciceContainer = this.$el.querySelector('.exercice-container');
     this.$logbookContainer = this.$el.querySelector('.logbook-container');
     this.reset();
+    this._loopCounter = 0;
   }
 
   destroying() {
@@ -255,6 +256,10 @@ export default class Exercice extends View {
   }
 
   getReward() {
+    // prevent infinite loops
+    if (this._loopCounter > 5) return;
+
+    this._loopCounter++;
     let randomRewardId = Math.floor(Math.random() * this.model.exercice.chapter.subChapters[this._curStep].rewards.length);
 
     if (this.model.user.rewards.indexOf(this.model.exercice.chapter.subChapters[this._curStep].rewards[randomRewardId]) !== -1) {

@@ -150,6 +150,7 @@ class Sidebar extends View {
   open() {
     TweenMax.to(this.$parentEl, 0.6, {xPercent: -100});
     this._currentTab.transitionIn();
+    this.resolved();
     this.emit('open');
   }
 

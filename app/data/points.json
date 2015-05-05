@@ -1,8 +1,36 @@
 [
   {
     x: 500,
-    y: 620,
+    y: 220,
     exerciceId: 0,
+    logbookPageId: -1,
+    active: true
+  },
+  {
+    x: 500,
+    y: 320,
+    exerciceId: 1,
+    logbookPageId: -1,
+    active: true
+  },
+  {
+    x: 500,
+    y: 420,
+    exerciceId: 2,
+    logbookPageId: -1,
+    active: true
+  },
+  {
+    x: 500,
+    y: 520,
+    exerciceId: 3,
+    logbookPageId: -1,
+    active: true
+  },
+  {
+    x: 500,
+    y: 620,
+    exerciceId: 4,
     logbookPageId: -1,
     active: true
   },

@@ -1,7 +1,7 @@
 [
   {
     subject: 'Rédige ton récit au passé composé',
-    chapter: 0,
+    chapter: 1,
     step: 0,
     intro: 'Les aventuriers sont arrivés sur l’île. Ils ont recherché du bois pour faire du feu. Qu’aurais-tu fait en premier ?',
     questions: [
