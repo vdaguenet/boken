@@ -40,7 +40,8 @@ export default class LinkQuestion extends View {
       transparent: true,
       view: this.$el.querySelector('#renderer'),
       resolution: 1,
-      antialias: true
+      antialias: false,
+      forceFXAA: true
     });
 
     this.stage = new PIXI.Container();
