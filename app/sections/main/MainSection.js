@@ -49,6 +49,7 @@ export default class MainSection extends View {
   closeExercice() {
     this.refs.indicator.hide();
     this.refs.map.showNextExercice();
+    this.emit('exercice:close');
   }
 
   openExercice(data) {
@@ -61,6 +62,7 @@ export default class MainSection extends View {
     this.model.exerciceid = data.exerciceId;
     this.model.logbookid = data.logbookId;
     this.refs.exercice.open();
+    this.emit('exercice:open');
   }
 
   destroying() {

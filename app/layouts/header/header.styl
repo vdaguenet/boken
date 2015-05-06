@@ -4,11 +4,21 @@ header
   right 25px
   top 25px
 
+  .container
+    position relative
+
   .header-button
+    position relative
     width 60px
     height 60px
     display block
-    background url('../assets/images/pictos/bag.svg')
+    background-image url('../assets/images/pictos/bag.svg')
     background-size contain
     background-position center center
     background-repeat no-repeat
+
+    &.map
+      opacity 0
+      background-image url('../assets/images/pictos/map.png')
+      position absolute
+      top 0

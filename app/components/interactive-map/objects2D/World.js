@@ -1,6 +1,7 @@
 'use strict';
 
 import PIXI from 'pixi.js';
+import clone from 'clone';
 import ThresholdAlphaFilter from '../filters/ThresholdAlphaFilter/ThresholdAlphaFilter';
 
 export default class World extends PIXI.Container {
@@ -9,7 +10,10 @@ export default class World extends PIXI.Container {
     super();
 
     this.renderer = PIXI.autoDetectRenderer(width, height, {
-      transparent: true
+      transparent: true,
+      resolution: 1,
+      antialias: true,
+      forceFXAA: false
     });
     this.resize(width, height);
     this._zoomed = false;

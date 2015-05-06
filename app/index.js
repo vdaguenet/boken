@@ -22,9 +22,21 @@ app.on('sidebar:close', () => {
   Sidebar.close();
 });
 
+app.on('exercice:open', () => {
+  Header.toggleButton();
+});
+
+app.on('exercice:close', () => {
+  Header.toggleButton();
+});
+
 Header.on('menu:open', () => {
   Sidebar.open();
   app.greyifyMap();
+});
+
+Header.on('exercice:close', () => {
+  app.refs.exercice.close();
 });
 
 domready(() => {

@@ -40,7 +40,7 @@ export default class LinkQuestion extends View {
       transparent: true,
       view: this.$el.querySelector('#renderer'),
       resolution: 1,
-      antialias: false,
+      antialias: true,
       forceFXAA: true
     });
 
