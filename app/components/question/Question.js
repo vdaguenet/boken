@@ -37,7 +37,7 @@ export default class Question extends View {
 
     for (let sentence in pupilAnswers) {
       originalSentence = this.model.question.sentences.filter((item) => item.subject === sentence)[0];
-      if (pupilAnswers[sentence] !== originalSentence.answer) {
+      if (originalSentence && pupilAnswers[sentence] !== originalSentence.answer) {
         nbMistakes++;
       }
       countPupilAnswers++;
@@ -45,7 +45,7 @@ export default class Question extends View {
 
     if (nbMistakes > 0) {
       status = false;
-      msg = `Il y a ${nbMistakes} fautes. Essayes de les corriger`;
+      msg = `Il y a ${nbMistakes} fautes. Essayes de les corriger.`;
     }
 
     if (countPupilAnswers !== this.model.question.sentences.length) {

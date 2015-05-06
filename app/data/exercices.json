@@ -1,11 +1,12 @@
 [
   {
     subject: 'Conjugaison : les trois groupes de verbes',
+    title: 'LA FLORE DES ARBRES VERTS',
     chapter: 1,
     step: 3,
     questions: [
       {
-        instructions: 'Indique le groupe auquel appartiennent les verbes.',
+        instructions: 'Indique le groupe des verbes',
         type: 'complete',
         sentences: [
           {
@@ -24,13 +25,8 @@
             clue: '1, 2, ou 3'
           },
           {
-            subject: 'Mais la berge n’<b>était</b> pas sans présenter quelques obstacles, ici des arbres dont les branches flexibles se courbaient jusqu’au niveau du courant, là des lianes ou des épines qu’il fallait briser à coups de bâton. [ANSWER]',
+            subject: 'Mais la berge n’<b>était</b> pas sans présenter quelques obstacles. [ANSWER]',
             answer: '3',
-            clue: '1, 2, ou 3'
-          },
-          {
-            subject: 'Souvent, Harbert se <b>glissait</b> entre les souches brisées avec la prestesse d’un jeune chat, et il disparaissait dans le taillis. [ANSWER]',
-            answer: '1',
             clue: '1, 2, ou 3'
           }
         ]
@@ -48,10 +44,6 @@
             answer: 'user'
           },
           {
-            subject: 'Ses rives <b>formaient</b> un lit très encaissé recouvert par le double arceau des arbres.',
-            answer: 'former'
-          },
-          {
             subject: 'Des épines qu’il <b>fallait</b> briser à coups de bâton.',
             answer: 'falloir'
           },
@@ -62,19 +54,11 @@
         ]
       },
       {
-        instructions: 'Classe dans la bonne colonne les verbes selon leur groupe',
-        type: 'sort',
+        instructions: 'Relie les verbes à leur groupe',
+        type: 'link',
         sentences: [
           {
             subject: 'transformer',
-            answer: '1er groupe'
-          },
-          {
-            subject: 'avancer',
-            answer: '1er groupe'
-          },
-          {
-            subject: 'casser',
             answer: '1er groupe'
           },
           {
@@ -95,6 +79,7 @@
   },
   {
     subject: 'Orthographe : a et à',
+    title: 'LE JACAMAR EN FUITE',
     chapter: 1,
     step: 3,
     questions: [
@@ -103,27 +88,22 @@
         type: 'complete',
         sentences: [
           {
-            subject: 'Jusqu’alors, la chasse n’[ANSWER] pas été fructueuse.',
-            answer: 'a',
-            clue: 'a ou à'
-          },
-          {
             subject: 'Entre autres volatiles, Harbert signala un oiseau [ANSWER] bec aigu et allongé.',
             answer: 'à',
             clue: 'a ou à'
           },
           {
-            subject: '« Ce doit être un « jacamar », dit Harbert, en essayant d’approcher l’animal [ANSWER] bonne portée.',
+            subject: 'Ce doit être un « jacamar », dit Harbert, en essayant d’approcher l’animal [ANSWER] bonne portée.',
             answer: 'à',
             clue: 'a ou à'
           },
           {
-            subject: 'En ce moment, une pierre, adroitement et vigoureusement lancée par le jeune garçon, vint frapper le volatile [ANSWER] la naissance de l’aile.',
+            subject: 'Une pierre lancée par le jeune garçon vint frapper le volatile [ANSWER] la naissance de l’aile.',
             answer: 'à',
             clue: 'a ou à'
           },
           {
-            subject: '« Maladroit que je suis ! s’écria Harbert. Le coup est bien porté, mais il [ANSWER] manqué l’oiseau.',
+            subject: 'Maladroit que je suis ! s’écria Harbert. Le coup est bien porté, mais il [ANSWER] manqué l’oiseau.',
             answer: 'a',
             clue: 'a ou à'
           }
@@ -145,8 +125,8 @@
           },
           {
             subject: 'Mais le coup ne fut pas suffisant, car le jacamar s’enfuit [ANSWER] vitesse et disparut en un instant.',
-            answer: 'à toute',
-            clue: 'avec'
+            answer: 'avec',
+            clue: 'à toute'
           },
           {
             subject: '« Maladroit que je suis ! s’écria Harbert. Le coup est bien porté, mais il [ANSWER] manqué l’oiseau.',
@@ -164,11 +144,7 @@
             answer: 'verbe'
           },
           {
-            subject: 'Harbert signala un oiseau <b>à</b> bec aigu et allongé',
-            answer: 'préposition'
-          },
-          {
-            subject: '« Ce doit être un « jacamar », dit Harbert, en essayant d’approcher l’animal <b>à</b> bonne portée.',
+            subject: 'Il essaya d’approcher l’animal <b>à</b> bonne portée.',
             answer: 'préposition'
           },
           {
@@ -185,6 +161,7 @@
   },
   {
     subject: 'Grammaire : l’accord sujet-verbe',
+    title: 'LES TÉTRAS',
     chapter: 1,
     step: 3,
     questions: [
@@ -193,7 +170,7 @@
         type: 'complete',
         sentences: [
           {
-            subject: 'Vers trois heures après midi, il [ANSWER] de nouvelles bandes d’oiseaux à travers certains arbres.',
+            subject: 'Il [ANSWER] de nouvelles bandes d’oiseaux à travers certains arbres.',
             answer: 'entrevoit',
             clue: 'entrevoir'
           },
@@ -213,7 +190,7 @@
             clue: 'nommer'
           },
           {
-            subject: '« Mais ils ne se [ANSWER] point approcher.',
+            subject: 'Mais ils ne se [ANSWER] point approcher.',
             answer: 'laissent',
             clue: 'laisser'
           }
@@ -244,7 +221,7 @@
             clue: 'il / ils'
           },
           {
-            subject: 'Mais [ANSWER] ne se laissent point approcher',
+            subject: '[ANSWER] ne se laissent point approcher',
             answer: 'ils',
             clue: 'il / ils'
           }
@@ -285,6 +262,7 @@
   },
   {
     subject: 'Orthographe : son et sont',
+    title: 'UNE SINGULIÈRE PÊCHE À LA LIGNE',
     chapter: 1,
     step: 3,
     questions: [
@@ -293,12 +271,12 @@
         type: 'complete',
         sentences: [
           {
-            subject: 'Leurs tentatives [ANSWER] infructueuses. Le marin dit alors au jeune garçon :',
+            subject: 'Leurs tentatives [ANSWER] infructueuses.',
             answer: 'sont',
             clue: 'son / sont'
           },
           {
-            subject: '« Décidément, puisqu’on ne peut les tuer au vol, il faut essayer de les prendre à la ligne.<br>– Comme une carpe  ?»  s’écria Harbert, très surpris de [ANSWER] initiative.',
+            subject: '« Décidément, puisqu’on ne peut les tuer au vol, il faut essayer de les prendre à la ligne ! »  s’écria le marin, fier de [ANSWER] initiative.',
             answer: 'son',
             clue: 'son / sont'
           },
@@ -308,12 +286,7 @@
             clue: 'son / sont'
           },
           {
-            subject: 'Les lignes [ANSWER] faites de minces lianes, rattachées l’une à l’autre et longues de quinze à vingt pieds.',
-            answer: 'sont',
-            clue: 'son / sont'
-          },
-          {
-            subject: 'De grosses épines très fortes, à pointes recourbées, que fournit un buisson d’acacias nains, [ANSWER] liées aux extrémités des lianes en guise d’hameçon.',
+            subject: 'De grosses épines très fortes, à pointes recourbées [ANSWER] liées aux extrémités des lianes en guise d’hameçon.',
             answer: 'sont',
             clue: 'son / sont'
           }
@@ -324,13 +297,8 @@
         type: 'complete',
         sentences: [
           {
-            subject: 'Leurs tentatives [ANSWER] infructueuses. Le marin dit alors au jeune garçon :',
+            subject: 'Leurs tentatives [ANSWER] infructueuses.',
             answer: 'seront',
-            clue: 'ce / cette / seront'
-          },
-          {
-            subject: '« Décidément, puisqu’on ne peut les tuer au vol, il faut essayer de les prendre à la ligne.<br>– Comme une carpe  ?»  s’écria Harbert, très surpris de [ANSWER] initiative.',
-            answer: 'cette',
             clue: 'ce / cette / seront'
           },
           {
@@ -369,10 +337,6 @@
           {
             subject: 'Les lignes sont faites de minces lianes',
             answer: 'verbe'
-          },
-          {
-            subject: 'Elles sont liées aux extrémités des lianes',
-            answer: 'verbe'
           }
         ]
       }
@@ -380,11 +344,12 @@
   },
   {
     subject: 'Conjugaison : le présent',
+    title: 'UN BUTIN FRUCTUEUX',
     chapter: 1,
     step: 3,
     questions: [
       {
-        instructions: 'Conjugues verbes au présent',
+        instructions: 'Conjugue verbes au présent',
         type: 'complete',
         sentences: [
           {
@@ -393,19 +358,9 @@
             clue: 'ramper'
           },
           {
-            subject: 'Pencroff [ANSWER] le bout de ses lignes armées d’hameçons près des nids de tétras.',
-            answer: 'place',
-            clue: 'placer'
-          },
-          {
             subject: 'Une grande demi-heure s’écoule, mais, ainsi que l’a prévu le marin, plusieurs couples de tétras [ANSWER] à leurs nids.',
             answer: 'reviennent',
             clue: 'revenir'
-          },
-          {
-            subject: 'Les lignes [ANSWER] faites de minces lianes, rattachées l’une à l’autre et longues de quinze à vingt pieds.',
-            answer: 'sont',
-            clue: 'son / sont'
           },
           {
             subject: 'Ils [ANSWER], becquetant le sol, et ne pressentant en aucune façon la présence des chasseurs. Pencroff donne de petites secousses qui agitent les appâts.',
@@ -413,7 +368,7 @@
             clue: 'sautiller'
           },
           {
-            subject: 'Trois tétras [ANSWER] à la fois l’appât et l’hameçon. Soudain, d’un coup sec, Pencroff « ferre » son engin, et des battements d’aile lui indiquent que les oiseaux sont pris.',
+            subject: 'Trois tétras [ANSWER] à la fois l’appât et l’hameçon. D’un coup sec, Pencroff « ferre » son engin, et des battements d’aile lui indiquent que les oiseaux sont pris.',
             answer: 'avalent',
             clue: 'avaler'
           }
@@ -428,12 +383,8 @@
             answer: 'rampent sur le sol.'
           },
           {
-            subject: 'il',
-            answer: 'place ses lignes armées d’hameçons'
-          },
-          {
             subject: 'Les tetras',
-            answer: 'sautillent et becquettent le sol'
+            answer: 'sautillent et becquettent'
           },
           {
             subject: 'Les deux chasseurs',

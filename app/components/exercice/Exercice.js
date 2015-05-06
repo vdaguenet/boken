@@ -61,7 +61,7 @@ export default class Exercice extends View {
       this.model.exercice = this.resolvedData.exercice;
       this._curStep = this.model.exercice.step;
       this.model.endsentence = this.model.exercice.chapter.subChapters[this._curStep].endSentence;
-      this.model.headertitle = this.resolvedData.exercice.chapter.title;
+      this.model.headertitle = this.resolvedData.exercice.title;
       this.model.btnlabel = 'Commencer le récit';
       this.refs.header.resize();
     } else {

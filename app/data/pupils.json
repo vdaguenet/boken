@@ -13,7 +13,7 @@
     exercicesAchieved: [],
     chaptersDiscovered: [
       [],
-      []
+      [0, 1, 2]
     ],
     logbookPages: [
       {

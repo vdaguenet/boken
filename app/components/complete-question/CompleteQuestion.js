@@ -42,6 +42,7 @@ export default class CompleteQuestion extends View {
   }
 
   show() {
+    this.model.sentences = [];
     this.$el.style.display = '';
 
     for (let sentence of this.model.question.sentences) {

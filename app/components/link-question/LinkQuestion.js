@@ -47,9 +47,11 @@ export default class LinkQuestion extends View {
 
     this.graphics = new PIXI.Graphics();
     this.graphics.interactive = true;
-    this.graphics.on('touchstart', this.onTouchstart.bind(this));
-    this.graphics.on('touchend', this.onTouchend.bind(this));
-    this.graphics.on('touchendoutside', this.onTouchend.bind(this));
+
+    this.graphics.touchstart = this.onTouchstart.bind(this);
+    this.graphics.touchmove = this.onTouchmove.bind(this);
+    this.graphics.touchend = this.onTouchend.bind(this);
+    this.graphics.touchendoutside = this.onTouchend.bind(this);
   }
 
   reset() {
@@ -65,16 +67,12 @@ export default class LinkQuestion extends View {
     this.stage.removeChildren();
 
     this.graphics.clear();
-    this.graphics.on('touchstart', this.onTouchstart.bind(this));
-    this.graphics.on('touchend', this.onTouchend.bind(this));
-    this.graphics.on('touchendoutside', this.onTouchend.bind(this));
   }
 
   onTouchstart(e) {
     let i = 0;
     for (let p of this._sentencePoints) {
       if (isInCircle(e.data.global.x, e.data.global.y, p.x, p.y, this._pointRadius)) {
-        this.graphics.on('touchmove', this.onTouchmove.bind(this));
         this._curSubject = this.model.subjects[i];
         this.pupilAnswers[this._curSubject] = '';
       }
@@ -104,7 +102,6 @@ export default class LinkQuestion extends View {
 
     this.lineFrom = null;
     this.lineTo = null;
-    this.graphics.off('touchmove');
   }
 
   ready() {}
@@ -147,13 +144,14 @@ export default class LinkQuestion extends View {
   }
 
   hide() {
-    this.graphics.removeAllListeners();
     this.$el.style.display = 'none';
   }
 
   show() {
+    this.graphics.clear();
     this.$el.style.display = '';
     let answersTmp = [];
+    this.model.subjects = [];
     for (let a of this.model.question.sentences) {
       this.model.subjects.push(a.subject);
       answersTmp.push(a.answer);

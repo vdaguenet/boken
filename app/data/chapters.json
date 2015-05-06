@@ -1,6 +1,6 @@
 [
   {
-    title: 'Chapitre 1',
+    title: 'UNE CÔTE À L\'HORIZON',
     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur iste magni, nesciunt quae vitae harum doloremque! Molestiae iste nisi ipsum. Nostrum ipsa, numquam libero minima eveniet voluptate aut fugit.',
     iconPath: '',
     number: 1,
@@ -15,8 +15,8 @@
     ]
   },
   {
-    title: 'Chapitre 2',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur iste magni, nesciunt quae vitae harum doloremque! Molestiae iste nisi ipsum. Nostrum ipsa, numquam libero minima eveniet voluptate aut fugit.',
+    title: 'LE PREMIER CAMPEMENT',
+    content: 'Les Cheminées offraient une retraite suffisante provisoirement. Le feu était allumé, et il serait facile de conserver des braises. Pour le moment, les coquillages et les œufs ne manquaient pas dans les rochers et sur la grève. On trouverait bien le moyen de tuer quelques-uns de ces pigeons qui volaient par centaines à la crête du plateau, fût-ce à coups de bâton ou à coups de pierre.<br><br><b>Peut-être les arbres de la forêt voisine donneraient-ils des fruits comestibles ?</b>',
     iconPath: '',
     number: 2,
     subChapters: [
@@ -24,30 +24,45 @@
         rewards: [1, 2, 3, 4],
         iconPath: '../assets/images/pictos/passport/step-1.png',
         stampPath: '../assets/images/pictos/passport/stamp-chap2-step1.png',
-        title: 'Etape 1',
+        title: 'LE PREMIER SOUPER',
         endSentence: 'La fin'
       },
       {
         rewards: [5, 6, 7, 8],
         iconPath: '../assets/images/pictos/passport/step-1.png',
         stampPath: '../assets/images/pictos/passport/stamp-chap2-step2.png',
-        title: 'Etape 2',
+        title: 'ON ATTENDS<br>LE REFLUX',
         endSentence: 'La fin'
       },
       {
-        rewards: [9, 10, 11, 12],
+        rewards: [9, 10, 11],
         iconPath: '../assets/images/pictos/passport/step-1.png',
         stampPath: '../assets/images/pictos/passport/stamp-chap2-step3.png',
-        title: 'Etape 3',
+        title: 'L\'IMPORTANTE QUESTION DU FEU',
         endSentence: 'La fin'
       },
       {
-        rewards: [13, 14, 15, 16],
+        rewards: [12, 13, 14, 15, 16],
         iconPath: '../assets/images/pictos/passport/step-1.png',
         stampPath: '../assets/images/pictos/passport/stamp-chap2-step4.png',
         title: 'UNE EXCURSION DANS LA FORET',
         endSentence: 'La fin'
       }
     ]
-  }
+  },
+  {
+    title: 'La tempête est effroyable',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur iste magni, nesciunt quae vitae harum doloremque! Molestiae iste nisi ipsum. Nostrum ipsa, numquam libero minima eveniet voluptate aut fugit.',
+    iconPath: '',
+    number: 3,
+    subChapters: [
+      {
+        rewards: [0],
+        iconPath: '../assets/images/pictos/passport/step-1.png',
+        stampPath: '../assets/images/pictos/passport/stamp.png',
+        title: 'Etape 3 1',
+        endSentence: 'lorem ipsum 1'
+      }
+    ]
+  },
 ];

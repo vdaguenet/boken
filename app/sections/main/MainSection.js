@@ -52,6 +52,11 @@ export default class MainSection extends View {
   }
 
   openExercice(data) {
+    if (data.logbookId > -1) {
+      this.refs.indicator.model.number = 6;
+    } else {
+      this.refs.indicator.model.number = 5;
+    }
     this.refs.indicator.show();
     this.model.exerciceid = data.exerciceId;
     this.model.logbookid = data.logbookId;
