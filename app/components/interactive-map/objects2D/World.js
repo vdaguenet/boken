@@ -11,9 +11,7 @@ export default class World extends PIXI.Container {
 
     this.renderer = PIXI.autoDetectRenderer(width, height, {
       transparent: true,
-      resolution: 1,
-      antialias: true,
-      forceFXAA: false
+      resolution: 1
     });
     this.resize(width, height);
     this._zoomed = false;
