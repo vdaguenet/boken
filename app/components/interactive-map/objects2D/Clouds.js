@@ -2,32 +2,34 @@
 
 import PIXI from 'pixi.js';
 
-export default class Way extends PIXI.Container {
-  constructor() {
-    super();
-
-    this._points = [];
-    this._nbFrames = 50;
-    this._currentFrame = 0;
-    this._frameFrom = 0;
-    this._frameTo = undefined;
-    this.initPath();
-  }
-
-  initPath() {
+export default class Clouds {
+  constructor(width, height) {
     let textures = [];
     let t;
 
+    this._nbFrames = 50;
+
     for (let i = 0; i < this._nbFrames; i++) {
-      t = PIXI.Texture.fromImage('../assets/images/transition/way/chemin000' + i + '.png');
+      t = PIXI.Texture.fromImage('../assets/images/transition/clouds/animNuages_000' + i + '.png');
+      t.once('update', () => {
+        t.width = width;
+        t.height = height;
+      });
       textures.push(t);
     }
 
+    this._currentFrame = 0;
+    this._frameFrom = 0;
+    this._frameTo = undefined;
+
     this._movieclip = new PIXI.extras.MovieClip(textures);
     this._movieclip.loop = false;
-    this._movieclip.scale.set(0.916, 0.916);
+    this._movieclip.width = width;
+    this._movieclip.height = height;
+  }
 
-    this.addChild(this._movieclip);
+  getClip() {
+    return this._movieclip;
   }
 
   play() {
@@ -52,20 +54,6 @@ export default class Way extends PIXI.Container {
 
     if (this._frameTo && this._currentFrame >= this._frameTo) {
       this._movieclip.stop();
-    }
-  }
-
-  addPoint(point) {
-    this._points.push(point);
-    point.hide();
-    this.addChild(point);
-  }
-
-  show() {
-    for (let point of this._points) {
-      if (point.active) {
-        point.show();
-      }
     }
   }
 }

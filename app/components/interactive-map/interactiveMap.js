@@ -5,10 +5,11 @@ import resizeUtil from 'brindille-resize';
 import PIXI from 'pixi.js';
 import raf from 'raf';
 import {on, off} from 'dom-event';
-import World from './objects2D/World.js';
-import Island from './objects2D/Island.js';
-import ExercicePoint from './objects2D/ExercicePoint.js';
-import Way from './objects2D/Way.js';
+import World from './objects2D/World';
+import Island from './objects2D/Island';
+import ExercicePoint from './objects2D/ExercicePoint';
+import Way from './objects2D/Way';
+import Clouds from './objects2D/Clouds';
 import * as ExerciceApi from 'services/exercice-api';
 
 import template from './interactiveMap.html';
@@ -27,13 +28,19 @@ export default class InteractiveMap extends View {
 
   ready() {
     this.world = new World(resizeUtil.width, resizeUtil.height);
+    this.clouds = new Clouds(resizeUtil.width, resizeUtil.height);
     resizeUtil.addListener(this.resize.bind(this));
     this.initIsland();
     this.initPleats();
     this.initExercices();
+    this.world.addChild(this.clouds.getClip());
     // Append world
     this.world.appendTo(this.$el);
     raf(this.animate.bind(this));
+
+    setTimeout(() => {
+      this.clouds.play();
+    }, 1000);
   }
 
   destroying() {
@@ -103,6 +110,8 @@ export default class InteractiveMap extends View {
 
   animate() {
     raf(this.animate.bind(this));
+    this.clouds.update();
+    this.way.update();
     this.world.render();
   }
 
