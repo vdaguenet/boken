@@ -16,11 +16,11 @@ export default class PointsIndicator extends View {
 
     this.current = 0;
     this.$points = this.$el.querySelectorAll('.point');
-    this.toggleSixthPoint();
+    this.toggleSeventhPoint();
     classes.add(this.$points[this.current], 'active');
   }
 
-  toggleSixthPoint() {
+  toggleSeventhPoint() {
     for (let i = 0; i < this.$points.length; i++) {
       if (i < this.model.number) {
         classes.remove(this.$points[i], 'hidden');
@@ -29,8 +29,8 @@ export default class PointsIndicator extends View {
       }
     }
 
-    if (this.model.number === 6) {
-      classes.add(this.$el, 'six-points');
+    if (this.model.number === 7) {
+      classes.add(this.$el, 'seven-points');
     }
   }
 
@@ -41,7 +41,7 @@ export default class PointsIndicator extends View {
   }
 
   show() {
-    this.toggleSixthPoint();
+    this.toggleSeventhPoint();
     TweenMax.to(this.$el, 0.4, {alpha: 1, ease: Expo.easeInOut});
   }
 

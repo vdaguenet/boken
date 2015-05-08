@@ -4,6 +4,7 @@ import View from 'brindille-view';
 import defaults from 'defaults';
 import classes from 'dom-classes';
 import HelpButton from 'components/help-button/HelpButton';
+import HelpModal from 'components/help-modal/HelpModal';
 import LineHeader from 'components/line-header/LineHeader';
 import BorderButton from 'components/border-button/BorderButton';
 import Question from 'components/question/Question';
@@ -36,16 +37,17 @@ export default class Exercice extends View {
         'line-header': LineHeader,
         'border-button': BorderButton,
         'question': Question,
-        'help-button': HelpButton
+        'help-button': HelpButton,
+        'help-modal': HelpModal
       }
     });
     this.refs.btnNext.on('tap', this.onNextTap.bind(this));
     this.refs.btnNextLogbook.on('tap', this.onNextTap.bind(this));
     this.refs.btnPrev.on('tap', this.onPrevTap.bind(this));
+    this.refs.btnHelp.on('tap', this.onHelpTap.bind(this));
     this.$exerciceContainer = this.$el.querySelector('.exercice-container');
     this.$logbookContainer = this.$el.querySelector('.logbook-container');
     this.reset();
-    this._loopCounter = 0;
   }
 
   destroying() {
@@ -62,9 +64,9 @@ export default class Exercice extends View {
       this.model.exercice = this.resolvedData.exercice;
       this.model.subject = this.resolvedData.exercice.subject;
       this._curStep = this.resolvedData.exercice.step;
-      this.model.endsentence = this.model.exercice.chapter.subChapters[this._curStep].endSentence;
+      this.model.endsentence = this.model.exercice.endSentence;
       this.model.headertitle = this.resolvedData.exercice.title;
-      this.model.btnlabel = 'Commencer le récit';
+      this.model.btnlabel = 'Continuer le récit';
       this.refs.header.resize();
     } else {
       this._isExercice = false;
@@ -72,8 +74,8 @@ export default class Exercice extends View {
       this.model.exercice = this.resolvedData.logbook;
       this.model.subject = this.resolvedData.logbook.subject;
       this._curStep = this.resolvedData.logbook.step;
-      this.model.headertitle = this.resolvedData.logbook.chapter.title;
-      this.model.btnlabel = 'Écrire mon récit';
+      this.model.headertitle = this.resolvedData.logbook.chapter.subChapters[this._curStep].title;
+      this.model.btnlabel = 'Écrire mon journal';
       this.refs.headerLogbook.resize();
     }
   }
@@ -139,7 +141,12 @@ export default class Exercice extends View {
 
   close() {
     this.emit('close');
+    this.refs.helpModal.close();
     classes.remove(this.$el, 'active');
+  }
+
+  onHelpTap() {
+    this.refs.helpModal.open();
   }
 
   onNextTap() {
@@ -234,7 +241,7 @@ export default class Exercice extends View {
       PupilApi.saveLogbookPage(this.model.user, {
         chapter: this.model.exercice.chapter.number - 1,
         subChapter: this._curStep,
-        itro: this.resolvedData.logbook.intro,
+        intro: this.resolvedData.logbook.intro,
         answer: this.$logbookAnswer.value
       });
     } else {
@@ -259,18 +266,14 @@ export default class Exercice extends View {
   }
 
   getReward() {
-    // prevent infinite loops
-    if (this._loopCounter > 5) return;
+    let rewardId = this.model.exercice.reward;
 
-    this._loopCounter++;
-    let randomRewardId = Math.floor(Math.random() * this.model.exercice.chapter.subChapters[this._curStep].rewards.length);
-
-    if (this.model.user.rewards.indexOf(this.model.exercice.chapter.subChapters[this._curStep].rewards[randomRewardId]) !== -1) {
-      this.getReward();
+    if (this.model.user.rewards.indexOf(rewardId) !== -1) {
+      // Pupil already get this reward
       return;
     }
 
-    PupilApi.saveReward(this.model.user, this.model.exercice.chapter.subChapters[this._curStep].rewards[randomRewardId]);
-    this.model.reward = RewardApi.findById(this.model.exercice.chapter.subChapters[this._curStep].rewards[randomRewardId]);
+    PupilApi.saveReward(this.model.user, rewardId);
+    this.model.reward = RewardApi.findById(rewardId);
   }
 }

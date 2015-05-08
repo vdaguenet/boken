@@ -13,6 +13,7 @@ export function findLogbookPagesByChapter(pupil, chapterId) {
 }
 
 export function saveLogbookPage (pupil, page) {
+  saveStep(pupil, page.subChapter);
   pupil.logbookPages.push(page);
 }
 
@@ -22,4 +23,8 @@ export function saveReward (pupil, rewardId) {
 
 export function saveExercice (pupil, exerciceId) {
   pupil.exercicesAchieved.push(exerciceId);
+}
+
+function saveStep (pupil, step) {
+  pupil.chaptersDiscovered[pupil.chaptersDiscovered.length - 1].push(step)
 }

@@ -2,14 +2,7 @@
   {
     name: 'Toto Le Rigolo',
     login: 'test',
-    avatarPath: '',
-    skills: {
-      conjugation: 0,
-      spelling: 0,
-      vocabulary: 0,
-      grammar: 0
-    },
-    rewards: [0, 1],
+    rewards: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     exercicesAchieved: [],
     chaptersDiscovered: [
       [],
@@ -19,13 +12,25 @@
       {
         chapter: 0,
         subChapter: 0,
-        intro: 'BOLO BOLO #vero',
+        intro: 'Introduction du chapitre 1',
         answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta atque eum, ab consectetur ratione voluptatibus modi quisquam voluptates dolores optio nisi porro minima corporis ipsam ipsa, labore accusamus dignissimos id.'
       },
       {
         chapter: 1,
         subChapter: 0,
-        intro: 'Les aventuriers sont arrivés sur l’île. Ils ont recherché du bois pour faire du feu. Qu’aurais-tu fait en premier ?',
+        intro: 'Des coquillages et des oeufs ! Un véritable repas d’aventurier !  Et la vue depuis le sommet est superbe. Décris le panorama que tu peux admirer.',
+        answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta atque eum, ab consectetur ratione voluptatibus modi quisquam voluptates dolores optio nisi porro minima corporis ipsam ipsa, labore accusamus dignissimos id.'
+      },
+      {
+        chapter: 1,
+        subChapter: 1,
+        intro: 'Merveilleux !  Vous avez désormais des réserves de bois à disposition !  Mais le train de bois commence à s’abîmer. Comment le répares-tu ?',
+        answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta atque eum, ab consectetur ratione voluptatibus modi quisquam voluptates dolores optio nisi porro minima corporis ipsam ipsa, labore accusamus dignissimos id.'
+      },
+      {
+        chapter: 1,
+        subChapter: 2,
+        intro: 'Les « Cheminées » sont désormais illuminées d’un feu de camp chaleureux. Il s’agit désormais de l’entretenir. Comment t’y prends-tu ?',
         answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta atque eum, ab consectetur ratione voluptatibus modi quisquam voluptates dolores optio nisi porro minima corporis ipsam ipsa, labore accusamus dignissimos id.'
       }
     ]

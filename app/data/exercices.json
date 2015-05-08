@@ -1,7 +1,11 @@
 [
   {
-    subject: 'Conjugaison : les trois groupes de verbes',
+    subject: 'Les trois groupes de verbes',
     title: 'LA FLORE DES ARBRES VERTS',
+    intro: 'Pour le moment, les coquillages et les œufs ne manquaient pas dans les rochers et sur la grève. Peut-être les arbres de la forêt voisine donneraient-ils des fruits comestibles ? ',
+    endSentence: 'Tu as traversé la forêt sans encombre !',
+    lessonHelp: '<p>- Les verbes du <b>1er</b> groupe sont tous les verbes dont l’infinitif se termine en <b>-er</b>, sauf aller.</p><p>- Les verbes du <b>2ème</b> groupe ont un infinitif en <b>-ir</b> et se conjuguent en <b>-issons</b>, <b>-issez</b>, <b>-issent</b> aux personnes du pluriel du présent.</p><p>- Les verbes du <b>3ème</b> groupe sont tous les autres verbes. Leur conjugaison est parfois irrégulière.</p>',
+    reward: 12,
     chapter: 1,
     step: 3,
     questions: [
@@ -78,8 +82,12 @@
     ]
   },
   {
-    subject: 'Orthographe : a et à',
+    subject: 'A et à',
     title: 'LE JACAMAR EN FUITE',
+    intro: 'Harbert et Pencroff n’avançaient que fort lentement, et, après une heure de marche, ils avaient à peine franchi un mille. Jusqu’alors, la chasse n’avait pas été fructueuse.',
+    endSentence: 'Tu as pu observer une nouvelle espèce !',
+    lessonHelp: '<p>- <b>a</b> est une <b>forme conjuguée du verbe avoir</b> au présent. On peut le remplacer par <b>avait</b>, <b>aura</b> …</p><p> - <b>à</b> est  un <b>mot invariable</b>. On peut le remplacer par un autre mot invariable ( <b>dès, pour, vers, avec…</b>)</p>',
+    reward: 13,
     chapter: 1,
     step: 3,
     questions: [
@@ -160,8 +168,12 @@
     ]
   },
   {
-    subject: 'Grammaire : l’accord sujet-verbe',
+    subject: 'L’accord sujet-verbe',
     title: 'LES TÉTRAS',
+    intro: '« Eh non, mon garçon ! répondit le marin. Le coup était bien porté, et plus d’un aurait manqué l’oiseau. Allons ! ne vous dépitez pas ! Nous le rattraperons un autre jour ! »',
+    endSentence: 'Tu es un vrai ornithologue en herbe !',
+    lessonHelp: '<p>Un verbe change de forme conjuguée en fonction du sujet avec lequel il s’accorde.</p><p class="center">je vais<br>tu vas<br>il ou elle va<br>nous allons<br>vous allez<br>ils ou elles vont</p>',
+    reward: 14,
     chapter: 1,
     step: 3,
     questions: [
@@ -261,8 +273,12 @@
     ]
   },
   {
-    subject: 'Orthographe : son et sont',
+    subject: 'Son et sont',
     title: 'UNE SINGULIÈRE PÊCHE À LA LIGNE',
+    intro: 'Pencroff jugea indispensable de s’emparer de l’un de ces gallinacés dont la chair vaut celle de la gélinotte. Mais c’était difficile, car ils ne se laissaient point approcher.',
+    endSentence: 'Tu es un bon stratège !',
+    lessonHelp: '<p>- <b>son</b> est un <b>déterminant possessif</b> comme ma, ton, sa, ses …C’est un petit mot placé devant un nom. On peut le remplacer par <b>ce</b> ou <b>cet</b>.</p><p>- <b>sont</b> est une <b>forme conjuguée du verbe être</b> : c’est être à la 3ème personne du pluriel, au présent. On peut le remplacer par être à un autre temps : <b>seront, étaient</b> …</p>',
+    reward: 15,
     chapter: 1,
     step: 3,
     questions: [
@@ -343,8 +359,12 @@
     ]
   },
   {
-    subject: 'Conjugaison : le présent',
+    subject: 'Le présent',
     title: 'UN BUTIN FRUCTUEUX',
+    intro: 'Il emmena Harbert à quelque distance des nids, et là il prépara ses engins singuliers. De grosses épines très fortes furent liées aux extrémités des lianes en guise d’hameçon.',
+    endSentence: 'Tu as réussi à capturer des tétras !',
+    lessonHelp: '<p>Tous les verbes en <b>-er, sauf aller</b>. sont des verbes du 1er groupe. Ils se conjuguent tous de la même façon.</p><p class="center"><b>marcher</b><br><br>je marche<br>tu marches<br>il, elle, on marche<br>nous marchons<br>vous marchez<br>ils marchent<br></p>',
+    reward: 16,
     chapter: 1,
     step: 3,
     questions: [
