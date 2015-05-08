@@ -55,11 +55,13 @@ export default class Exercice extends View {
   }
 
   onReset() {
+
     if (this.resolvedData.exercice) {
       this._isExercice = true;
       this.toggleExerciceContainer();
       this.model.exercice = this.resolvedData.exercice;
-      this._curStep = this.model.exercice.step;
+      this.model.subject = this.resolvedData.exercice.subject;
+      this._curStep = this.resolvedData.exercice.step;
       this.model.endsentence = this.model.exercice.chapter.subChapters[this._curStep].endSentence;
       this.model.headertitle = this.resolvedData.exercice.title;
       this.model.btnlabel = 'Commencer le récit';
@@ -161,6 +163,7 @@ export default class Exercice extends View {
 
     this._curQuestion++;
     this.model.msg = '';
+    this.model.subject = '';
     this._verified = false;
 
 

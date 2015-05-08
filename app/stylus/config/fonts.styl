@@ -19,6 +19,15 @@
   font-weight: normal;
   font-style: normal;
 }
+/*
+  Bold
+ */
+@font-face {
+  font-family: 'Aleo';
+  src: url('../assets/fonts/Aleo-Bold.otf')  format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
 
 /***********************************************************
  * Avenir Next
@@ -80,8 +89,14 @@
   font-style normal
   @extend .smooth-font
 
+.font-serif-bold
+  font-family 'Aleo'
+  font-weight bold
+  font-style normal
+  @extend .smooth-font
+
 h1, h2, h3, h4
   @extend .font-serif
 
-p, li
+body, p, li
   @extend .font-default

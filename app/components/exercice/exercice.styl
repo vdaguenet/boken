@@ -37,6 +37,14 @@
     width 77%
     margin 0 auto
 
+    .subject
+      @extend .font-default-italic
+      position absolute
+      top 80px
+      left 50%
+      width 77%
+      transform translateX(-50%)
+
     .line-header
       margin-top 20px
 
@@ -61,6 +69,10 @@
     .reward-intro
       font-size 20px
 
+    .subtitle,
+    .reward-name
+      @extend .font-serif-bold
+
     img
       height 145px
       margin-top 35px
@@ -72,14 +84,6 @@
       line-height 1.5
 
   .logbook-container
-    .subject
-      @extend .font-default-italic
-      position absolute
-      top 80px
-      left 50%
-      width 77%
-      transform translateX(-50%)
-
     .intro-text
       width 50%
       margin 0 auto
@@ -89,6 +93,7 @@
 
     .question
       .instruction
+        @extend .font-serif-bold
         margin-top 50px
         font-size 20px
 
