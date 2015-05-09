@@ -25,6 +25,7 @@ export default class Way extends PIXI.Container {
 
     this._movieclip = new PIXI.extras.MovieClip(textures);
     this._movieclip.loop = false;
+    this._movieclip.animationSpeed = 0.4;
     this._movieclip.scale.set(0.916, 0.916);
 
     this.addChild(this._movieclip);
@@ -62,9 +63,11 @@ export default class Way extends PIXI.Container {
   }
 
   showPoints() {
+    let i = 0;
     for (let point of this._points) {
       if (point.active) {
-        point.show();
+        point.show(i);
+        i++;
       }
     }
   }

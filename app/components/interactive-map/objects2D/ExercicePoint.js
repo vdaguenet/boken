@@ -38,8 +38,8 @@ export default class ExercicePoint extends PIXI.Sprite {
     this.open();
   }
 
-  show() {
-    TweenMax.to(this, 0.6, {alpha: 1, ease: Expo.easeInOut});
+  show(delayFactor) {
+    TweenMax.to(this, 0.6, {alpha: 1, ease: Expo.easeInOut, delay: 0.07 * delayFactor});
   }
 
   hide() {
