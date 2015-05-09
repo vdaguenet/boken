@@ -27,6 +27,7 @@ export default class InteractiveMap extends View {
   }
 
   ready() {
+    this.lastPoint = undefined;
     this.world = new World(resizeUtil.width, resizeUtil.height);
     this.clouds = new Clouds(resizeUtil.width, resizeUtil.height);
     resizeUtil.addListener(this.resize.bind(this));
@@ -38,9 +39,16 @@ export default class InteractiveMap extends View {
     this.world.appendTo(this.$el);
     raf(this.animate.bind(this));
 
+    // FOR TEST ONLY
     setTimeout(() => {
-      this.clouds.play();
+      this.transitionIn();
     }, 1000);
+  }
+
+  transitionIn() {
+    this.clouds.play();
+    this.way.showPoints();
+    this.way.playTo(this.lastPoint.frame);
   }
 
   destroying() {
@@ -83,17 +91,24 @@ export default class InteractiveMap extends View {
   }
 
   initExercices() {
+    let points = ExerciceApi.getPoints();
     let exercicePoint;
+    let count = 0;
+
     this.way = new Way();
 
-    for (let point of ExerciceApi.getPoints()) {
+    for (let point of points) {
       exercicePoint = new ExercicePoint(point.x, point.y, point.exerciceId, point.logbookPageId, point.active, point.complete);
       exercicePoint.on('open', this.openExercice.bind(this));
       this.way.addPoint(exercicePoint);
+
+      if (point.complete) {
+        count++;
+      }
     }
 
+    this.lastPoint = points[count];
     this.world.addChild(this.way);
-    this.way.show();
   }
 
   openExercice(e) {
