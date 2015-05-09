@@ -112,11 +112,12 @@ export default class InteractiveMap extends View {
   }
 
   openExercice(e) {
-    this.emit('exercice:open', {
-      exerciceId: e.exerciceId,
-      logbookId: e.logbookId
+    this.world.transitionToExercice(() => {
+      this.emit('exercice:open', {
+        exerciceId: e.exerciceId,
+        logbookId: e.logbookId
+      });
     });
-    this.world.transitionToExercice();
   }
 
   resize() {
@@ -131,7 +132,27 @@ export default class InteractiveMap extends View {
   }
 
   showNextExercice() {
-    this.world.reverseTransitionToExercice();
-  }
+    let points = ExerciceApi.getPoints();
+    let oldLastPoint = this.lastPoint;
+    let count = 0;
 
+    for (let point of points) {
+      if (point.complete) {
+        count++;
+      }
+    }
+
+    this.lastPoint = points[count];
+    this.world.reverseTransitionToExercice(() => {
+      if (oldLastPoint.logbookPageId > -1) {
+        console.log('NEW CHAPTER');
+      }
+
+      if (!this.lastPoint) return;
+
+      this.lastPoint.active = true;
+      this.way.playFromTo(oldLastPoint.frame, this.lastPoint.frame);
+      this.way.showNextPoint();
+    });
+  }
 }

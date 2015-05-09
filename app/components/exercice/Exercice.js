@@ -136,6 +136,7 @@ export default class Exercice extends View {
 
   open() {
     this.reset();
+    this._point = ExerciceApi.findByExerciceAndLogbookId(this.model.exerciceid, this.model.logbookid);
     classes.add(this.$el, 'active');
   }
 
@@ -257,6 +258,8 @@ export default class Exercice extends View {
     this.$end.style.display = '';
     this.model.headertitle = 'Bravo !';
     this.model.btnlabel = 'Retour à la carte';
+    this._point.complete = true;
+
     if (this._isExercice) {
       this.getReward();
       PupilApi.saveExercice(this.model.user, this.model.exerciceid);

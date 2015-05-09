@@ -52,12 +52,12 @@ export default class World extends PIXI.Container {
     $el.appendChild(this.renderer.view);
   }
 
-  transitionToExercice() {
-    this.thresholdAlphaFilter.play();
+  transitionToExercice(oncomplete) {
+    this.thresholdAlphaFilter.play(oncomplete);
   }
 
-  reverseTransitionToExercice() {
-    this.thresholdAlphaFilter.reverse();
+  reverseTransitionToExercice(oncomplete) {
+    this.thresholdAlphaFilter.reverse(oncomplete);
   }
 
   /*zoomIn(x, y) {

@@ -20,12 +20,12 @@ export default class ThresholdAlphaFilter extends PIXI.AbstractFilter {
     });
   }
 
-  play() {
-    TweenMax.to(this.uniforms.uThreshold, 1.5, {value: 0, ease: Linear.easeNone});
+  play(callback) {
+    TweenMax.to(this.uniforms.uThreshold, 1.5, {value: 0, ease: Linear.easeNone, onComplete: callback});
   }
 
-  reverse() {
-    TweenMax.to(this.uniforms.uThreshold, 1.5, {value: 3.0, ease: Linear.easeNone});
+  reverse(callback) {
+    TweenMax.to(this.uniforms.uThreshold, 1.5, {value: 3.0, ease: Linear.easeNone, onComplete: callback});
   }
 
   setDestinationImage(path) {

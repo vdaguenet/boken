@@ -9,6 +9,7 @@ export default class Way extends PIXI.Container {
     this._points = [];
     this._nbFrames = 50;
     this._currentFrame = 0;
+    this._lastPoint;
     this._frameFrom = 0;
     this._frameTo = undefined;
     this.initPath();
@@ -70,5 +71,11 @@ export default class Way extends PIXI.Container {
         i++;
       }
     }
+    this._lastPoint = i;
+  }
+
+  showNextPoint() {
+    this._points[this._lastPoint].show(0);
+    this._lastPoint++;
   }
 }
