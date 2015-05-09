@@ -30,9 +30,9 @@ export default class HelpModal extends View {
   }
 
   close() {
-    if (this.tl) {
-      this.tl.kill();
-    }
+    if (!this.tl) return;
+
+    this.tl.kill();
     this.tl.reverse();
   }
 

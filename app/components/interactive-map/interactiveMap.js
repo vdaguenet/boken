@@ -87,7 +87,7 @@ export default class InteractiveMap extends View {
     this.way = new Way();
 
     for (let point of ExerciceApi.getPoints()) {
-      exercicePoint = new ExercicePoint(point.x, point.y, point.exerciceId, point.logbookPageId, point.active);
+      exercicePoint = new ExercicePoint(point.x, point.y, point.exerciceId, point.logbookPageId, point.active, point.complete);
       exercicePoint.on('open', this.openExercice.bind(this));
       this.way.addPoint(exercicePoint);
     }

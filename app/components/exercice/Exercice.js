@@ -141,8 +141,10 @@ export default class Exercice extends View {
 
   close() {
     this.emit('close');
-    this.refs.helpModal.close();
     classes.remove(this.$el, 'active');
+    if (this._isExercice) {
+      this.refs.helpModal.close();
+    }
   }
 
   onHelpTap() {

@@ -62,6 +62,9 @@ export default class Way extends PIXI.Container {
   }
 
   show() {
+    setTimeout(() => {
+      this.playTo(49);
+    }, 10);
     for (let point of this._points) {
       if (point.active) {
         point.show();
