@@ -145,7 +145,7 @@ export default class InteractiveMap extends View {
     this.lastPoint = points[count];
     this.world.reverseTransitionToExercice(() => {
       if (oldLastPoint.logbookPageId > -1) {
-        console.log('NEW CHAPTER');
+        this.emit('chapter:new');
       }
 
       if (!this.lastPoint) return;

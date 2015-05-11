@@ -32,10 +32,15 @@ export default class MainSection extends View {
     this.model.user = PupilApi.findByLogin(window.localStorage.getItem('user'));
     this.refs.map.on('exercice:open', this.openExercice.bind(this));
     this.refs.map.on('sidebar:close', this.closeSidebar.bind(this));
+    this.refs.map.on('chapter:new', this.displayChapterIndication.bind(this));
     this.refs.exercice.on('close', this.closeExercice.bind(this));
     this.refs.exercice.on('indicator:update', (id) => {
       this.refs.indicator.update(id);
     });
+  }
+
+  displayChapterIndication() {
+    this.emit('chapterIndication:show');
   }
 
   greyifyMap() {
