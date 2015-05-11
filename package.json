@@ -1,31 +1,18 @@
 {
-  "name": "brindille",
+  "name": "boken-app",
   "version": "1.0.0",
-  "description": "Javascript front-end project boilerplate, gulp + browserify + rivets + stylus",
+  "description": "Bōken is an iPad application for primary school pupils designed to help improve their written expression skills in French and at the same time develop their imaginations",
   "main": "app/index.js",
   "scripts": {
     "start": "gulp server --watch",
     "dev": "gulp build --watch",
     "prod": "gulp build --production"
   },
-  "keywords": [
-    "boilerplate",
-    "javascript",
-    "rivet.js",
-    "gulp",
-    "browserify"
-  ],
   "author": {
     "name": "Valentin Daguenet",
     "email": "valentin.daguenet@gmail.com",
     "url": "https://github.com/vdaguenet"
   },
-  "contributors": [
-    {
-      "name": "Guillaume Gouessan",
-      "email": "guillaume.gouessan@gmail.com"
-    }
-  ],
   "license": "MIT",
   "devDependencies": {
     "aliasify": "^1.7.2",
@@ -78,13 +65,5 @@
     "shuffle-array": "^0.1.0",
     "stylus-easing": "^1.0.0",
     "stylus-media-queries": "^1.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/brindille/brindille.git"
-  },
-  "homepage": "https://github.com/brindille/brindille",
-  "bugs": {
-    "url": "https://github.com/brindille/brindille/issues"
   }
 }

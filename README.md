@@ -1,36 +1,26 @@
-# brindille
+# Bōken App
 
-Javascript front-end project boilerplate.
+Bōken is an iPad application for primary school pupils designed to help improve their written expression skills in French and at the same time develop their imaginations.
 
-It uses:
-- [gulp](http://gulpjs.com/)
-- [browserify](http://browserify.org/)
-- [rivets](http://rivetsjs.com/)
-- [stylus](http://learnboost.github.io/stylus/)
+It uses
+- [Brindille](https://github.com/brindille/brindille-es6) workflow
+- [Phonegap](http://phonegap.com/)
 
 ## Install
 
 Clone this repository and install the dependencies
 
 ```bash
-rm -rf brindille/.git
+rm -rf .git/
 npm install
-composer install
 ```
 
 ## File structure
 
-Organise your files in a component structure: JavaScript, template and styles of a component should be in the same folder. (ex: `/app/components/component-test`.)
+Files are organised in a component structure: JavaScript, template and styles of a component are in the same folder. (ex: `/app/components/component-test`.)
 Then, they will be build in the `/static/build` folder.
 
-Images, fonts and other assets have to be in the `/static/{images,fonts}` folders.
-
-## Ressources
-
-- [View documentation](https://github.com/brindille/brindille-view/blob/master/README.md)
-- [Router documentation](https://github.com/brindille/brindille-router/blob/master/README.md)
-- [Preloader documentation](https://github.com/brindille/brindille-preloader/blob/master/README.md)
-- [Other brindille modules](https://github.com/brindille)
+Images, fonts and other assets are in the `/static/{images,fonts}` folders.
 
 ## Tasks
 Gulp tasks inspired by [firestarter](https://github.com/NorthKingdom/firestarter/)
@@ -57,6 +47,7 @@ Build the files and minify them.
 
 ```bash
 npm run prod
+phonegap run ios
 ```
 
 ## License
