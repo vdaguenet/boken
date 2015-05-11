@@ -23,6 +23,7 @@ export default class Clouds {
     this._frameTo = undefined;
 
     this._movieclip = new PIXI.extras.MovieClip(textures);
+    this._movieclip.animationSpeed = 0.3;
     this._movieclip.loop = false;
     this._movieclip.width = width;
     this._movieclip.height = height;

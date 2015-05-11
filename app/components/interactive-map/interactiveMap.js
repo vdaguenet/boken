@@ -46,9 +46,15 @@ export default class InteractiveMap extends View {
   }
 
   transitionIn() {
-    this.clouds.play();
-    this.way.showPoints();
-    this.way.playTo(this.lastPoint.frame);
+    let tl = new TimelineMax();
+    tl.call(() => {
+      this.clouds.play();
+      this.world.zoomTo(455, 310);
+    }, null, null, 0);
+    tl.call(() => {
+      this.way.showPoints();
+      this.way.playTo(this.lastPoint.frame);
+    }, null, null, 1.2);
   }
 
   destroying() {
@@ -144,6 +150,8 @@ export default class InteractiveMap extends View {
 
     this.lastPoint = points[count];
     this.world.reverseTransitionToExercice(() => {
+      if (!oldLastPoint.complete) return;
+
       if (oldLastPoint.logbookPageId > -1) {
         this.emit('chapter:new');
       }

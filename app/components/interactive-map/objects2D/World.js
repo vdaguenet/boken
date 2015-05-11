@@ -60,30 +60,9 @@ export default class World extends PIXI.Container {
     this.thresholdAlphaFilter.reverse(oncomplete);
   }
 
-  /*zoomIn(x, y) {
-    if (this._tlZoomOut) {
-      this._tlZoomOut.kill();
-    }
-
-    this._zoomed = true;
-
+  zoomTo(x, y) {
     this._tlZoomIn = new TimelineMax();
-    this._tlZoomIn.fromTo(this.pivot, 0.9, {x: this._oldPosition.x, y: this._oldPosition.y}, {x: x, y: y, ease: Expo.easeOut}, 0);
-    this._tlZoomIn.fromTo(this.scale, 0.9, {x: this._oldScale.x, y: this._oldScale.y}, {x: 2, y: 2, ease: Expo.easeOut}, 0);
+    this._tlZoomIn.fromTo(this.pivot, 3.0, {x: this._oldPosition.x, y: this._oldPosition.y}, {x: x, y: y, ease: Expo.easeInOut}, 0);
+    this._tlZoomIn.fromTo(this.scale, 3.0, {x: this._oldScale.x, y: this._oldScale.y}, {x: 2, y: 2, ease: Expo.easeInOut}, 0);
   }
-
-  zoomOut() {
-    if (!this._zoomed) return;
-
-    if (this._tlZoomIn) {
-      this._tlZoomIn.kill();
-    }
-
-    this._zoomed = false;
-
-    this._tlZoomOut = new TimelineMax();
-    this._tlZoomOut.to(this.pivot, 0.6, {x: this._oldPosition.x, y: this._oldPosition.y, ease: Expo.easeOut}, 0);
-    this._tlZoomOut.to(this.scale, 0.6, {x: this._oldScale.x, y: this._oldScale.y, ease: Expo.easeOut}, 0);
-  }*/
-
 }
