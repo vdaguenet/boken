@@ -4,9 +4,7 @@
   font-size 12px
   margin-top 55px
 
-  &:before,
-  &:after
-    content ''
+  .line
     width 75px
     height 1px
     background brown
@@ -14,8 +12,10 @@
     position relative
     top -3px
 
-  &:before
+  .line.left
     left -20px
+    transform-origin center right
 
-  &:after
+  .line.right
     left 20px
+    transform-origin center left

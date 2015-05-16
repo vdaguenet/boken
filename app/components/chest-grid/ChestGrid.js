@@ -58,12 +58,19 @@ export default class ChestGrid extends View {
 
   }
 
-  transitionOut() {
-    this.$el.style.display = 'none';
+  transitionOut(callback) {
+    let tl = new TimelineMax({
+      onComplete: callback
+    });
+    tl.staggerTo(this.$el.querySelectorAll('.chest-grid-item'), 0.6, {alpha: 0, y: 50, ease: Expo.easeInOut}, -0.08, 0);
+    tl.set(this.$el, {display: 'none'});
   }
 
   transitionIn() {
-    this.$el.style.display = '';
+    let tl = new TimelineMax();
+    tl.set(this.$el, {display: ''}, 0);
+    tl.staggerFromTo(this.$el.querySelectorAll('.chest-grid-item'), 0.6, {alpha: 0, y: 50}, {alpha: 1, y: 0, ease: Expo.easeInOut}, 0.08, 0);
+
   }
 
 }

@@ -148,10 +148,20 @@ class Sidebar extends View {
   }
 
   open() {
-    TweenMax.to(this.$parentEl, 0.6, {xPercent: -100});
-    this._currentTab.transitionIn();
+    let tl = new TimelineMax();
+
     this.resolved();
     this.emit('open');
+
+    tl.to(this.$parentEl, 0.6, {xPercent: -100}, 0);
+    tl.staggerFromTo(this.$el.querySelectorAll('.menu-button .picto'), 0.6, {scale: 0}, {scale: 1, ease: Expo.easeInOut}, 0.08, 0.1);
+    tl.staggerFromTo(this.$el.querySelectorAll('.menu-button p'), 0.5, {alpha: 0, y: 20}, {alpha: 1, y: 0, ease: Expo.easeInOut}, 0.08, 0.4);
+    tl.fromTo(this.$el.querySelector('.chapter-header .header'), 0.9, {scale: 0}, {scale: 1, ease: Expo.easeOut}, 0.7);
+    tl.staggerFromTo(this.$el.querySelectorAll('.chapter-header .header, .chapter-header h1'), 0.7, {y: 50, alpha: 0}, {y: 0, alpha: 1, ease: Expo.easeInOut}, 0.08, 0.5);
+    tl.call(() => {
+      this._currentTab.transitionIn();
+    }, null, null, 0.7);
+    tl.fromTo(this.$el.querySelector('.prev-next-button'), 0.6, {alpha: 0, y: 50}, {alpha: 1, y: 0, ease: Expo.easeInOut}, 0.9);
   }
 
   close() {
@@ -162,25 +172,32 @@ class Sidebar extends View {
   onPassportClick() {
     classes.remove(this.$el.querySelector('.menu-button.selected'), 'selected');
     classes.add(this.refs.passportBtn.$el, 'selected');
-    this._currentTab.transitionOut();
+    let oldTab = this._currentTab;
     this._currentTab = this.refs.passportGrid;
-    this._currentTab.transitionIn();
+    oldTab.transitionOut(() => {
+      this._currentTab.transitionIn();
+    });
   }
 
   onChestClick() {
     classes.remove(this.$el.querySelector('.menu-button.selected'), 'selected');
     classes.add(this.refs.chestBtn.$el, 'selected');
-    this._currentTab.transitionOut();
+    let oldTab = this._currentTab;
     this._currentTab = this.refs.chestGrid;
-    this._currentTab.transitionIn();
+    oldTab.transitionOut(() => {
+      this._currentTab.transitionIn();
+    });
   }
 
   onLogbookClick() {
     classes.remove(this.$el.querySelector('.menu-button.selected'), 'selected');
     classes.add(this.refs.logbookBtn.$el, 'selected');
-    this._currentTab.transitionOut();
+    let oldTab = this._currentTab;
     this._currentTab = this.refs.logbookPage;
-    this._currentTab.transitionIn();
+    oldTab.transitionOut(() => {
+      this._currentTab.transitionIn();
+    });
+
   }
 
   destroying() {

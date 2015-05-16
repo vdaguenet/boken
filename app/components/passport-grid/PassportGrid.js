@@ -49,12 +49,18 @@ export default class ChestGrid extends View {
     }
   }
 
-  transitionOut() {
-    this.$el.style.display = 'none';
+  transitionOut(callback) {
+    let tl = new TimelineMax({
+      onComplete: callback
+    });
+    tl.staggerTo(this.$el.querySelectorAll('.passport-grid-item'), 0.9, {alpha: 0, y: 100, ease: Expo.easeInOut}, -0.08, 0);
+    tl.set(this.$el, {display: 'none'}, 0.9);
   }
 
   transitionIn() {
-    this.$el.style.display = '';
+    let tl = new TimelineMax();
+    tl.set(this.$el, {display: ''}, 0);
+    tl.staggerFromTo(this.$el.querySelectorAll('.passport-grid-item'), 0.9, {alpha: 0, y: 100}, {alpha: 1, y: 0, ease: Expo.easeOut}, 0.08, 0);
   }
 
 }
