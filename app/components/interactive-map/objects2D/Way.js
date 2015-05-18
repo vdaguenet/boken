@@ -20,14 +20,15 @@ export default class Way extends PIXI.Container {
     let t;
 
     for (let i = 0; i < this._nbFrames; i++) {
-      t = PIXI.Texture.fromImage('../assets/images/transition/way/chemin000' + i + '.png');
+      t = PIXI.Texture.fromImage('../assets/images/transition/way/line_000' + i + '.png');
       textures.push(t);
     }
 
     this._movieclip = new PIXI.extras.MovieClip(textures);
     this._movieclip.loop = false;
     this._movieclip.animationSpeed = 0.4;
-    this._movieclip.scale.set(0.916, 0.916);
+    this._movieclip.scale.set(0.60, 0.65);
+    this._movieclip.position.set(170, 150);
 
     this.addChild(this._movieclip);
   }

@@ -2,6 +2,7 @@
   {
     subject: 'Rédige ton récit au présent de l\'indicatif',
     chapter: 1,
+    iconPath: '../assets/images/exercice/ex-6.png',
     step: 3,
     intro: 'Fort de ton succès, tu décides de rentrer aux « Cheminées » afin de raconter ton exploit et préparer un repas succulent. Raconte ton expédition de retour.',
     questions: [

@@ -7,6 +7,7 @@
     lessonHelp: '<p>- Les verbes du <b>1er</b> groupe sont tous les verbes dont l’infinitif se termine en <b>-er</b>, sauf aller.</p><p>- Les verbes du <b>2ème</b> groupe ont un infinitif en <b>-ir</b> et se conjuguent en <b>-issons</b>, <b>-issez</b>, <b>-issent</b> aux personnes du pluriel du présent.</p><p>- Les verbes du <b>3ème</b> groupe sont tous les autres verbes. Leur conjugaison est parfois irrégulière.</p>',
     reward: 12,
     chapter: 1,
+    iconPath: '../assets/images/exercice/ex-1.png',
     step: 3,
     questions: [
       {
@@ -89,6 +90,7 @@
     lessonHelp: '<p>- <b>a</b> est une <b>forme conjuguée du verbe avoir</b> au présent. On peut le remplacer par <b>avait</b>, <b>aura</b> …</p><p> - <b>à</b> est  un <b>mot invariable</b>. On peut le remplacer par un autre mot invariable ( <b>dès, pour, vers, avec…</b>)</p>',
     reward: 13,
     chapter: 1,
+    iconPath: '../assets/images/exercice/ex-2.png',
     step: 3,
     questions: [
       {
@@ -175,6 +177,7 @@
     lessonHelp: '<p>Un verbe change de forme conjuguée en fonction du sujet avec lequel il s’accorde.</p><p class="center">je vais<br>tu vas<br>il ou elle va<br>nous allons<br>vous allez<br>ils ou elles vont</p>',
     reward: 14,
     chapter: 1,
+    iconPath: '../assets/images/exercice/ex-3.png',
     step: 3,
     questions: [
       {
@@ -280,6 +283,7 @@
     lessonHelp: '<p>- <b>son</b> est un <b>déterminant possessif</b> comme ma, ton, sa, ses …C’est un petit mot placé devant un nom. On peut le remplacer par <b>ce</b> ou <b>cet</b>.</p><p>- <b>sont</b> est une <b>forme conjuguée du verbe être</b> : c’est être à la 3ème personne du pluriel, au présent. On peut le remplacer par être à un autre temps : <b>seront, étaient</b> …</p>',
     reward: 15,
     chapter: 1,
+    iconPath: '../assets/images/exercice/ex-4.png',
     step: 3,
     questions: [
       {
@@ -366,10 +370,11 @@
     lessonHelp: '<p>Tous les verbes en <b>-er, sauf aller</b>. sont des verbes du 1er groupe. Ils se conjuguent tous de la même façon.</p><p class="center"><b>marcher</b><br><br>je marche<br>tu marches<br>il, elle, on marche<br>nous marchons<br>vous marchez<br>ils marchent<br></p>',
     reward: 16,
     chapter: 1,
+    iconPath: '../assets/images/exercice/ex-5.png',
     step: 3,
     questions: [
       {
-        instructions: 'Conjugue verbes au présent',
+        instructions: 'Conjugue les verbes au présent',
         type: 'complete',
         sentences: [
           {

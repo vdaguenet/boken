@@ -19,5 +19,9 @@ export function getPoints () {
 }
 
 export function findByExerciceAndLogbookId (exerciceId, logbookId) {
-  return points.filter(item => item.exerciceId === exerciceId && item.logbookPageId === logbookId)[0];
+  for(let point of points) {
+    if (point.exerciceId === exerciceId && point.logbookPageId === logbookId) {
+      return point;
+    }
+  }
 }

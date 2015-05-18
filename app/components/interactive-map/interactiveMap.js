@@ -23,6 +23,7 @@ export default class InteractiveMap extends View {
     });
 
     this.$overlay = this.$el.querySelector('.overlay');
+    this._curEx = undefined;
     on(this.$overlay, 'touchend', this.closeSidebar.bind(this));
   }
 
@@ -118,6 +119,8 @@ export default class InteractiveMap extends View {
   }
 
   openExercice(e) {
+    this._curEx = e.target;
+
     this.world.transitionToExercice(() => {
       this.emit('exercice:open', {
         exerciceId: e.exerciceId,
@@ -150,10 +153,13 @@ export default class InteractiveMap extends View {
 
     this.lastPoint = points[count];
     this.world.reverseTransitionToExercice(() => {
-      if (!oldLastPoint.complete) return;
+      if (!oldLastPoint.complete && oldLastPoint.logbookPageId < 0) return; // for demo only
+
+      this._curEx.setComplete();
 
       if (oldLastPoint.logbookPageId > -1) {
         this.emit('chapter:new');
+        return; // for demo only
       }
 
       if (!this.lastPoint) return;
