@@ -8,6 +8,7 @@ import HelpModal from 'components/help-modal/HelpModal';
 import LineHeader from 'components/line-header/LineHeader';
 import BorderButton from 'components/border-button/BorderButton';
 import Question from 'components/question/Question';
+import nextTick from 'just-next-tick';
 import * as ExerciceApi from 'services/exercice-api';
 import * as LogbookApi from 'services/logbook-api';
 import * as RewardApi from 'services/reward-api';
@@ -50,6 +51,41 @@ export default class Exercice extends View {
     this.reset();
   }
 
+  _setTimelines() {
+    let $content = this.$el.querySelector('.content');
+    let curClass = (this._isExercice) ? '.exercice-container' : '.logbook-container';
+    let $header = this.$el.querySelector(`${curClass} .line-header`);
+    let $headerLineLeft = this.$el.querySelector(`${curClass} .line-header h1 .line.left`);
+    let $headerLineRight = this.$el.querySelector(`${curClass} .line-header h1 .line.right`);
+    let $subject = this.$el.querySelector(`${curClass} .subject`);
+    let $introImg = this.$el.querySelector(`${curClass} .intro img`);
+    let $introText = this.$el.querySelector(`${curClass} .intro .intro-text`);
+    let $btn = this.$el.querySelector(`${curClass} .border-button`);
+    let $points = document.querySelectorAll('.points-indicator li');
+    let $middle = this.$el.querySelector('.middle-part');
+
+    this._tlShow = new TimelineMax();
+    this._tlShow.staggerFromTo([$header, $subject, $introImg, $introText, $btn], 1.2, {alpha: 0, y: 120}, {alpha: 1, y: 0, ease: Expo.easeInOut}, 0.08, 0.1);
+    this._tlShow.fromTo($content, 0.7, {alpha: 0, y: 100}, {y: 0, alpha: 1, ease: Cubic.easeOut}, 0.3);
+    this._tlShow.fromTo($headerLineLeft, 0.6, {scaleX: 0}, {scaleX: 1, ease: Expo.easeInOut}, 0.9);
+    this._tlShow.fromTo($headerLineRight, 0.6, {scaleX: 0}, {scaleX: 1, ease: Expo.easeInOut}, 0.9);
+    this._tlShow.staggerFromTo($points, 0.6, {alpha: 0, y: 50}, {alpha: 1, y: 0, ease: Expo.easeInOut}, 0.08, 1.1);
+    this._tlShow.pause(0);
+
+    this._tlHide = new TimelineMax({
+      onComplete: () => {
+        this.emit('close');
+        classes.remove(this.$el, 'active');
+      }
+    });
+    this._tlHide.staggerTo($points, 0.6, {alpha: 0, y: 50, ease: Expo.easeInOut}, -0.08, 0);
+    this._tlHide.to($headerLineLeft, 0.6, {scaleX: 0, ease: Expo.easeInOut}, 0.2);
+    this._tlHide.to($headerLineRight, 0.6, {scaleX: 0, ease: Expo.easeInOut}, 0.2);
+    this._tlHide.staggerTo([$btn, $middle, $header], 0.8, {alpha: 0, y: 120, ease: Expo.easeInOut, clearProps: 'all'}, 0.08, 0.3);
+    this._tlHide.to($content, 0.6, {alpha: 0, y: 100}, 0.7);
+    this._tlHide.pause(0);
+  }
+
   destroying() {
     this.refs.btnPrev.off('tap', this.onPrevTap.bind(this));
     this.refs.btnNext.off('tap', this.onNextTap.bind(this));
@@ -67,7 +103,11 @@ export default class Exercice extends View {
       this.model.endsentence = this.model.exercice.endSentence;
       this.model.headertitle = this.resolvedData.exercice.title;
       this.model.btnlabel = 'Continuer le récit';
-      this.refs.header.resize();
+      nextTick(() => {
+        this.refs.header.resize();
+        this._setTimelines();
+      });
+
     } else {
       this._isExercice = false;
       this.toggleExerciceContainer();
@@ -76,8 +116,12 @@ export default class Exercice extends View {
       this._curStep = this.resolvedData.logbook.step;
       this.model.headertitle = this.resolvedData.logbook.chapter.subChapters[this._curStep].title;
       this.model.btnlabel = 'Écrire mon journal';
-      this.refs.headerLogbook.resize();
+      nextTick(() => {
+        this.refs.headerLogbook.resize();
+        this._setTimelines();
+      });
     }
+
   }
 
   toggleExerciceContainer() {
@@ -138,14 +182,18 @@ export default class Exercice extends View {
     this.reset();
     this._point = ExerciceApi.findByExerciceAndLogbookId(this.model.exerciceid, this.model.logbookid);
     classes.add(this.$el, 'active');
+    this._tlShow.play(0);
   }
 
   close() {
-    this.emit('close');
-    classes.remove(this.$el, 'active');
+    // this.emit('close');
+    // classes.remove(this.$el, 'active');
     if (this._isExercice) {
       this.refs.helpModal.close();
     }
+    this._tlShow.kill();
+    this._tlHide.play(0);
+    console.log('close');
   }
 
   onHelpTap() {
