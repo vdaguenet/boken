@@ -39,7 +39,7 @@
         rewards: [12, 13, 14, 15, 16],
         iconPath: '../assets/images/pictos/passport/step-1.png',
         stampPath: '../assets/images/pictos/passport/stamp-chap2-step4.png',
-        title: 'UNE EXCURSION DANS LA FORET'
+        title: 'UNE EXCURSION DANS LA FORÊT'
       }
     ]
   },
