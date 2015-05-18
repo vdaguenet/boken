@@ -69,6 +69,9 @@ export default class SortQuestion extends View {
         let $bbox = this.target.getBoundingClientRect();
         let placeholders;
 
+        TweenMax.to(this.target.querySelector('.background'), 0.3, {scaleX: 1});
+        TweenMax.to(this.target, 0.6, {scale: 1.5, ease: Expo.easeOut});
+
         if (($bbox.left + 0.5 * $bbox.width) > 0.5 * resize.width) {
           placeholders = self._placeholdersRight;
         } else {
@@ -80,37 +83,43 @@ export default class SortQuestion extends View {
         }
       },
       onRelease: function () {
-        if (this.target._gsTransform.y > -60) return;
+        TweenMax.to(this.target, 0.5, {scale: 1, ease: Cubic.easeOut, onComplete: () => {
+          if (this.target._gsTransform.y > -60) return;
 
-        let $bbox = this.target.getBoundingClientRect();
-        let placeholders;
-        let count = 0;
-        let answer = '';
+          let $bbox = this.target.getBoundingClientRect();
+          let placeholders;
+          let count = 0;
+          let answer = '';
 
-        if (($bbox.left + 0.5 * $bbox.width) > 0.5 * resize.width) {
-          placeholders = self._placeholdersRight;
-          answer = self.model.columnRightTitle;
-        } else {
-          placeholders = self._placeholdersLeft;
-          answer = self.model.columnLeftTitle;
-        }
-
-        for (let placeholder of placeholders) {
-          if (!classes.has(placeholder, 'filled')) {
-            let targetX = $bbox.left - placeholder.getBoundingClientRect().left + 0.5 * $bbox.width;
-            let targetY = $bbox.top - placeholder.getBoundingClientRect().top;
-
-            TweenMax.to(this.target, 0.4, {x: this.target._gsTransform.x - targetX + 0.5 * placeholder.getBoundingClientRect().width, y: this.target._gsTransform.y - targetY});
-            classes.add(placeholder, 'filled');
-
-            self.pupilAnswers[this.target.innerText.toLowerCase()] = answer;
-
-            this.target.setAttribute('placeholder-id', count);
-            break;
+          if (($bbox.left + 0.5 * $bbox.width) > 0.5 * resize.width) {
+            placeholders = self._placeholdersRight;
+            answer = self.model.columnRightTitle;
+          } else {
+            placeholders = self._placeholdersLeft;
+            answer = self.model.columnLeftTitle;
           }
 
-          count++;
-        }
+          for (let placeholder of placeholders) {
+            if (!classes.has(placeholder, 'filled')) {
+              let bbPlaceholder = placeholder.getBoundingClientRect();
+              let targetX = $bbox.left - bbPlaceholder.left + 0.5 * $bbox.width;
+              let targetY = $bbox.top - bbPlaceholder.top;
+              let scale = bbPlaceholder.width / $bbox.width;
+
+              TweenMax.to(this.target, 0.3, {x: this.target._gsTransform.x - targetX + 0.5 * bbPlaceholder.width, y: this.target._gsTransform.y - targetY});
+              TweenMax.to(this.target.querySelector('.background'), 0.3, {scaleX: scale});
+
+              classes.add(placeholder, 'filled');
+
+              self.pupilAnswers[this.target.innerText.toLowerCase()] = answer;
+
+              this.target.setAttribute('placeholder-id', count);
+              break;
+            }
+
+            count++;
+          }
+        }});
       }
     });
   }

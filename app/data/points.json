@@ -171,7 +171,7 @@
   {
     x: 405,
     y: 250,
-    frame: 39,
+    frame: 40,
     exerciceId: 1,
     logbookPageId: -1,
     active: true,
@@ -189,7 +189,7 @@
   {
     x: 400,
     y: 340,
-    frame: 46,
+    frame: 44,
     exerciceId: 3,
     logbookPageId: -1,
     active: true,
@@ -202,7 +202,7 @@
     exerciceId: 4,
     logbookPageId: -1,
     active: true,
-    complete: true
+    complete: false
   },
   {
     x: 395,
@@ -210,7 +210,7 @@
     frame: 49,
     exerciceId: -1,
     logbookPageId: 0,
-    active: true,
+    active: false,
     complete: false
   }
 ];
