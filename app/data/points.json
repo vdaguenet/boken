@@ -1,6 +1,6 @@
 [
   {
-    x: 610,
+    x: 600,
     y: 610,
     exerciceId: -1,
     logbookPageId: -1,
@@ -9,7 +9,7 @@
   },
   {
     x: 562,
-    y: 620,
+    y: 625,
     exerciceId: -1,
     logbookPageId: -1,
     active: true,
@@ -17,7 +17,7 @@
   },
   {
     x: 500,
-    y: 628,
+    y: 633,
     exerciceId: -1,
     logbookPageId: -1,
     active: true,
@@ -25,7 +25,7 @@
   },
   {
     x: 447,
-    y: 627,
+    y: 632,
     exerciceId: -1,
     logbookPageId: -1,
     active: true,
@@ -40,7 +40,7 @@
     complete: true
   },
   {
-    x: 382,
+    x: 390,
     y: 583,
     exerciceId: -1,
     logbookPageId: -1,
@@ -48,7 +48,7 @@
     complete: true
   },
   {
-    x: 426,
+    x: 434,
     y: 556,
     exerciceId: -1,
     logbookPageId: -1,
@@ -56,7 +56,7 @@
     complete: true
   },
   {
-    x: 462,
+    x: 455,
     y: 520,
     exerciceId: -1,
     logbookPageId: -1,
@@ -64,8 +64,8 @@
     complete: true
   },
   {
-    x: 444,
-    y: 486,
+    x: 435,
+    y: 495,
     exerciceId: -1,
     logbookPageId: -1,
     active: true,
@@ -73,7 +73,7 @@
   },
   {
     x: 396,
-    y: 492,
+    y: 485,
     exerciceId: -1,
     logbookPageId: 0,
     active: true,
@@ -81,14 +81,14 @@
   },
   {
     x: 346,
-    y: 518,
+    y: 525,
     exerciceId: -1,
     logbookPageId: -1,
     active: true,
     complete: true
   },
   {
-    x: 290,
+    x: 285,
     y: 530,
     exerciceId: -1,
     logbookPageId: -1,
@@ -96,7 +96,7 @@
     complete: true
   },
   {
-    x: 270,
+    x: 285,
     y: 496,
     exerciceId: -1,
     logbookPageId: -1,
@@ -104,8 +104,8 @@
     complete: true
   },
   {
-    x: 316,
-    y: 461,
+    x: 320,
+    y: 470,
     exerciceId: -1,
     logbookPageId: -1,
     active: true,
@@ -113,7 +113,7 @@
   },
   {
     x: 364,
-    y: 446,
+    y: 440,
     exerciceId: -1,
     logbookPageId: 0,
     active: true,
@@ -121,7 +121,7 @@
   },
   {
     x: 410,
-    y: 435,
+    y: 440,
     exerciceId: -1,
     logbookPageId: -1,
     active: true,
@@ -129,7 +129,7 @@
   },
   {
     x: 468,
-    y: 415,
+    y: 420,
     exerciceId: -1,
     logbookPageId: -1,
     active: true,
@@ -144,7 +144,7 @@
     complete: true
   },
   {
-    x: 554,
+    x: 540,
     y: 341,
     exerciceId: -1,
     logbookPageId: -1,
@@ -152,16 +152,16 @@
     complete: true
   },
   {
-    x: 550,
-    y: 290,
+    x: 525,
+    y: 280,
     exerciceId: -1,
     logbookPageId: 0,
     active: true,
     complete: true
   },
   {
-    x: 490,
-    y: 253,
+    x: 470,
+    y: 255,
     frame: 37,
     exerciceId: 0,
     logbookPageId: -1,
@@ -169,8 +169,8 @@
     complete: true
   },
   {
-    x: 440,
-    y: 240,
+    x: 405,
+    y: 250,
     frame: 39,
     exerciceId: 1,
     logbookPageId: -1,
@@ -179,7 +179,7 @@
   },
   {
     x: 365,
-    y: 280,
+    y: 290,
     frame: 42,
     exerciceId: 2,
     logbookPageId: -1,
@@ -187,8 +187,8 @@
     complete: true
   },
   {
-    x: 396,
-    y: 330,
+    x: 400,
+    y: 340,
     frame: 46,
     exerciceId: 3,
     logbookPageId: -1,
@@ -196,21 +196,21 @@
     complete: true
   },
   {
-    x: 445,
-    y: 365,
+    x: 440,
+    y: 375,
     frame: 47,
     exerciceId: 4,
     logbookPageId: -1,
     active: true,
-    complete: false
+    complete: true
   },
   {
     x: 395,
-    y: 400,
+    y: 410,
     frame: 49,
     exerciceId: -1,
     logbookPageId: 0,
-    active: false,
+    active: true,
     complete: false
   }
 ];

@@ -39,11 +39,6 @@ export default class InteractiveMap extends View {
     // Append world
     this.world.appendTo(this.$el);
     raf(this.animate.bind(this));
-
-    // FOR TEST ONLY
-    setTimeout(() => {
-      this.transitionIn();
-    }, 1000);
   }
 
   transitionIn() {

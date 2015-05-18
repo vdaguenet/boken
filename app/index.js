@@ -55,4 +55,8 @@ domready(() => {
     Sections
    */
   app.appendTo(document.querySelector('#view'));
+
+  setTimeout(() => {
+    app.refs.map.transitionIn();
+  }, 1000);
 });

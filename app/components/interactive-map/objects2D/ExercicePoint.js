@@ -55,6 +55,9 @@ export default class ExercicePoint extends PIXI.Sprite {
     this.complete = true;
     this.texture = PIXI.Texture.fromImage('../assets/images/pictos/way/'+ res.name +'.png');
     this.scale.set(res.scale, res.scale);
+    if (this.logbookId > -1) {
+      this.anchor.set(0.5, 0.75);
+    }
   }
 
   click(e) {
