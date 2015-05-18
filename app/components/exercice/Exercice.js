@@ -51,39 +51,93 @@ export default class Exercice extends View {
     this.reset();
   }
 
-  _setTimelines() {
+  _setExerciceTimelines() {
     let $content = this.$el.querySelector('.content');
-    let curClass = (this._isExercice) ? '.exercice-container' : '.logbook-container';
-    let $header = this.$el.querySelector(`${curClass} .line-header`);
-    let $headerLineLeft = this.$el.querySelector(`${curClass} .line-header h1 .line.left`);
-    let $headerLineRight = this.$el.querySelector(`${curClass} .line-header h1 .line.right`);
-    let $subject = this.$el.querySelector(`${curClass} .subject`);
-    let $introImg = this.$el.querySelector(`${curClass} .intro img`);
-    let $introText = this.$el.querySelector(`${curClass} .intro .intro-text`);
-    let $btn = this.$el.querySelector(`${curClass} .border-button`);
+    let $header = this.$el.querySelector('.exercice-container .line-header');
+    let $headerLineLeft = this.$el.querySelector('.exercice-container .line-header h1 .line.left');
+    let $headerLineRight = this.$el.querySelector('.exercice-container .line-header h1 .line.right');
+    let $subject = this.$el.querySelector('.exercice-container .subject');
+    let $introImg = this.$el.querySelector('.exercice-container .intro img');
+    let $introText = this.$el.querySelector('.exercice-container .intro .intro-text');
+    let $btn = this.$el.querySelector('.exercice-container .border-button');
     let $points = document.querySelectorAll('.points-indicator li');
     let $middle = this.$el.querySelector('.middle-part');
 
-    this._tlShow = new TimelineMax();
-    this._tlShow.staggerFromTo([$header, $subject, $introImg, $introText, $btn], 1.2, {alpha: 0, y: 120}, {alpha: 1, y: 0, ease: Expo.easeInOut}, 0.08, 0.1);
-    this._tlShow.fromTo($content, 0.7, {alpha: 0, y: 100}, {y: 0, alpha: 1, ease: Cubic.easeOut}, 0.3);
-    this._tlShow.fromTo($headerLineLeft, 0.6, {scaleX: 0}, {scaleX: 1, ease: Expo.easeInOut}, 0.9);
-    this._tlShow.fromTo($headerLineRight, 0.6, {scaleX: 0}, {scaleX: 1, ease: Expo.easeInOut}, 0.9);
-    this._tlShow.staggerFromTo($points, 0.6, {alpha: 0, y: 50}, {alpha: 1, y: 0, ease: Expo.easeInOut}, 0.08, 1.1);
-    this._tlShow.pause(0);
+    this._tlShowExo = new TimelineMax();
+    this._tlShowExo.staggerFromTo([$header, $subject, this.refs.btnHelp.$el, $introImg, $introText, $btn], 1.2, {alpha: 0, y: 120}, {alpha: 1, y: 0, ease: Expo.easeInOut}, 0.08, 0.1);
+    this._tlShowExo.fromTo($content, 0.7, {alpha: 0, y: 100}, {y: 0, alpha: 1, ease: Cubic.easeOut}, 0.3);
+    this._tlShowExo.fromTo($headerLineLeft, 0.6, {scaleX: 0}, {scaleX: 1, ease: Expo.easeInOut}, 0.9);
+    this._tlShowExo.fromTo($headerLineRight, 0.6, {scaleX: 0}, {scaleX: 1, ease: Expo.easeInOut}, 0.9);
+    this._tlShowExo.staggerFromTo($points, 0.6, {alpha: 0, y: 50}, {alpha: 1, y: 0, ease: Expo.easeInOut}, 0.08, 1.1);
+    this._tlShowExo.pause(0);
 
-    this._tlHide = new TimelineMax({
+    this._tlHideExo = new TimelineMax({
       onComplete: () => {
         this.emit('close');
         classes.remove(this.$el, 'active');
       }
     });
-    this._tlHide.staggerTo($points, 0.6, {alpha: 0, y: 50, ease: Expo.easeInOut}, -0.08, 0);
-    this._tlHide.to($headerLineLeft, 0.6, {scaleX: 0, ease: Expo.easeInOut}, 0.2);
-    this._tlHide.to($headerLineRight, 0.6, {scaleX: 0, ease: Expo.easeInOut}, 0.2);
-    this._tlHide.staggerTo([$btn, $middle, $header], 0.8, {alpha: 0, y: 120, ease: Expo.easeInOut, clearProps: 'all'}, 0.08, 0.3);
-    this._tlHide.to($content, 0.6, {alpha: 0, y: 100}, 0.7);
-    this._tlHide.pause(0);
+    this._tlHideExo.staggerTo($points, 0.6, {alpha: 0, y: 50, ease: Expo.easeInOut}, -0.08, 0);
+    this._tlHideExo.to($headerLineLeft, 0.6, {scaleX: 0, ease: Expo.easeInOut}, 0.2);
+    this._tlHideExo.to($headerLineRight, 0.6, {scaleX: 0, ease: Expo.easeInOut}, 0.2);
+    this._tlHideExo.staggerTo([$btn, $middle, this.refs.btnHelp.$el, $header], 0.8, {alpha: 0, y: 120, ease: Expo.easeInOut, clearProps: 'all'}, 0.08, 0.3);
+    this._tlHideExo.to($content, 0.6, {alpha: 0, y: 100}, 0.7);
+    this._tlHideExo.pause(0);
+  }
+
+  _setLogbookTimelines() {
+    let $content = this.$el.querySelector('.content');
+    let $points = document.querySelectorAll('.points-indicator li');
+    let $middle = this.$el.querySelector('.middle-part');
+    let $header = this.$el.querySelector('.logbook-container .line-header');
+    let $headerLineLeft = this.$el.querySelector('.logbook-container .line-header h1 .line.left');
+    let $headerLineRight = this.$el.querySelector('.logbook-container .line-header h1 .line.right');
+    let $subject = this.$el.querySelector('.logbook-container .subject');
+    let $introImg = this.$el.querySelector('.logbook-container .intro img');
+    let $introText = this.$el.querySelector('.logbook-container .intro .intro-text');
+    let $btn = this.$el.querySelector('.logbook-container .border-button');
+
+    this._tlShowLogbook = new TimelineMax();
+    this._tlShowLogbook.staggerFromTo([$header, $subject, $introImg, $introText, $btn], 1.2, {alpha: 0, y: 120}, {alpha: 1, y: 0, ease: Expo.easeInOut}, 0.08, 0.1);
+    this._tlShowLogbook.fromTo($content, 0.7, {alpha: 0, y: 100}, {y: 0, alpha: 1, ease: Cubic.easeOut}, 0.3);
+    this._tlShowLogbook.fromTo($headerLineLeft, 0.6, {scaleX: 0}, {scaleX: 1, ease: Expo.easeInOut}, 0.9);
+    this._tlShowLogbook.fromTo($headerLineRight, 0.6, {scaleX: 0}, {scaleX: 1, ease: Expo.easeInOut}, 0.9);
+    this._tlShowLogbook.staggerFromTo($points, 0.6, {alpha: 0, y: 50}, {alpha: 1, y: 0, ease: Expo.easeInOut}, 0.08, 1.1);
+    this._tlShowLogbook.pause(0);
+
+    this._tlHideLogbook = new TimelineMax({
+      onComplete: () => {
+        this.emit('close');
+        classes.remove(this.$el, 'active');
+      }
+    });
+    this._tlHideLogbook.staggerTo($points, 0.6, {alpha: 0, y: 50, ease: Expo.easeInOut}, -0.08, 0);
+    this._tlHideLogbook.to($headerLineLeft, 0.6, {scaleX: 0, ease: Expo.easeInOut}, 0.2);
+    this._tlHideLogbook.to($headerLineRight, 0.6, {scaleX: 0, ease: Expo.easeInOut}, 0.2);
+    this._tlHideLogbook.staggerTo([$btn, $middle, $header], 0.8, {alpha: 0, y: 120, ease: Expo.easeInOut, clearProps: 'all'}, 0.08, 0.3);
+    this._tlHideLogbook.to($content, 0.6, {alpha: 0, y: 100}, 0.7);
+    this._tlHideLogbook.pause(0);
+  }
+
+  _setTimelines() {
+    let $content = this.$el.querySelector('.content');
+
+    this._tlNextQuestion = new TimelineMax();
+    this._tlNextQuestion.fromTo($content, 0.7, {alpha: 1, x: 0}, {alpha: 0, x: -400, ease: Expo.easeIn}, 0);
+    this._tlNextQuestion.to($content, 0.1, {x: 400}, 0.7);
+    this._tlNextQuestion.addCallback(this._setNextQuestion.bind(this), 0.7);
+    this._tlNextQuestion.to($content, 0.7, {alpha: 1, x: 0, ease: Expo.easeOut, clearProps: 'opacity, transform'}, 1.2);
+    this._tlNextQuestion.pause(0);
+
+    this._tlPrevQuestion = new TimelineMax();
+    this._tlPrevQuestion.fromTo($content, 0.7, {alpha: 1, x: 0}, {alpha: 0, x: 400, ease: Expo.easeIn}, 0);
+    this._tlPrevQuestion.to($content, 0.1, {x: -400}, 0.7);
+    this._tlPrevQuestion.addCallback(this._setPrevQuestion.bind(this), 0.7);
+    this._tlPrevQuestion.to($content, 0.7, {alpha: 1, x: 0, ease: Expo.easeOut, clearProps: 'opacity, transform'}, 1.2);
+    this._tlPrevQuestion.pause(0);
+
+    this._setExerciceTimelines();
+    this._setLogbookTimelines();
   }
 
   destroying() {
@@ -182,18 +236,22 @@ export default class Exercice extends View {
     this.reset();
     this._point = ExerciceApi.findByExerciceAndLogbookId(this.model.exerciceid, this.model.logbookid);
     classes.add(this.$el, 'active');
-    this._tlShow.play(0);
+    if (this._isExercice) {
+      this._tlShowExo.play(0);
+    } else {
+      this._tlShowLogbook.play(0);
+    }
   }
 
   close() {
-    // this.emit('close');
-    // classes.remove(this.$el, 'active');
     if (this._isExercice) {
+      this._tlShowExo.kill();
       this.refs.helpModal.close();
+      this._tlHideExo.play(0);
+    } else {
+      this._tlShowLogbook.kill();
+      this._tlHideLogbook.play(0);
     }
-    this._tlShow.kill();
-    this._tlHide.play(0);
-    console.log('close');
   }
 
   onHelpTap() {
@@ -219,6 +277,10 @@ export default class Exercice extends View {
       this.$logbookAnswer.value = '';
     }
 
+    this._tlNextQuestion.play(0);
+  }
+
+  _setNextQuestion() {
     this._curQuestion++;
     this.model.msg = '';
     this.model.subject = '';
@@ -249,9 +311,7 @@ export default class Exercice extends View {
     this.refs.headerLogbook.resize();
   }
 
-  onPrevTap() {
-    if (this._isExercice) return;
-
+  _setPrevQuestion() {
     this._curQuestion--;
 
     if (this.model.exercice.questions[this._curQuestion]) {
@@ -264,8 +324,15 @@ export default class Exercice extends View {
       this.model.subject = '';
     }
 
+    this.emit('indicator:update', this._curQuestion + 1);
     this.refs.header.resize();
     this.refs.headerLogbook.resize();
+  }
+
+  onPrevTap() {
+    if (this._isExercice) return;
+
+    this._tlPrevQuestion.play(0);
   }
 
   showExerciceQuestion() {

@@ -24,7 +24,6 @@ export default class LineHeader extends View {
   ready() {}
 
   resize() {
-    console.log('resize', this.$title.getBoundingClientRect());
     this.$lineLeft.style.width = 'calc(50% - ' + (0.5*this.$title.offsetWidth + 15)  + 'px)';
     this.$lineRight.style.width = 'calc(50% - ' + (0.5*this.$title.offsetWidth + 15)  + 'px)';
     this.$lineRight.style.top = this.$lineLeft.style.top =  (-this.$el.clientHeight / 3 ) + 'px';
