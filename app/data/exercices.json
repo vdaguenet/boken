@@ -37,30 +37,34 @@
         ]
       },
       {
-        instructions: 'Relie les verbes conjugués à leur infinitif',
-        type: 'link',
+        instructions: 'Conjugue les verbes au présent',
+        type: 'complete',
         sentences: [
           {
-            subject: 'Deux solides branches qu’il <b>transforma</b> en gourdins',
-            answer: 'transformer'
+            subject: 'Deux solides branches qu’il [ANSWER] en gourdins',
+            answer: 'transforme',
+            clue: 'transformer'
           },
           {
             subject: 'Harbert <b>usa</b> la pointe sur une roche.',
-            answer: 'user'
+            answer: 'use',
+            clue: 'user'
           },
           {
-            subject: 'Des épines qu’il <b>fallait</b> briser à coups de bâton.',
-            answer: 'falloir'
+            subject: 'Des épines qu’il [ANSWER] briser à coups de bâton.',
+            answer: 'faut',
+            clue: 'falloir'
           },
           {
-            subject: 'Il <b>disparaissait</b> dans le taillis.',
-            answer: 'disparaître'
+            subject: 'Il [ANSWER] dans le taillis.',
+            answer: 'disparait',
+            clue: 'disparaître'
           }
         ]
       },
       {
-        instructions: 'Relie les verbes à leur groupe',
-        type: 'link',
+        instructions: 'Classe les verbes selon leur groupe',
+        type: 'sort',
         sentences: [
           {
             subject: 'transformer',
@@ -68,15 +72,15 @@
           },
           {
             subject: 'rétrécir',
-            answer: '2ème groupe'
+            answer: '2ème ou 3ème groupe'
           },
           {
             subject: 'être',
-            answer: '3ème groupe'
+            answer: '2ème ou 3ème groupe'
           },
           {
             subject: 'falloir',
-            answer: '3ème groupe'
+            answer: '2ème ou 3ème groupe'
           }
         ]
       }
@@ -146,24 +150,28 @@
         ]
       },
       {
-        instructions: 'Associe le mot en gras à sa classe grammaticale',
-        type: 'link',
+        instructions: 'Complète par a ou à',
+        type: 'complete',
         sentences: [
           {
-            subject: 'La chasse n’<b>a</b> pas été fructueuse.',
-            answer: 'verbe'
+            subject: 'La chasse n’[ANSWER] pas été fructueuse.',
+            answer: 'a',
+            clue: 'a ou à'
           },
           {
-            subject: 'Il essaya d’approcher l’animal <b>à</b> bonne portée.',
-            answer: 'préposition'
+            subject: 'Il essaya d’approcher l’animal [ANSWER] bonne portée.',
+            answer: 'à',
+            clue: 'a ou à'
           },
           {
-            subject: 'Le jacamar s’enfuit <b>à</b> toute vitesse.',
-            answer: 'préposition'
+            subject: 'Le jacamar s’enfuit [ANSWER] toute vitesse.',
+            answer: 'à',
+            clue: 'a ou à'
           },
           {
-            subject: 'Il a manqué l’oiseau.',
-            answer: 'verbe'
+            subject: 'Il [ANSWER] manqué l’oiseau.',
+            answer: 'a',
+            clue: 'a ou à'
           }
         ]
       }
@@ -339,24 +347,28 @@
         ]
       },
       {
-        instructions: 'Relie à la classe grammaticale correspondante',
-        type: 'link',
+        instructions: 'Complete par son ou sont',
+        type: 'complete',
         sentences: [
           {
-            subject: 'Elles sont infructueuses',
-            answer: 'verbe'
+            subject: 'Elles [ANSWER] infructueuses',
+            clue: 'son / sont',
+            answer: 'sont'
           },
           {
-            subject: 'son initiative',
-            answer: 'déterminant possessif'
+            subject: '[ANSWER] initiative',
+            clue: 'son / sont',
+            answer: 'son'
           },
           {
-            subject: 'Il mît son plan à exécution',
-            answer: 'déterminant possessif'
+            subject: 'Il mît [ANSWER] plan à exécution',
+            clue: 'son / sont',
+            answer: 'son'
           },
           {
-            subject: 'Les lignes sont faites de minces lianes',
-            answer: 'verbe'
+            subject: 'Les lignes [ANSWER] faites de minces lianes',
+            clue: 'son / sont',
+            answer: 'sont'
           }
         ]
       }
@@ -400,24 +412,24 @@
         ]
       },
       {
-        instructions: 'Relie les sujets à leur verbe',
-        type: 'link',
+        instructions: 'Classe les verbes selon le sujet',
+        type: 'sort',
         sentences: [
           {
-            subject: 'De gros vers rouges',
-            answer: 'rampent sur le sol.'
+            subject: 'rampent',
+            answer: 'pluriel'
           },
           {
-            subject: 'Les tetras',
-            answer: 'sautillent et becquettent'
+            subject: 'sautillent',
+            answer: 'pluriel'
           },
           {
-            subject: 'Les deux chasseurs',
-            answer: 'éprouvent une émotion'
+            subject: 'éprouvent',
+            answer: 'pluriel'
           },
           {
-            subject: 'Pencroff',
-            answer: 's’écrit :« Hurrah ! »'
+            subject: 's’écrit',
+            answer: 'singulier'
           }
         ]
       },
