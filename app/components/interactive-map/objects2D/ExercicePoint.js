@@ -26,7 +26,7 @@ export default class ExercicePoint extends PIXI.Sprite {
 
   _setNameAndScale(logbookId, complete) {
     let name = '';
-    let scale = 0.5;
+    let scale = 0.4;
 
     if (logbookId > -1) {
       name = 'redac';
@@ -39,8 +39,6 @@ export default class ExercicePoint extends PIXI.Sprite {
 
       if (logbookId === -1) {
         scale = 0.3;
-      } else {
-        scale = 0.4;
       }
     }
 

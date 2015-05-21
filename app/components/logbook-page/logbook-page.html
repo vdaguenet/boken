@@ -4,8 +4,6 @@
     <h1>{subchapter.title}</h1>
     <p>{page.intro}</p>
   </div>
-  <div class="content">
-    {page.answer}
-  </div>
+  <div class="content" rv-html="page.answer"></div>
   <page-numbers bind-current="current" bind-max="maxpages"></page-numbers>
 </div>

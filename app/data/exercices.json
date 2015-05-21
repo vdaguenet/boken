@@ -46,7 +46,7 @@
             clue: 'transformer'
           },
           {
-            subject: 'Harbert <b>usa</b> la pointe sur une roche.',
+            subject: 'Harbert [ANSWER] la pointe sur une roche.',
             answer: 'use',
             clue: 'user'
           },

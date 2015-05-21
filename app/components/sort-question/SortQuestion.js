@@ -48,6 +48,7 @@ export default class SortQuestion extends View {
   }
 
   show() {
+    this.model.proposals = [];
     this.$el.style.display = '';
 
     this.model.columnLeftTitle = this.model.question.sentences[0].answer;

@@ -37,7 +37,7 @@ export default class Question extends View {
 
     for (let sentence in pupilAnswers) {
       originalSentence = this.model.question.sentences.filter((item) => item.subject === sentence)[0];
-      if (originalSentence && pupilAnswers[sentence] !== originalSentence.answer) {
+      if (originalSentence && pupilAnswers[sentence].toLowerCase() !== originalSentence.answer.toLowerCase()) {
         nbMistakes++;
       }
       countPupilAnswers++;

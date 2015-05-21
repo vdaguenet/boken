@@ -352,16 +352,9 @@ export default class Exercice extends View {
     if (this.resolvedData.logbook.questions[this._curQuestion] === 'validation') {
       classes.remove(this.refs.btnNextLogbook.$el, 'right');
       this.refs.btnPrev.$el.style.display = 'none';
-      this.$logbookAnswer.setAttribute('readonly', '');
       this.$logbookAnswer.value = this._logbookAnswers.join('\n');
       this.model.question = '';
       this.model.btnlabel = 'Valider';
-      PupilApi.saveLogbookPage(this.model.user, {
-        chapter: this.model.exercice.chapter.number - 1,
-        subChapter: this._curStep,
-        intro: this.resolvedData.logbook.intro,
-        answer: this.$logbookAnswer.value
-      });
     } else {
       this.model.question = this.resolvedData.logbook.questions[this._curQuestion];
       this.model.btnlabel = 'Continuer';
@@ -380,6 +373,12 @@ export default class Exercice extends View {
       PupilApi.saveExercice(this.model.user, this.model.exerciceid);
       this.$el.querySelector('.exercice-container .line-header span').style.fontSize = '50px';
     } else {
+      PupilApi.saveLogbookPage(this.model.user, {
+        chapter: this.model.exercice.chapter.number - 1,
+        subChapter: this._curStep,
+        intro: this.resolvedData.logbook.intro,
+        answer: this._logbookAnswers[this._logbookAnswers.length - 1].replace(/\n/g, '<br>')
+      });
       this.model.subject = '';
       this.$el.querySelector('.logbook-container .line-header span').style.fontSize = '50px';
     }
