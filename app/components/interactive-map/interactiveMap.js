@@ -59,7 +59,7 @@ export default class InteractiveMap extends View {
   }
 
   applyGreyFilter() {
-    TweenMax.to(this.$overlay, 0.6, {autoAlpha: 0.35, display: 'block'});
+    TweenMax.to(this.$overlay, 0.6, {autoAlpha: 0.55, display: 'block'});
   }
 
   removeGreyFilter() {

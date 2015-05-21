@@ -7,7 +7,7 @@
       {
         rewards: [0],
         iconPath: '../assets/images/pictos/passport/step-1.png',
-        stampPath: '../assets/images/pictos/passport/stamp.png',
+        stampPath: '../assets/images/pictos/passport/stamp-chap2-step1.png',
         title: 'Etape 1 1'
       }
     ]

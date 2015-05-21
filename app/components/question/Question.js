@@ -45,7 +45,13 @@ export default class Question extends View {
 
     if (nbMistakes > 0) {
       status = false;
-      msg = `Il y a ${nbMistakes} fautes. Essayes de les corriger.`;
+      msg = `Il y a ${nbMistakes} faute(s). Essaye de les corriger.`;
+
+      // FOR DEMO ONLY
+      let $pop = document.querySelector('.complete-question .pop-error');
+      if ($pop) {
+        $pop.style.opacity = 1;
+      }
     }
 
     if (countPupilAnswers !== this.model.question.sentences.length) {

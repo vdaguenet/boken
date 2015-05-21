@@ -8,8 +8,8 @@
     questions: [
       'En route pour le camp ! Comment choisis-tu de transporter tes tétras ?',
       'Tu traverses la forêt et tu te retrouves confronté à un amoncellement de ronces. Comment contournes-tu l’obstacle ?',
-      'Bravo ! Tu as réussi à t’extirper des ronces ! Tu entends un drôle de bruit et aperçois un animal. À quoi ressemble-t-il ?',
-      'Quel drôle d’animal ! Tu arrives au camp et aperçois tes compagnons. Annonce leur de vive voix ton exploit !',
+      'Bravo ! Tu as réussi à t’extirper des ronces ! Tu entends un drôle de bruit<br>et aperçois un animal. À quoi ressemble-t-il ?',
+      'Quel drôle d’animal ! Tu arrives au camp et aperçois tes compagnons.<br>Annonce leur de vive voix ton exploit !',
       'validation'
     ]
   }
