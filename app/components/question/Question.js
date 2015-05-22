@@ -54,11 +54,6 @@ export default class Question extends View {
       }
     }
 
-    if (countPupilAnswers !== this.model.question.sentences.length) {
-      status = false;
-      msg = `Attention ! Tu n'as pas répondu à toutes les questions.`;
-    }
-
     return {
       status: status,
       message: msg

@@ -435,27 +435,27 @@
       },
       {
         instructions: 'Classe les verbes selon leur sujet',
-        type: 'sort',
+        type: 'complete',
         sentences: [
           {
-            subject: 'rampent',
-            answer: 'ils'
+            subject: 'Une grande demi-heure s’[ANSWER].',
+            answer: 'écoule',
+            clue: 'écouler'
           },
           {
-            subject: 'place',
-            answer: 'il'
+            subject: 'Pencroff [ANSWER] de petites secousses qui agitent les appâts.',
+            answer: 'donne',
+            clue: 'donner'
           },
           {
-            subject: 'sautillent',
-            answer: 'ils'
+            subject: 'D’un coup sec, Pencroff [ANSWER] son engin',
+            answer: 'relève',
+            clue: 'relever'
           },
           {
-            subject: 'éprouvent',
-            answer: 'ils'
-          },
-          {
-            subject: 's’écrit',
-            answer: 'il'
+            subject: 'Les oiseaux [ANSWER] des ailes.',
+            answer: 'battent',
+            clue: 'battre'
           }
         ]
       }

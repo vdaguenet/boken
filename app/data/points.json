@@ -166,7 +166,7 @@
     exerciceId: 0,
     logbookPageId: -1,
     active: true,
-    complete: false
+    complete: true
   },
   {
     x: 405,
@@ -174,8 +174,8 @@
     frame: 40,
     exerciceId: 1,
     logbookPageId: -1,
-    active: false,
-    complete: false
+    active: true,
+    complete: true
   },
   {
     x: 365,
@@ -183,8 +183,8 @@
     frame: 42,
     exerciceId: 2,
     logbookPageId: -1,
-    active: false,
-    complete: false
+    active: true,
+    complete: true
   },
   {
     x: 400,
@@ -192,8 +192,8 @@
     frame: 44,
     exerciceId: 3,
     logbookPageId: -1,
-    active: false,
-    complete: false
+    active: true,
+    complete: true
   },
   {
     x: 440,
@@ -201,7 +201,7 @@
     frame: 46,
     exerciceId: 4,
     logbookPageId: -1,
-    active: false,
+    active: true,
     complete: false
   },
   {

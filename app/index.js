@@ -57,7 +57,9 @@ domready(() => {
   app.appendTo(document.querySelector('#view'));
 
   setTimeout(() => {
-    navigator.splashscreen.hide();
+    if (navigator.splashscreen) {
+      navigator.splashscreen.hide();
+    }
     app.refs.map.transitionIn();
   }, 2000);
 });
